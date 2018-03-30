@@ -1,5 +1,6 @@
 import {action, Service} from "adajs";
 import menu from "./../../menu.json";
+import util from "./util";
 
 class BaseInfoService extends Service {
     defaultData() {
@@ -12,7 +13,8 @@ class BaseInfoService extends Service {
                 logo: "",
                 name: "",
                 copyright: ""
-            }
+            },
+            active: null
         };
         info.active = info.menu[0];
         return info;
@@ -20,7 +22,8 @@ class BaseInfoService extends Service {
 
     @action("openlink")
     openLink(current, link) {
-
+        current.active = util.activeLink(link, current.menu);
+        return current;
     }
 }
 
