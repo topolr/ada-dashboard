@@ -1,0 +1,8 @@
+[
+    {"name": "index", "link": "", "type": "pages/test.js", "list": [
+        {"name": "menu11", "link": "menu11", "type": "", "list": []}
+    ]},
+    {"name": "menu1", "link": "menu1", "type": "pages/test.js", "list": [
+        {"name": "menu11", "link": "menu11", "type": "", "list": []}
+    ]}
+]

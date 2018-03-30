@@ -1,5 +1,5 @@
 import {root, StaticViewGroup} from "adajs";
-import Container from "./container";
+import Container from "./dashboard/container";
 
 @root()
 class Root extends StaticViewGroup {

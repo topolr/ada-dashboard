@@ -1,24 +1,21 @@
 import {action, Service} from "adajs";
+import menu from "./../../menu.json";
 
 class BaseInfoService extends Service {
     defaultData() {
-        return {
+        let info = {
             user: {
                 username: ""
             },
-            menu: [
-                {
-                    name: "menu1", link: "menu1", type: "", list: [
-                        {name: "menu11", link: "menu11", type: "", list: []}
-                    ]
-                }
-            ],
+            menu,
             app: {
                 logo: "",
                 name: "",
                 copyright: ""
             }
-        }
+        };
+        info.active = info.menu[0];
+        return info;
     }
 
     @action("openlink")
