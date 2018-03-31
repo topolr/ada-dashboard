@@ -8,12 +8,12 @@ class BaseInfoService extends Service {
             user: {
                 username: ""
             },
-            menu,
             app: {
                 logo: "",
                 name: "",
                 copyright: ""
             },
+            menu,
             active: null
         };
         info.active = info.menu[0];

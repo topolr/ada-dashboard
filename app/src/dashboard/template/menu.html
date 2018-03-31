@@ -1,5 +1,14 @@
 <div class="con">
     {{list menu as item}}
-    <div class="item" onclick="{{ menuclick(item) }}">{{ item.name }}</div>
+    <div class="item">
+        <div class="text">{{ item.name }}</div>
+        {{if item.list&&item.list.length>0}}
+        <div class="subs">
+            {{list item.list as subitem}}
+            <div class="substext" onclick="{{ menuclick(subitem) }}">{{ subitem.name }}</div>
+            {{/list}}
+        </div>
+        {{/if}}
+    </div>
     {{/list}}
 </div>
