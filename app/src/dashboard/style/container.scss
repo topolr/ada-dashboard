@@ -44,7 +44,7 @@
       position: absolute;
       left:0;
       right:0;
-      height:$leftHeadHeight;
+      height:$rightHeadHeight;
       line-height: $leftHeadHeight;
       border-bottom: 1px solid $rightPannelHeadBorder;
       z-index: 99;
@@ -54,7 +54,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      top: $leftHeadHeight;
+      top: $rightHeadHeight;
       background-color:$rightPannelBodyBg;
     }
   }

@@ -2,7 +2,7 @@ import {BondViewGroup, pipe, view} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
 import PageContainer from "./page";
 import Menu from "./menu";
-import router from "./../router";
+import router from "ada-uikit/src/router";
 
 @view({
     className: "pagecontainer",

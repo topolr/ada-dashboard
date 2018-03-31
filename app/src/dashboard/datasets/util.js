@@ -1,5 +1,3 @@
-import Util from "adajs/src/util/util";
-
 const PARENT = Symbol("parent");
 const util = {
     activeLink(link, menu) {
@@ -7,7 +5,7 @@ const util = {
         let check = (list) => {
             list.forEach(item => {
                 item.active = false;
-                Util.setProp(item, PARENT, list);
+                item[PARENT] = list;
                 if (item.link === link) {
                     result = item;
                 }
