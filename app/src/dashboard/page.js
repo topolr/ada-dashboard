@@ -2,7 +2,8 @@ import {pipe, StaticViewGroup, view} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
 
 @view({
-    className: "pagecontainer"
+    className: "pagecontainer",
+    style:"./style/page.scss"
 })
 class PageContainer extends StaticViewGroup {
 
@@ -19,6 +20,13 @@ class PageContainer extends StaticViewGroup {
             let active = this.baseInfoDataSet.getData().active;
             if (!this._pages[active.link]) {
                 let element = document.createElement("div");
+                element.setAttribute("class", this.getThisClassName("inpage"));
+                this.getElement().appendChild(element);
+                return import(active.type).then(type => {
+                    this.addChild(type, {
+                        container: element
+                    })
+                });
             }
         });
     }

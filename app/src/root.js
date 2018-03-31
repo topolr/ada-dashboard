@@ -1,6 +1,7 @@
 import {root,dataset, StaticViewGroup} from "adajs";
 import Container from "./dashboard/container";
 import BaseInfoService from "./dashboard/datasets/baseinfo";
+import "./style/reset.scss";
 
 @root()
 class Root extends StaticViewGroup {
