@@ -56,6 +56,7 @@ class Container extends BondViewGroup {
     @handler("open")
     openPage(e) {
         this.router.open(e.data);
+        this.uiDataSet.commit("toggle");
     }
 }
 

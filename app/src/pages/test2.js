@@ -1,17 +1,15 @@
 import {StaticViewGroup, view, dataset} from "adajs";
 import SimpleTable from "ada-uikit/src/table/simple";
 import SimpleTableService from "ada-uikit/src/table/datasets/simple";
+import MenuPage from "./../dashboard/menupage"
 
-@view({
-    className: "testpage"
-})
-class TestPage extends StaticViewGroup {
+class TestPage extends MenuPage {
     @dataset(SimpleTableService)
     simpleTableDataSet;
 
     oncreated() {
         this.addChild(SimpleTable,{
-            container:this.getElement()
+            container:this.finder("body").getElement()
         }).then(() => {
             this.simpleTableDataSet.setOption(() => {
                 return {
