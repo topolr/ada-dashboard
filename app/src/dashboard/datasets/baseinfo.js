@@ -4,6 +4,7 @@ import util from "./util";
 
 class BaseInfoService extends Service {
     defaultData() {
+        util.setMenu(menu);
         let info = {
             user: {
                 username: ""

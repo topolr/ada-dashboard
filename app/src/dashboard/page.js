@@ -1,61 +1,88 @@
-import {pipe, StaticViewGroup, view} from "adajs";
+import {binder, BondViewGroup, pipe, StaticViewGroup, view} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
 
 @view({
-    className: "pagecontainer",
-    style: "./style/page.scss"
+    className: "page",
+    template: "./template/page.html",
+    style: "./style/menupage.scss"
 })
-class PageContainer extends StaticViewGroup {
+class Page extends BondViewGroup {
+    @pipe(BaseInfoService)
+    baseInfoService;
+
+    computed(data) {
+        let result = {};
+        if (data.active._level === 3) {
+            result.list = data.active._parent.list;
+        } else {
+            result.list = data.active.list;
+        }
+        return import(data.active.type).then(type => {
+            result.type = type;
+            return result;
+        });
+    }
+
+    @binder("open")
+    open({e, item}) {
+        this.dispatchEvent("open", item.link);
+        e.preventDefault();
+    }
+}
+
+@view({
+    className: "pagecontainer",
+    style: "./style/page.scss",
+    template: "./template/pagecontainer.html"
+})
+class PageContainer extends BondViewGroup {
 
     @pipe(BaseInfoService)
     baseInfoDataSet;
 
-    constructor(parameters) {
-        super(parameters);
-        this._pages = {};
-        this._current = null;
+    defaultState() {
+        return {
+            list: [],
+            current: null
+        };
     }
 
-    togglePage(_link) {
-        Reflect.ownKeys(this._pages).forEach(link => {
-            if (link === _link) {
-                this._pages[link].classList.add(this.getThisClassName("in"));
-                this._pages[link].classList.remove(this.getThisClassName("out"));
-            } else if (link === this._current) {
-                this._pages[link].classList.add(this.getThisClassName("out"));
-                this._pages[link].classList.remove(this.getThisClassName("in"));
+    computed(data) {
+        let active = data.active, link = active.link;
+        if (active._level === 3) {
+            link = active._parent.link;
+        }
+        let result = this.state.list.filter(item => {
+            let r = false;
+            if (item.link === link) {
+                item.active = true;
+                r = true;
             } else {
-                this._pages[link].classList.remove(this.getThisClassName("in"));
-                this._pages[link].classList.remove(this.getThisClassName("out"));
+                item.active = false;
             }
+            return r;
         });
-        this._current = _link;
+        if (result.length === 0) {
+            this.state.list.push({link, active: true, before: false, name: "inpage"});
+        }
+        this.state.list.forEach(item => {
+            item.before = item.link === this.state.current;
+        });
+        this.state.list.forEach(item => {
+            let _name = ["inpage"];
+            if (item.active) {
+                _name.push("in");
+            } else if (item.before) {
+                _name.push("out");
+            }
+            item.name = _name.join(" ");
+        });
+        this.state.current = link;
+        return this.state;
     }
 
-    render() {
-        return super.render().then(() => {
-            let active = this.baseInfoDataSet.getData().active;
-            let link = active.link;
-            if (active._level === 3) {
-                let parent = active._parent;
-                link = parent.link;
-            }
-            if (!this._pages[link]) {
-                let element = document.createElement("div");
-                element.setAttribute("class", this.getThisClassName("inpage"));
-                this.getElement().appendChild(element);
-                this._pages[link] = element;
-                return import(active.type).then(type => {
-                    return this.addChild(type, {
-                        container: element
-                    })
-                }).then(() => {
-                    this.togglePage(link);
-                });
-            } else {
-                this.togglePage(link);
-            }
-        });
+    tags() {
+        return {page: Page};
     }
 }
 

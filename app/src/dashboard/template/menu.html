@@ -1,7 +1,6 @@
 <div class="con">
     {{list menu as item}}
     <div class="item">
-        {{log item.active}}
         <div class="{{ item.active?'text active':'text' }}">
             <div class="iconcon"><@icon id="{{ item.icon }}" class="icon"/></div>
             <div class="name">{{ item.name }}</div>
