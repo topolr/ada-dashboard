@@ -1,13 +1,51 @@
+@import "variable";
+
 .pagemenu {
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
+  .icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+    font-size: 14px;
+  }
   .con {
     line-height: 35px;
     .item {
-      padding: 0 10px 0 10px;
+      .text {
+        display: flex;
+        text-decoration: none;
+        color:#c9c9c9;
+        .iconcon{
+          width:$rightPannelMarginLeft;
+          text-align: center;
+        }
+        .name {
+          flex-grow: 1;
+        }
+      }
+      .subs {
+        margin-left:$rightPannelMarginLeft;
+      }
+      .substext {
+        display: flex;
+        text-decoration: none;
+        color: #c9c9c9;
+        .iconcon{
+          width:30px;
+          text-align: center;
+        }
+        .subname {
+          flex-grow: 1;
+        }
+      }
     }
   }
 }

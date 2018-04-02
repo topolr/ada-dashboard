@@ -1,15 +1,22 @@
-<div class="left">
-    <div class="head">
-        <div class="logo"></div>
+<div class="{{ isclose?'pannel':'pannel open' }}">
+    <div class="left">
+        <div class="head">
+            <div class="logo"></div>
+        </div>
+        <div class="body">
+            <menu></menu>
+        </div>
+        <div class="foot">{{ app.copyright }}</div>
     </div>
-    <div class="body">
-        <@module @type="{{ types.menu }}"/>
-    </div>
-    <div class="foot">{{ app.copyright }}</div>
-</div>
-<div class="right">
-    <div class="head"></div>
-    <div class="body">
-        <@module @type="{{ types.page }}"/>
+    <div class="right">
+        <div class="head">
+            <div class="appbtn" onclick="{{ toggle() }}">
+                <@icon class="icon" id="{{ icons.appIcon }}"/>
+            </div>
+            <div class="tools"></div>
+        </div>
+        <div class="body">
+            <page></page>
+        </div>
     </div>
 </div>

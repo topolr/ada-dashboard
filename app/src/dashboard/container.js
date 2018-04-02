@@ -1,8 +1,10 @@
-import {BondViewGroup, pipe, view} from "adajs";
+import {BondViewGroup, pipe, dataset, view, binder} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
+import UIService from "./datasets/ui";
 import PageContainer from "./page";
 import Menu from "./menu";
 import router from "ada-uikit/src/router";
+import appIcon from "./icons/apps.icon";
 
 @view({
     className: "pagecontainer",
@@ -14,30 +16,41 @@ class Container extends BondViewGroup {
     @pipe(BaseInfoService)
     baseInfoDataSet;
 
+    @dataset(UIService)
+    uiDataSet;
+
     defaultOption() {
         return {
-            types: {
-                menu: Menu,
-                page: PageContainer
-            }
+            icons: {appIcon}
         }
     }
 
     oncreated() {
         let _router = this.router = router("/");
-        let setRouter = (top, list) => {
+        let setRouter = (list) => {
             list.forEach(item => {
-                let a = `${top}/${item.link}`;
-                _router.bind(a, (e) => {
+                _router.bind(item.link, (e) => {
                     this.baseInfoDataSet.commit("openlink", e.path);
                 });
                 if (item.list) {
-                    setRouter(a, item.list);
+                    setRouter(item.list);
                 }
             });
         };
-        setRouter("", this.baseInfoDataSet.getData().menu);
+        setRouter(this.baseInfoDataSet.getData().menu);
         _router.run();
+    }
+
+    tags() {
+        return {
+            menu: Menu,
+            page: PageContainer
+        }
+    }
+
+    @binder("toggle")
+    toggle() {
+        this.uiDataSet.commit("toggle");
     }
 }
 

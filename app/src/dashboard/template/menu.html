@@ -1,11 +1,19 @@
 <div class="con">
     {{list menu as item}}
     <div class="item">
-        <div class="text">{{ item.name }}</div>
+        <a href="{{ item.link }}" class="text">
+            <div class="iconcon"><@icon id="{{ item.icon }}" class="icon"/></div>
+            <div class="name">{{ item.name }}</div>
+        </a>
         {{if item.list&&item.list.length>0}}
         <div class="subs">
             {{list item.list as subitem}}
-            <div class="substext" onclick="{{ menuclick(subitem) }}">{{ subitem.name }}</div>
+            <a href="{{ subitem.link }}" class="substext" onclick="{{ open(subitem) }}">
+                {{if subitem.icon}}
+                <div class="iconcon"><@icon id="{{ subitem.icon }}" class="icon"/></div>
+                {{/if}}
+                <div class="subname">{{ subitem.name }}</div>
+            </a>
             {{/list}}
         </div>
         {{/if}}
