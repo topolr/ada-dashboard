@@ -1,6 +1,6 @@
 import {StaticViewGroup, view,dataset} from "adajs";
 import TreeService from "ada-uikit/src/tree/datasets/simple";
-import Tree from "ada-uikit/src/tree/simple"
+import Tree from "ada-uikit/src/tree/simple";
 
 @view({
     className: "testpage"

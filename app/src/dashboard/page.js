@@ -3,7 +3,7 @@ import BaseInfoService from "./datasets/baseinfo";
 
 @view({
     className: "pagecontainer",
-    style:"./style/page.scss"
+    style: "./style/page.scss"
 })
 class PageContainer extends StaticViewGroup {
 
@@ -13,20 +13,43 @@ class PageContainer extends StaticViewGroup {
     constructor(parameters) {
         super(parameters);
         this._pages = {};
+        this._current = null;
+    }
+
+    togglePage(_link) {
+        Reflect.ownKeys(this._pages).forEach(link => {
+            if (link === _link) {
+                this._pages[link].classList.add(this.getThisClassName("in"));
+                this._pages[link].classList.remove(this.getThisClassName("out"));
+            } else if (link === this._current) {
+                this._pages[link].classList.add(this.getThisClassName("out"));
+                this._pages[link].classList.remove(this.getThisClassName("in"));
+            } else {
+                this._pages[link].classList.remove(this.getThisClassName("in"));
+                this._pages[link].classList.remove(this.getThisClassName("out"));
+            }
+        });
+        this._current = _link;
     }
 
     render() {
         return super.render().then(() => {
             let active = this.baseInfoDataSet.getData().active;
-            if (!this._pages[active.link]) {
+            let link = active.link;
+            if (!this._pages[link]) {
                 let element = document.createElement("div");
                 element.setAttribute("class", this.getThisClassName("inpage"));
                 this.getElement().appendChild(element);
+                this._pages[link] = element;
                 return import(active.type).then(type => {
-                    this.addChild(type, {
+                    return this.addChild(type, {
                         container: element
                     })
+                }).then(() => {
+                    this.togglePage(link);
                 });
+            } else {
+                this.togglePage(link);
             }
         });
     }

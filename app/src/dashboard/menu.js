@@ -1,4 +1,4 @@
-import {view, dataset, View} from "adajs";
+import {view, dataset, View, binder} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
 
 @view({
@@ -11,8 +11,10 @@ class Menu extends View {
     @dataset(BaseInfoService)
     baseInfoDataSet;
 
-    onupdate(updater) {
-        return updater.isDataSet();
+    @binder("open")
+    open({e, item}) {
+        this.dispatchEvent("open", item.link);
+        e.preventDefault();
     }
 }
 

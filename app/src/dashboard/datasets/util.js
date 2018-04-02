@@ -1,6 +1,7 @@
 const PARENT = Symbol("parent");
 const util = {
     activeLink(link, menu) {
+        link = link.substring(0, link.length - 1) || "/";
         let result = null;
         let check = (list) => {
             list.forEach(item => {

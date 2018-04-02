@@ -1,0 +1,10 @@
+<div class="head">
+    {{if list&&list.length>0}}
+    {{list list as item}}
+        <div class="item">{{ item.name }}</div>
+    {{/list}}
+    {{/if}}
+</div>
+<div class="body">
+    <@module @type="{{ type }}"/>
+</div>

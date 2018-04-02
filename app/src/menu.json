@@ -1,9 +1,39 @@
 [
-    {"name": "index", "link": "/", "type": "pages/test.js","icon":"all_inclusive", "list": [
-        {"name": "menu11", "link": "/menu11", "type": "","icon":"android", "list": []}
-    ]},
-    {"name": "menu1", "link": "menu1", "type": "pages/test.js","icon":"assignment_ind", "list": [
-        {"name": "menu11", "link": "/menu1/menu11", "type": "","icon":"beach_access", "list": []},
-        {"name": "menu12", "link": "/menu1/menu12", "type": "","icon":"flag", "list": []}
-    ]}
+  {
+    "name": "index",
+    "link": "/",
+    "type": "pages/test.js",
+    "icon": "all_inclusive",
+    "list": [
+      {
+        "name": "menu11",
+        "link": "/menu11",
+        "type": "pages/test2.js",
+        "icon": "android",
+        "list": []
+      }
+    ]
+  },
+  {
+    "name": "menu1",
+    "link": "/menu1",
+    "type": "pages/test2.js",
+    "icon": "assignment_ind",
+    "list": [
+      {
+        "name": "menu11",
+        "link": "/menu1/menu11",
+        "type": "pages/test.js",
+        "icon": "beach_access",
+        "list": []
+      },
+      {
+        "name": "menu12",
+        "link": "/menu1/menu12",
+        "type": "pages/test2.js",
+        "icon": "flag",
+        "list": []
+      }
+    ]
+  }
 ]

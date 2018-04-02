@@ -1,14 +1,22 @@
 .pagecontainer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .inpage {
     position: absolute;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
-    .inpage {
-        position: absolute;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
+    background: white;
+    display: none;
+    &.in {
+      display: block;
     }
+    &.out {
+      display: none;
+    }
+  }
 }
