@@ -1,7 +1,7 @@
 <div class="head">
     {{if list&&list.length>0}}
     {{list list as item}}
-        <div class="item">{{ item.name }}</div>
+        <a href="{{ item.link }}" class="item" onclick="{{ open(item) }}">{{ item.name }}</a>
     {{/list}}
     {{/if}}
 </div>

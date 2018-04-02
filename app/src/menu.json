@@ -50,7 +50,7 @@
         "list": [
           {
             "name": "menu111",
-            "link": "/menu1/menu11/menu111",
+            "link": "/menu1/menu12/menu111",
             "type": "pages/test.js",
             "icon": "beach_access",
             "list": []

@@ -1,4 +1,4 @@
-import {view, StaticViewGroup, pipe} from "adajs";
+import {view, StaticViewGroup, pipe, binder} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
 
 @view({
@@ -11,8 +11,18 @@ class MenuPage extends StaticViewGroup {
     baseInfoService;
 
     computed(data) {
-        data.list = data.active.list;
+        if(data.active._level===3){
+            data.list=data.active._parent.list;
+        }else {
+            data.list = data.active.list;
+        }
         return data;
+    }
+
+    @binder("open")
+    open({e, item}) {
+        this.dispatchEvent("open", item.link);
+        e.preventDefault();
     }
 }
 

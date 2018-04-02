@@ -1,4 +1,4 @@
-import {StaticViewGroup, view, dataset} from "adajs";
+import {dataset} from "adajs";
 import TreeService from "ada-uikit/src/tree/datasets/simple";
 import Tree from "ada-uikit/src/tree/simple";
 import MenuPage from "./../dashboard/menupage"

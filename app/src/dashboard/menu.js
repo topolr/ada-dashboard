@@ -1,4 +1,4 @@
-import {view, dataset, View, binder} from "adajs";
+import {view, pipe, View, binder} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
 
 @view({
@@ -8,7 +8,7 @@ import BaseInfoService from "./datasets/baseinfo";
 })
 class Menu extends View {
 
-    @dataset(BaseInfoService)
+    @pipe(BaseInfoService)
     baseInfoDataSet;
 
     @binder("open")

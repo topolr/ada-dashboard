@@ -36,6 +36,10 @@ class PageContainer extends StaticViewGroup {
         return super.render().then(() => {
             let active = this.baseInfoDataSet.getData().active;
             let link = active.link;
+            if (active._level === 3) {
+                let parent = active._parent;
+                link = parent.link;
+            }
             if (!this._pages[link]) {
                 let element = document.createElement("div");
                 element.setAttribute("class", this.getThisClassName("inpage"));

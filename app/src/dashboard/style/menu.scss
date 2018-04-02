@@ -30,6 +30,9 @@
         .name {
           flex-grow: 1;
         }
+        &.active{
+          background:yellow;
+        }
       }
       .subs {
         margin-left:$rightPannelMarginLeft;
@@ -44,6 +47,9 @@
         }
         .subname {
           flex-grow: 1;
+        }
+        &.active{
+          background:yellow;
         }
       }
     }

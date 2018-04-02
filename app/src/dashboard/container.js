@@ -30,6 +30,7 @@ class Container extends BondViewGroup {
         let setRouter = (list) => {
             list.forEach(item => {
                 _router.bind(`${item.link}`, (e) => {
+                    console.log("->",e.path)
                     this.baseInfoDataSet.commit("openlink", e.path);
                 });
                 if (item.list) {
@@ -56,7 +57,7 @@ class Container extends BondViewGroup {
     @handler("open")
     openPage(e) {
         this.router.open(e.data);
-        this.uiDataSet.commit("toggle");
+        // this.uiDataSet.commit("toggle");
     }
 }
 
