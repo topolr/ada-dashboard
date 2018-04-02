@@ -1,4 +1,4 @@
-import {view, BondViewGroup, pipe} from "adajs";
+import {view, StaticViewGroup, pipe} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
 
 @view({
@@ -6,19 +6,12 @@ import BaseInfoService from "./datasets/baseinfo";
     template: "./template/menupage.html",
     style: "./style/menupage.scss"
 })
-class MenuPage extends BondViewGroup {
+class MenuPage extends StaticViewGroup {
     @pipe(BaseInfoService)
     baseInfoService;
 
     computed(data) {
-        // let active = data.active;
-        // let type = active.type;
-        // return import(type).then(view => {
-        //     return {
-        //         list: active.list,
-        //         type: view
-        //     }
-        // });
+        data.list = data.active.list;
         return data;
     }
 }

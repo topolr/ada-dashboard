@@ -1,11 +1,9 @@
-import {StaticViewGroup, view,dataset} from "adajs";
+import {StaticViewGroup, view, dataset} from "adajs";
 import TreeService from "ada-uikit/src/tree/datasets/simple";
 import Tree from "ada-uikit/src/tree/simple";
+import MenuPage from "./../dashboard/menupage"
 
-@view({
-    className: "testpage"
-})
-class TestPage extends StaticViewGroup {
+class TestPage extends MenuPage {
     @dataset(TreeService)
     treeDataSet;
 
@@ -61,8 +59,8 @@ class TestPage extends StaticViewGroup {
                 ]
             }
         ]);
-        this.addChild(Tree,{
-            container:this.getElement()
+        this.addChild(Tree, {
+            container: this.finder("body").getElement()
         });
     }
 }

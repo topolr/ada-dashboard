@@ -1,0 +1,17 @@
+.menupage{
+  position: absolute;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
+  .head{
+    line-height: 30px;
+  }
+  .body{
+    position: absolute;
+    top:30px;
+    left:0;
+    right:0;
+    bottom:0;
+  }
+}
