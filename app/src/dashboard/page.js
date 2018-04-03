@@ -5,7 +5,7 @@ import util from "./util/base";
 @view({
     className: "page",
     template: "./template/page.html",
-    style: "./style/menupage.scss"
+    style: "./style/page.scss"
 })
 class Page extends BondViewGroup {
     @pipe(BaseInfoService)
@@ -41,7 +41,7 @@ class Page extends BondViewGroup {
 
 @view({
     className: "pagecontainer",
-    style: "./style/page.scss",
+    style: "./style/pagecontainer.scss",
     template: "./template/pagecontainer.html"
 })
 class PageContainer extends BondViewGroup {

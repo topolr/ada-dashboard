@@ -28,13 +28,11 @@ class Container extends BondViewGroup {
     oncreated() {
         let _router = this.router = router("http://localhost:8080");
         let setRouter = (list) => {
-            list.forEach(item => {
+            list && list.forEach(item => {
                 _router.bind(`${item.link}`, (e) => {
                     this.baseInfoDataSet.commit("openlink", e.path);
                 });
-                if (item.list) {
-                    setRouter(item.list);
-                }
+                setRouter(item.list);
             });
         };
         setRouter(this.baseInfoDataSet.getData().menu);
