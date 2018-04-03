@@ -23,33 +23,28 @@
         display: flex;
         text-decoration: none;
         color:#c9c9c9;
-        .iconcon{
-          width:$rightPannelMarginLeft;
-          text-align: center;
-        }
         .name {
           flex-grow: 1;
+          padding:0 10px 0 20px;
+          font-size: 12px;
         }
         &.active{
-          background:yellow;
         }
       }
       .subs {
-        margin-left:$rightPannelMarginLeft;
       }
       .substext {
         display: flex;
         text-decoration: none;
         color: #c9c9c9;
         .iconcon{
-          width:30px;
+          width:$rightPannelMarginLeft;
           text-align: center;
         }
         .subname {
           flex-grow: 1;
         }
         &.active{
-          background:yellow;
         }
       }
     }

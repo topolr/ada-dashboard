@@ -1,10 +1,12 @@
-<div class="head">
+<div class="{{ list&&list.length>0?'pagecon':'pagecon nohead' }}">
     {{if list&&list.length>0}}
-    {{list list as item}}
+    <div class="head">
+        {{list list as item}}
         <a href="{{ item.link }}" class="item" onclick="{{ open(item) }}">{{ item.name }}</a>
-    {{/list}}
+        {{/list}}
+    </div>
     {{/if}}
-</div>
-<div class="body">
-    <@module @type="{{ type }}"/>
+    <div class="body">
+        <@module @type="{{ type }}"/>
+    </div>
 </div>

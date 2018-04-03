@@ -10,6 +10,24 @@ class Page extends BondViewGroup {
     @pipe(BaseInfoService)
     baseInfoService;
 
+    oncreated() {
+        let active = this.baseInfoService.getData().active, link = active.link;
+        if (active._level === 3) {
+            link = active._parent.link;
+        }
+        this.state = {link};
+    }
+
+    onupdate(updater) {
+        if (updater.isDataSet()) {
+            let active = this.baseInfoService.getData().active, link = active.link;
+            if (active._level === 3) {
+                link = active._parent.link;
+            }
+            return link === this.state.link;
+        }
+    }
+
     computed(data) {
         let result = {};
         if (data.active._level === 3) {
@@ -45,6 +63,16 @@ class PageContainer extends BondViewGroup {
             list: [],
             current: null
         };
+    }
+
+    onupdate(updater) {
+        if (updater.isDataSet()) {
+            let active = this.baseInfoDataSet.getData().active, link = active.link;
+            if (active._level === 3) {
+                link = active._parent.link;
+            }
+            return this.state.current !== link;
+        }
     }
 
     computed(data) {
