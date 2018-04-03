@@ -14,19 +14,36 @@
       line-height: 30px;
       display: flex;
       border-bottom: 1px solid #D7D7D7;
+      background:#F9FAF9;
+      padding:0 0 0 10px;
+      position: absolute;
+      left:0;
+      top:0;
+      right:0;
+      z-index: 9;
       .item {
         padding: 0 15px 0 15px;
         text-decoration: none;
         color: black;
-        border-bottom: 2px solid transparent;
+        position: relative;
+        display: block;
         &.active {
-          border-bottom: 2px solid cornflowerblue;
+          &:after{
+            content:"";
+            height:2px;
+            display: block;
+            position: absolute;
+            left:0;
+            bottom:0;
+            right:0;
+            background:cornflowerblue;
+          }
         }
       }
     }
     .body {
       position: absolute;
-      top: 32px;
+      top: 30px;
       left: 0;
       right: 0;
       bottom: 0;

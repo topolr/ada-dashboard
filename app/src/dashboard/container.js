@@ -1,7 +1,7 @@
 import {BondViewGroup, pipe, dataset, view, binder, handler} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
 import UIService from "./datasets/ui";
-import PageContainer from "./page";
+import PageContainer from "./pagecontainer";
 import Menu from "./menu";
 import router from "ada-uikit/src/router";
 import appIcon from "./icons/apps.icon";

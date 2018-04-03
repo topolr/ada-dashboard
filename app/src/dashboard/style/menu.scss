@@ -8,43 +8,59 @@
   bottom: 0;
   .icon {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: baseline;
     width: 1em;
     height: 1em;
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
-    font-size: 14px;
+    font-size: 17px;
   }
   .con {
-    line-height: 35px;
     .item {
+      border-top:2px solid #1A1D23;
+      padding:10px 0 10px 0;
       .text {
         display: flex;
         text-decoration: none;
         color:#c9c9c9;
+        line-height: 30px;
         .name {
           flex-grow: 1;
           padding:0 10px 0 20px;
           font-size: 12px;
-        }
-        &.active{
+          color:#65738C;
         }
       }
       .subs {
+        line-height: 40px;
       }
       .substext {
         display: flex;
         text-decoration: none;
-        color: #c9c9c9;
+        color: #9FAABE;
+        position: relative;
         .iconcon{
           width:$rightPannelMarginLeft;
           text-align: center;
+          font-size: 30px;
         }
         .subname {
           flex-grow: 1;
         }
         &.active{
+          background:#1B1E23;
+          color:white;
+          &:after{
+            content:"";
+            display: block;
+            position: absolute;
+            left:0;
+            top:0;
+            bottom:0;
+            width:3px;
+            background:#14A4FA;
+          }
         }
       }
     }

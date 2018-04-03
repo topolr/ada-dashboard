@@ -14,7 +14,7 @@
     stroke-width: 0;
     stroke: currentColor;
     fill: currentColor;
-    font-size: 14px;
+    font-size: 17px;
   }
   .pannel {
     position: absolute;
@@ -63,12 +63,16 @@
         right: 0;
         height: $rightHeadHeight;
         line-height: $leftHeadHeight;
+        border-bottom: 1px solid $rightPannelHeadBorder;
         z-index: 99;
         display: flex;
         .appbtn {
           width: $rightHeadHeight;
           line-height: $rightHeadHeight;
           text-align: center;
+        }
+        .title{
+          line-height: $rightHeadHeight;
         }
         .tools {
           flex-grow: 1;
