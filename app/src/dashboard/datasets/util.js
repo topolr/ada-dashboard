@@ -4,10 +4,12 @@ const util = {
     setMenu(menu) {
         let set = (parent, list, level) => {
             list.forEach(item => {
-                item.active = false;
-                item[PARENT] = parent;
-                item[LEVEL] = level;
-                item.link = `${(parent ? parent.link : "/")}/${item.link}`.replace(/[\/]+/g, "/");
+                if (!item[LEVEL]) {
+                    item.active = false;
+                    item[PARENT] = parent;
+                    item[LEVEL] = level;
+                    item.link = `${(parent ? parent.link : "/")}/${item.link}`.replace(/[\/]+/g, "/");
+                }
                 if (item.list) {
                     set(item, item.list, level + 1);
                 }

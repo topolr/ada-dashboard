@@ -2,7 +2,6 @@ import {StaticViewGroup, view, dataset} from "adajs";
 import SimpleTable from "ada-uikit/src/table/simple";
 import SimpleTableService from "ada-uikit/src/table/datasets/simple";
 
-
 @view({
     className:"testpage2"
 })

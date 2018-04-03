@@ -1,5 +1,6 @@
 import {binder, BondViewGroup, pipe, StaticViewGroup, view} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
+import util from "./util/base";
 
 @view({
     className: "page",
@@ -10,34 +11,24 @@ class Page extends BondViewGroup {
     @pipe(BaseInfoService)
     baseInfoService;
 
-    oncreated() {
-        let active = this.baseInfoService.getData().active, link = active.link;
-        if (active._level === 3) {
-            link = active._parent.link;
-        }
-        this.state = {link};
+    defaultState() {
+        return {link: null};
     }
 
     onupdate(updater) {
         if (updater.isDataSet()) {
-            let active = this.baseInfoService.getData().active, link = active.link;
-            if (active._level === 3) {
-                link = active._parent.link;
+            let link = util.getCurrentLink(this.baseInfoService.getData().active);
+            if (!this.state.link) {
+                this.state.link = link;
             }
-            return link === this.state.link;
+            return this.state.link === link;
         }
     }
 
     computed(data) {
-        let result = {};
-        if (data.active._level === 3) {
-            result.list = data.active._parent.list;
-        } else {
-            result.list = data.active.list;
-        }
+        let list = util.getCurrentLinkList(data.active);
         return import(data.active.type).then(type => {
-            result.type = type;
-            return result;
+            return {list, type};
         });
     }
 
@@ -67,28 +58,15 @@ class PageContainer extends BondViewGroup {
 
     onupdate(updater) {
         if (updater.isDataSet()) {
-            let active = this.baseInfoDataSet.getData().active, link = active.link;
-            if (active._level === 3) {
-                link = active._parent.link;
-            }
-            return this.state.current !== link;
+            return this.state.current !== util.getCurrentLink(this.baseInfoDataSet.getData().active);
         }
     }
 
     computed(data) {
-        let active = data.active, link = active.link;
-        if (active._level === 3) {
-            link = active._parent.link;
-        }
+        let link = util.getCurrentLink(data.active);
         let result = this.state.list.filter(item => {
-            let r = false;
-            if (item.link === link) {
-                item.active = true;
-                r = true;
-            } else {
-                item.active = false;
-            }
-            return r;
+            item.active = item.link === link;
+            return item.active;
         });
         if (result.length === 0) {
             this.state.list.push({link, active: true, before: false, name: "inpage"});
