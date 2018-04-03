@@ -64,11 +64,10 @@ class PageContainer extends BondViewGroup {
 
     computed(data) {
         let link = util.getCurrentLink(data.active);
-        let result = this.state.list.filter(item => {
-            item.active = item.link === link;
-            return item.active;
-        });
-        if (result.length === 0) {
+        if (this.state.list.filter(item => {
+                item.active = item.link === link;
+                return item.active;
+            }).length === 0) {
             this.state.list.push({link, active: true, before: false, name: "inpage"});
         }
         this.state.list.forEach(item => {
