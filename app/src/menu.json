@@ -3,7 +3,6 @@
     "name": "index",
     "link": "",
     "type": "pages/test.js",
-    "icon": "all_inclusive",
     "list": [
       {
         "name": "menu11",
@@ -18,7 +17,6 @@
     "name": "menu1",
     "link": "menu1",
     "type": "pages/test2.js",
-    "icon": "assignment_ind",
     "list": [
       {
         "name": "menu11",

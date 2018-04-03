@@ -2,7 +2,7 @@
     {{if list&&list.length>0}}
     <div class="head">
         {{list list as item}}
-        <a href="{{ item.link }}" class="item" onclick="{{ open(item) }}">{{ item.name }}</a>
+        <a href="{{ item.link }}" class="{{ item.active?'item active':'item' }}" onclick="{{ open(item) }}">{{ item.name }}</a>
         {{/list}}
     </div>
     {{/if}}

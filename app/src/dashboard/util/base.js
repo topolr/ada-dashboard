@@ -12,6 +12,13 @@ const util = {
         } else {
             return menuItem.list;
         }
+    },
+    getOpenLink(menuItem) {
+        let link = menuItem.link;
+        if (menuItem._level === 2 && menuItem.list.length > 0) {
+            link = menuItem.list[0].link;
+        }
+        return link;
     }
 };
 
