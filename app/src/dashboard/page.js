@@ -1,4 +1,4 @@
-import {binder, BondViewGroup, pipe, StaticViewGroup, view} from "adajs";
+import {binder, BondViewGroup, refer, StaticViewGroup, view} from "adajs";
 import BaseInfoService from "./datasets/baseinfo";
 import util from "./util/base";
 
@@ -8,22 +8,20 @@ import util from "./util/base";
     style: "./style/page.scss"
 })
 class Page extends BondViewGroup {
-    @pipe(BaseInfoService)
+    @refer(BaseInfoService)
     baseInfoService;
 
     defaultState() {
         return {link: null};
     }
 
-    oncreated(){
-        this.state.link=util.getCurrentLink(this.baseInfoService.getData().active);
+    oncreated() {
+        this.state.link = util.getCurrentLink(this.baseInfoService.getData().active);
     }
 
-    onupdate(updater) {
-        if (updater.isDataSet()) {
-            let link = util.getCurrentLink(this.baseInfoService.getData().active);
-            return this.state.link === link;
-        }
+    onserviceupdate(updater) {
+        let link = util.getCurrentLink(this.baseInfoService.getData().active);
+        return this.state.link === link;
     }
 
     computed(data) {

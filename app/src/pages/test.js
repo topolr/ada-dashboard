@@ -9,7 +9,7 @@ class TestPage extends StaticViewGroup {
     @dataset(TreeService)
     treeDataSet;
 
-    oncreated() {
+    onready() {
         this.treeDataSet.commit("set", [
             {
                 name: "aa", list: [

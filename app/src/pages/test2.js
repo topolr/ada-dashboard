@@ -3,7 +3,7 @@ import SimpleTable from "ada-uikit/src/table/simple";
 import SimpleTableService from "ada-uikit/src/table/datasets/simple";
 
 @view({
-    className:"testpage2"
+    className: "testpage2"
 })
 class TestPage extends StaticViewGroup {
     @dataset(SimpleTableService)
@@ -23,6 +23,9 @@ class TestPage extends StaticViewGroup {
                 ]
             }
         });
+    }
+
+    onready() {
         this.simpleTableDataSet.commit("set", [
             {aa: "aa1", bb: "bb1", cc: "cc1"},
             {aa: "aa2", bb: "bb2", cc: "cc2"},
@@ -31,9 +34,9 @@ class TestPage extends StaticViewGroup {
             {aa: "aa5", bb: "bb5", cc: "cc5"},
             {aa: "aa6", bb: "bb6", cc: "cc6"}
         ])
-        this.addChild(SimpleTable,{
-            container:this.getElement()
-        }).then(()=>console.log("test2 done"));
+        this.addChild(SimpleTable, {
+            container: this.getElement()
+        }).then(() => console.log("test2 done"));
     }
 }
 

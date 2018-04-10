@@ -1,5 +1,4 @@
-import {BondViewGroup, pipe, dataset, view, binder, handler} from "adajs";
-import BaseInfoService from "./datasets/baseinfo";
+import {BondViewGroup, refer, dataset, view, binder, handler} from "adajs";
 import UIService from "./datasets/ui";
 import PageContainer from "./pagecontainer";
 import Menu from "./menu";
@@ -12,9 +11,6 @@ import appIcon from "./icons/apps.icon";
     style: "./style/container.scss"
 })
 class Container extends BondViewGroup {
-
-    @pipe(BaseInfoService)
-    baseInfoDataSet;
 
     @dataset(UIService)
     uiDataSet;
@@ -30,12 +26,12 @@ class Container extends BondViewGroup {
         let setRouter = (list) => {
             list && list.forEach(item => {
                 _router.bind(`${item.link}`, (e) => {
-                    this.baseInfoDataSet.commit("openlink", e.path);
+                    this.uiDataSet.commit("openlink", e.path);
                 });
                 setRouter(item.list);
             });
         };
-        setRouter(this.baseInfoDataSet.getData().menu);
+        setRouter(this.uiDataSet.getData().menu);
         _router.run();
     }
 
