@@ -17,7 +17,7 @@ let app = {
     compiler: {
         babel: {
             presets: [
-                "@babel/typescript", ["@babel/env", {"targets": {"chrome": "30"}}]
+                "@babel/typescript", ["@babel/env", {"targets": {"chrome": "60"}}]
             ]
         }
     }

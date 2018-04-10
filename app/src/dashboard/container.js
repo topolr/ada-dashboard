@@ -1,9 +1,10 @@
-import {BondViewGroup, refer, dataset, view, binder, handler} from "adajs";
+import {binder, BondViewGroup, dataset, handler, refer, view} from "adajs";
 import UIService from "./datasets/ui";
 import PageContainer from "./pagecontainer";
 import Menu from "./menu";
 import router from "ada-uikit/src/router";
 import appIcon from "./icons/apps.icon";
+import BaseInfoService from "./datasets/baseinfo";
 
 @view({
     className: "pagecontainer",
@@ -26,7 +27,7 @@ class Container extends BondViewGroup {
         let setRouter = (list) => {
             list && list.forEach(item => {
                 _router.bind(`${item.link}`, (e) => {
-                    this.uiDataSet.commit("openlink", e.path);
+                    this.uiDataSet.getReferDataSet(BaseInfoService).commit("openlink", e.path);
                 });
                 setRouter(item.list);
             });
