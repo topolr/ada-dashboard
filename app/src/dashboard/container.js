@@ -26,9 +26,7 @@ class Container extends BondViewGroup {
         let _router = this.router = router("http://localhost:8080");
         let setRouter = (list) => {
             list && list.forEach(item => {
-                _router.bind(`${item.link}`, (e) => {
-                    this.uiDataSet.getReferDataSet(BaseInfoService).commit("openlink", e.path);
-                });
+                _router.bind(`${item.link}`, e => this.uiDataSet.getReferDataSet(BaseInfoService).commit("openlink", e.path));
                 setRouter(item.list);
             });
         };
