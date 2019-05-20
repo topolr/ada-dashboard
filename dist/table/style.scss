@@ -1,0 +1,26 @@
+.table {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0; }
+  .table .content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0; }
+  .table .tools {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-left: 1px solid var(--theme-base-color); }
+    .table .tools.left {
+      left: 0;
+      right: auto;
+      border-right: 1px solid var(--theme-base-color);
+      border-left: 0; }
+
+
+/*# sourceMappingURL=/table/style.scss.map*/

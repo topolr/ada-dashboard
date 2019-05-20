@@ -1,0 +1,1 @@
+<div class="head" style="height:{{ data.height }}px"></div><div class="list">    {{list data.list as row}}    <div class="row">        {{list row as item}}        <div class="cols" style="width:{{ item.width }}px;height:{{ item.height }}px;">{{ item.icon }}</div>        {{/list}}    </div>    {{/list}}</div>

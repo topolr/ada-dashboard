@@ -1,0 +1,12 @@
+.table-simple .row {
+  line-height: 30px;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--theme-base-color); }
+  .table-simple .row .cols {
+    border-right: 1px solid var(--theme-base-color);
+    padding: 0 10px 0 10px;
+    display: inline-block;
+    vertical-align: top; }
+
+
+/*# sourceMappingURL=/table/body/simple/style.scss.map*/

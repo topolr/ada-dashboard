@@ -1,0 +1,17 @@
+.table-tool .head {
+  border-bottom: 1px solid var(--theme-base-color); }
+
+.table-tool .row {
+  line-height: 30px;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--theme-base-color); }
+  .table-tool .row .cols {
+    border-right: 1px solid var(--theme-base-color);
+    display: inline-block;
+    vertical-align: top;
+    text-align: center; }
+    .table-tool .row .cols:last-child {
+      border-right: 0; }
+
+
+/*# sourceMappingURL=/table/tool/style.scss.map*/
