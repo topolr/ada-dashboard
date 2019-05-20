@@ -1,10 +1,11 @@
 {{if data.checkbox}}
-<div class="checkbox" style="width:{{ data.rowHeight }}px">
+<div class="checkbox" style="width:{{ data.rowHeight }}px" data-find="checkbox">
     <@module @type="{{ data.checkboxType }}" @parameter="{{ 
         {
             checks:data.checks,
             rowHeight:data.rowHeight,
-            titleHeight:data.titleHeight
+            titleHeight:data.titleHeight,
+            isCheckAll:data.isCheckAll
         } 
     }}"/>
 </div>

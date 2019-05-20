@@ -21,6 +21,7 @@ let Table = (_dec = (0, _adajs.view)({  className: "table",  template:"table/tem
       let target = e.target;
       this.getChildrenByType(this.getCurrentState().headType)[0].scrollLeft(target.scrollLeft);
       this.getChildrenByType(this.getCurrentState().toolType)[0].scrollTop(target.scrollTop);
+      this.getChildrenByType(this.getCurrentState().checkboxType)[0].scrollTop(target.scrollTop);
     });
   }
 

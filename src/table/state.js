@@ -42,14 +42,14 @@ class TableService extends Service {
 		current.tools = tools;
 		current.toolPosition = data.toolPosition || 'right';
 		let checks = [];
-		current.body = _data.map((col, index) => {
+		current.body = _data.map(col => {
 			checks.push(col[current.checkPropName]);
 			return cols.map(({ key, width = 300, align = 'left' }) => {
 				return { value: col[key], width, align, height: current.rowHeight };
 			});
 		});
 		current.checks = checks;
-		current.isCheckAll = (current.checks.length === current.body.length);
+		current.isCheckAll = (current.checks.find(a => a !== true) !== undefined);
 		current.head = cols.map(({ title = '', key = '', width = 300, align = 'left' }) => {
 			return { title, key, width, align, height: current.titleHeight };
 		});
@@ -71,22 +71,17 @@ class TableService extends Service {
 
 	@action('checkRow')
 	checkRow(current, index) {
-		let _index = current.checks.indexOf(index);
-		if (_index === -1) {
-			current.checks.push(index);
-		} else {
-			current.checks.splice(_index, 1);
-		}
-		current.isCheckAll = (current.checks.length === current.body.length);
+		current.checks[index] = !current.checks[index];
+		current.isCheckAll = !(current.checks.find(a => a !== true) !== undefined);
 	}
 
 	@action('checkAll')
 	checkAll(current) {
 		current.isCheckAll = !current.isCheckAll;
 		if (current.isCheckAll) {
-			current.checks = current.body.map((a, b) => b);
+			current.checks = current.body.map(() => true);
 		} else {
-			current.checks = [];
+			current.checks = current.body.map(() => false);
 		}
 	}
 }

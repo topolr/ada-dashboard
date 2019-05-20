@@ -10,11 +10,6 @@ import HeadService from "./state.js";
     }
 })
 class Head extends View {
-    @binder('checkAll')
-    checkAll() {
-        this.dispatchEvent('checkAll');
-    }
-
     scrollLeft(a) {
         this.getElement().scrollLeft = a;
     }

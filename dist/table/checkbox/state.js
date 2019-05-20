@@ -19,7 +19,6 @@ class CheckboxService extends _adajs.Service {
 
   onupdate(current, data) {
     Object.assign(current, data);
-    current.isCheckAll = current.checks.find(a => a !== true);
   }
 
 }
