@@ -1,0 +1,14 @@
+@import "./../../base/index.scss";
+
+.table-head {
+  line-height: 35px;
+  border-bottom: 1px solid $base;
+  white-space: nowrap;
+  
+  .cols {
+    border-right: 1px solid $base;
+    padding: 0 10px 0 10px;
+    display: inline-block;
+    vertical-align: top;
+  }
+}

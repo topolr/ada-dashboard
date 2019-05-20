@@ -1,0 +1,21 @@
+@import "./../../base/index";
+
+.table-tool {
+  .head{
+    border-bottom: 1px solid $base;
+  }
+  .row {
+    line-height: 30px;
+    white-space: nowrap;
+    border-bottom: 1px solid $base;
+    .cols {
+      border-right: 1px solid $base;
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+      &:last-child {
+        border-right: 0;
+      }
+    }
+  }
+}

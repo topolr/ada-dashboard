@@ -1,0 +1,33 @@
+:root {
+  --theme-base-color: #eceff1;
+  --theme-100-color: #cfd8dc;
+  --theme-200-color: #b0bec5;
+  --theme-300-color: #90a4ae;
+  --theme-400-color: #78909c;
+  --theme-500-color: #607d8b;
+  --theme-600-color: #546e7a;
+  --theme-700-color: #455a64;
+  --theme-800-color: #37474f;
+  --theme-900-color: #263238;
+}
+
+html {
+  font: 400 14px/1 "-apple-system", "BlinkMacSystemFont", "PingFang SC", "Helvetica Neue", "STHeiti", "Microsoft Yahei",
+    "Tahoma", "Simsun", "sans-serif";
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+$base: var(--theme-base-color);
+$c100: var(--theme-100-color);
+$c200: var(--theme-200-color);
+$c300: var(--theme-300-color);
+$c400: var(--theme-400-color);
+$c500: var(--theme-500-color);
+$c600: var(--theme-600-color);
+$c700: var(--theme-700-color);
+$c800: var(--theme-800-color);
+$c900: var(--theme-900-color);
