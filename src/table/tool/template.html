@@ -1,9 +1,11 @@
-<div class="head" style="height:{{ data.height }}px"></div>
-<div class="list">
+<div class="{{ data.position+' head' }}" style="line-height:{{ data.height }}px"><i class=":ada-dashboard-settings"></i></div>
+<div class="{{ data.position+' list' }}" style="top:{{ data.height }}px">
     {{list data.list as row}}
     <div class="row">
         {{list row as item}}
-        <div class="cols" style="width:{{ item.width }}px;height:{{ item.height }}px;">{{ item.icon }}</div>
+        <div class="cols" style="width:{{ item.width }}px;height:{{ item.height }}px;">
+            <i class="{{ ':'+item.icon }}"></i>
+        </div>
         {{/list}}
     </div>
     {{/list}}

@@ -1,17 +1,40 @@
-.table-tool .head {
-  border-bottom: 1px solid var(--theme-base-color); }
-
-.table-tool .row {
-  line-height: 30px;
-  white-space: nowrap;
-  border-bottom: 1px solid var(--theme-base-color); }
-  .table-tool .row .cols {
-    border-right: 1px solid var(--theme-base-color);
-    display: inline-block;
-    vertical-align: top;
+.table-tool {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0; }
+  .table-tool .head {
+    border-bottom: 1px solid var(--theme-base-color);
     text-align: center; }
-    .table-tool .row .cols:last-child {
-      border-right: 0; }
+    .table-tool .head.right {
+      border-right: 1px solid var(--theme-base-color); }
+    .table-tool .head.left {
+      border-left: 1px solid var(--theme-base-color); }
+  .table-tool .list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden; }
+    .table-tool .list .row {
+      line-height: 30px;
+      white-space: nowrap;
+      border-bottom: 1px solid var(--theme-base-color); }
+      .table-tool .list .row .cols {
+        font-size: 16px;
+        border-right: 1px solid var(--theme-base-color);
+        display: inline-block;
+        vertical-align: top;
+        text-align: center; }
+        .table-tool .list .row .cols:last-child {
+          border-right: 0; }
+        .table-tool .list .row .cols:hover {
+          background: var(--theme-100-color); }
+    .table-tool .list.right {
+      border-right: 1px solid var(--theme-base-color); }
+    .table-tool .list.left {
+      border-left: 1px solid var(--theme-base-color); }
 
 
 /*# sourceMappingURL=/table/tool/style.scss.map*/

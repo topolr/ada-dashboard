@@ -10,7 +10,10 @@ var _adajs = require("adajs");
 class SimpleService extends _adajs.Service {
   defaultData() {
     return {
-      list: []
+      list: [],
+      checkbox: false,
+      rowHeight: 30,
+      titleHeight: 40
     };
   }
 

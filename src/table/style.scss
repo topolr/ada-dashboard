@@ -11,18 +11,22 @@
     top: 0;
     right: 0;
     bottom: 0;
+    .body {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: auto;
+    }
   }
   .tools {
     position: absolute;
     top: 0;
-    right: 0;
     bottom: 0;
-    border-left: 1px solid $base;
     &.left {
-      left: 0;
-      right: auto;
-      border-right:1px solid $base;
-      border-left:0;
+      left: auto;
+      right: 0;
+      border-left: 0;
     }
   }
 }

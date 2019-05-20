@@ -26,6 +26,7 @@ class TableService extends _adajs.Service {
       rowHeight: 30,
       toolPosition: 'right',
       bodyPosition: 'left:0',
+      checkbox: true,
       tools: [],
       tool: [],
       head: [],
@@ -87,7 +88,7 @@ class TableService extends _adajs.Service {
         });
       });
 
-      if (current.toolPosition === 'left') {
+      if (current.toolPosition === 'right') {
         current.bodyPosition = `left:${tools.length * current.rowHeight}px`;
       } else {
         current.bodyPosition = `right:${tools.length * current.rowHeight}px`;

@@ -1,9 +1,31 @@
 <div class="content" style="{{ data.bodyPosition }}">
-    <@module class="head" @type="{{ data.headType }}" @parameter="{{ {list:data.head} }}"/>
-    <@module class="body" @type="{{ data.bodyType }}" @parameter="{{ {list:data.body} }}"/>
+    <@module class="head" @type="{{ data.headType }}" @parameter="{{ 
+        {
+            list:data.head,
+            checkbox:data.checkbox,
+            rowHeight:data.rowHeight,
+            titleHeight:data.titleHeight
+        } 
+    }}"/>
+    <div class="body" style="top:{{ data.titleHeight }}px">
+        <@module @type="{{ data.bodyType }}" @parameter="{{ 
+            {
+                list:data.body,
+                checkbox:data.checkbox,
+                rowHeight:data.rowHeight,
+                titleHeight:data.titleHeight
+            } 
+        }}"/>
+    </div>
 </div>
 {{if data.tools.length>0}}
-<div class="{{ data.toolPosition==='left'?'tools left':'tools' }}">
-    <@module class="tool" @type="{{ data.toolType }}" @parameter="{{ {list:data.tool,height:data.titleHeight} }}"/>
+<div class="{{ data.toolPosition==='left'?'tools left':'tools' }}" style="width:{{ data.tools.length*data.rowHeight }}px">
+    <@module class="tool" @type="{{ data.toolType }}" @parameter="{{ 
+        {
+            list:data.tool,
+            height:data.titleHeight,
+            position:data.toolPosition
+        } 
+    }}"/>
 </div>
 {{/if}}

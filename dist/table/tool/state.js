@@ -11,6 +11,7 @@ class ToolService extends _adajs.Service {
   defaultData() {
     return {
       height: 40,
+      position: 'right',
       list: []
     };
   }

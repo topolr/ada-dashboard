@@ -11,6 +11,8 @@ var _table = _interopRequireDefault(require("table/index.js"));
 
 require("style/index.css");
 
+require("style/style.css");
+
 var _dec, _class;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -44,16 +46,100 @@ let Root = (_dec = (0, _adajs.root)({root:true,module:"root.js"}), _dec(_class =
           aa: "aaaa3",
           bb: "bbbbb3",
           cc: "ccccc3"
+        }, {
+          aa: "aaaa1",
+          bb: "bbbbb1",
+          cc: "ccccc1"
+        }, {
+          aa: "aaaa2",
+          bb: "bbbbb2",
+          cc: "ccccc2"
+        }, {
+          aa: "aaaa3",
+          bb: "bbbbb3",
+          cc: "ccccc3"
+        }, {
+          aa: "aaaa1",
+          bb: "bbbbb1",
+          cc: "ccccc1"
+        }, {
+          aa: "aaaa2",
+          bb: "bbbbb2",
+          cc: "ccccc2"
+        }, {
+          aa: "aaaa3",
+          bb: "bbbbb3",
+          cc: "ccccc3"
+        }, {
+          aa: "aaaa1",
+          bb: "bbbbb1",
+          cc: "ccccc1"
+        }, {
+          aa: "aaaa2",
+          bb: "bbbbb2",
+          cc: "ccccc2"
+        }, {
+          aa: "aaaa3",
+          bb: "bbbbb3",
+          cc: "ccccc3"
+        }, {
+          aa: "aaaa1",
+          bb: "bbbbb1",
+          cc: "ccccc1"
+        }, {
+          aa: "aaaa2",
+          bb: "bbbbb2",
+          cc: "ccccc2"
+        }, {
+          aa: "aaaa3",
+          bb: "bbbbb3",
+          cc: "ccccc3"
+        }, {
+          aa: "aaaa1",
+          bb: "bbbbb1",
+          cc: "ccccc1"
+        }, {
+          aa: "aaaa2",
+          bb: "bbbbb2",
+          cc: "ccccc2"
+        }, {
+          aa: "aaaa3",
+          bb: "bbbbb3",
+          cc: "ccccc3"
+        }, {
+          aa: "aaaa1",
+          bb: "bbbbb1",
+          cc: "ccccc1"
+        }, {
+          aa: "aaaa2",
+          bb: "bbbbb2",
+          cc: "ccccc2"
+        }, {
+          aa: "aaaa3",
+          bb: "bbbbb3",
+          cc: "ccccc3"
+        }, {
+          aa: "aaaa1",
+          bb: "bbbbb1",
+          cc: "ccccc1"
+        }, {
+          aa: "aaaa2",
+          bb: "bbbbb2",
+          cc: "ccccc2"
+        }, {
+          aa: "aaaa3",
+          bb: "bbbbb3",
+          cc: "ccccc3"
         }],
-        toolPosition: 'right',
+        toolPosition: 'left',
         tools: [{
           title: 'aa',
           action: 'aa',
-          icon: "a"
+          icon: "ada-dashboard-add_circle"
         }, {
           title: 'bb',
           action: 'bb',
-          icon: "b"
+          icon: "ada-dashboard-adjust"
         }]
       }
     });

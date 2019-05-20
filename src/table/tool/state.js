@@ -4,6 +4,7 @@ class ToolService extends Service{
 	defaultData(){
 		return {
 			height:40,
+			position:'right',
 			list:[]
 		};
 	}

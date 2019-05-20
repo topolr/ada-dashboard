@@ -1,21 +1,50 @@
 @import "./../../style/base";
 
 .table-tool {
-  .head{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .head {
     border-bottom: 1px solid $base;
-  }
-  .row {
-    line-height: 30px;
-    white-space: nowrap;
-    border-bottom: 1px solid $base;
-    .cols {
+    text-align: center;
+    &.right {
       border-right: 1px solid $base;
-      display: inline-block;
-      vertical-align: top;
-      text-align: center;
-      &:last-child {
-        border-right: 0;
+    }
+    &.left {
+      border-left: 1px solid $base;
+    }
+  }
+  .list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    .row {
+      line-height: 30px;
+      white-space: nowrap;
+      border-bottom: 1px solid $base;
+      .cols {
+        font-size: 16px;
+        border-right: 1px solid $base;
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        &:last-child {
+          border-right: 0;
+        }
+        &:hover {
+          background: $c100;
+        }
       }
+    }
+    &.right {
+      border-right: 1px solid $base;
+    }
+    &.left {
+      border-left: 1px solid $base;
     }
   }
 }

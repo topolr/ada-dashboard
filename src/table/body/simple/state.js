@@ -3,7 +3,10 @@ import { Service } from "adajs";
 class SimpleService extends Service {
 	defaultData() {
 		return {
-			list: []
+			list: [],
+			checkbox:false,
+			rowHeight:30,
+			titleHeight:40
 		};
 	}
 

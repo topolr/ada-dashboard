@@ -10,16 +10,19 @@
     top: 0;
     right: 0;
     bottom: 0; }
+    .table .content .body {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: auto; }
   .table .tools {
     position: absolute;
     top: 0;
-    right: 0;
-    bottom: 0;
-    border-left: 1px solid var(--theme-base-color); }
+    bottom: 0; }
     .table .tools.left {
-      left: 0;
-      right: auto;
-      border-right: 1px solid var(--theme-base-color);
+      left: auto;
+      right: 0;
       border-left: 0; }
 
 
