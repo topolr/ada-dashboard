@@ -4,9 +4,9 @@ class SimpleService extends Service {
 	defaultData() {
 		return {
 			list: [],
-			checkbox:false,
 			rowHeight:30,
-			titleHeight:40
+			titleHeight:40,
+			checks:[]
 		};
 	}
 

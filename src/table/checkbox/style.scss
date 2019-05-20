@@ -1,0 +1,35 @@
+@import "./../../style/base";
+.table-checkbox {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  div{
+    box-sizing: border-box;
+  }
+  .head {
+    border-bottom: 1px solid $c100;
+    text-align: center;
+    border-right: 1px solid $c100;
+  }
+  .list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    .cols {
+      font-size: 16px;
+      border-right: 1px solid $c100;
+      text-align: center;
+      border-bottom: 1px solid $c100;
+      &:hover {
+        background: $c100;
+      }
+      &:nth-child(even) {
+        background: $base;
+      }
+    }
+  }
+}

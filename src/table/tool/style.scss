@@ -7,13 +7,13 @@
   right: 0;
   bottom: 0;
   .head {
-    border-bottom: 1px solid $base;
+    border-bottom: 1px solid $c100;
     text-align: center;
     &.right {
-      border-right: 1px solid $base;
+      border-right: 1px solid $c100;
     }
     &.left {
-      border-left: 1px solid $base;
+      border-left: 1px solid $c100;
     }
   }
   .list {
@@ -25,10 +25,10 @@
     .row {
       line-height: 30px;
       white-space: nowrap;
-      border-bottom: 1px solid $base;
+      border-bottom: 1px solid $c100;
       .cols {
         font-size: 16px;
-        border-right: 1px solid $base;
+        border-right: 1px solid $c100;
         display: inline-block;
         vertical-align: top;
         text-align: center;
@@ -39,12 +39,25 @@
           background: $c100;
         }
       }
+      &:nth-child(even) {
+        background: $base;
+      }
     }
     &.right {
-      border-right: 1px solid $base;
+      .row {
+        .cols {
+          border-right: 1px solid $c100;
+          border-left: 0;
+        }
+      }
     }
     &.left {
-      border-left: 1px solid $base;
+      .row {
+        .cols {
+          border-left: 1px solid $c100;
+          border-right: 0;
+        }
+      }
     }
   }
 }

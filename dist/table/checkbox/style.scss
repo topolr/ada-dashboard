@@ -1,0 +1,30 @@
+.table-checkbox {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0; }
+  .table-checkbox div {
+    box-sizing: border-box; }
+  .table-checkbox .head {
+    border-bottom: 1px solid var(--theme-100-color);
+    text-align: center;
+    border-right: 1px solid var(--theme-100-color); }
+  .table-checkbox .list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden; }
+    .table-checkbox .list .cols {
+      font-size: 16px;
+      border-right: 1px solid var(--theme-100-color);
+      text-align: center;
+      border-bottom: 1px solid var(--theme-100-color); }
+      .table-checkbox .list .cols:hover {
+        background: var(--theme-100-color); }
+      .table-checkbox .list .cols:nth-child(even) {
+        background: var(--theme-base-color); }
+
+
+/*# sourceMappingURL=/table/checkbox/style.scss.map*/

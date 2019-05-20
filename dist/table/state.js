@@ -13,15 +13,22 @@ var _simple = _interopRequireDefault(require("table/body/simple/index.js"));
 
 var _tool = _interopRequireDefault(require("table/tool/index.js"));
 
+var _checkbox = _interopRequireDefault(require("table/checkbox/index.js"));
+
+var _dec, _dec2, _class;
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-class TableService extends _adajs.Service {
+function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) { var desc = {}; Object.keys(descriptor).forEach(function (key) { desc[key] = descriptor[key]; }); desc.enumerable = !!desc.enumerable; desc.configurable = !!desc.configurable; if ('value' in desc || desc.initializer) { desc.writable = true; } desc = decorators.slice().reverse().reduce(function (desc, decorator) { return decorator(target, property, desc) || desc; }, desc); if (context && desc.initializer !== void 0) { desc.value = desc.initializer ? desc.initializer.call(context) : void 0; desc.initializer = undefined; } if (desc.initializer === void 0) { Object.defineProperty(target, property, desc); desc = null; } return desc; }
+
+let TableService = (_dec = (0, _adajs.action)('checkRow'), _dec2 = (0, _adajs.action)('checkAll'), (_class = class TableService extends _adajs.Service {
   defaultData() {
     return {
       cols: [],
       headType: _head.default,
       bodyType: _simple.default,
       toolType: _tool.default,
+      checkboxType: _checkbox.default,
       titleHeight: 40,
       rowHeight: 30,
       toolPosition: 'right',
@@ -31,7 +38,10 @@ class TableService extends _adajs.Service {
       tool: [],
       head: [],
       body: [],
-      data: []
+      data: [],
+      checkPropName: 'check',
+      isCheckAll: false,
+      checks: []
     };
   }
 
@@ -49,6 +59,24 @@ class TableService extends _adajs.Service {
     current.data = _data;
     current.tools = tools;
     current.toolPosition = data.toolPosition || 'right';
+    let checks = [];
+    current.body = _data.map((col, index) => {
+      checks.push(col[current.checkPropName]);
+      return cols.map(({
+        key,
+        width = 300,
+        align = 'left'
+      }) => {
+        return {
+          value: col[key],
+          width,
+          align,
+          height: current.rowHeight
+        };
+      });
+    });
+    current.checks = checks;
+    current.isCheckAll = current.checks.length === current.body.length;
     current.head = cols.map(({
       title = '',
       key = '',
@@ -62,20 +90,6 @@ class TableService extends _adajs.Service {
         align,
         height: current.titleHeight
       };
-    });
-    current.body = _data.map(col => {
-      return cols.map(({
-        key,
-        width = 300,
-        align = 'left'
-      }) => {
-        return {
-          value: col[key],
-          width,
-          align,
-          height: current.rowHeight
-        };
-      });
     });
 
     if (tools.length > 0) {
@@ -91,15 +105,36 @@ class TableService extends _adajs.Service {
       if (current.toolPosition === 'right') {
         current.bodyPosition = `left:${tools.length * current.rowHeight}px`;
       } else {
-        current.bodyPosition = `right:${tools.length * current.rowHeight}px`;
+        current.bodyPosition = `right:${tools.length * current.rowHeight}px;left:${current.rowHeight}px`;
       }
     } else {
       current.bodyPosition = `left:0;right:0`;
     }
   }
 
-}
+  checkRow(current, index) {
+    let _index = current.checks.indexOf(index);
 
+    if (_index === -1) {
+      current.checks.push(index);
+    } else {
+      current.checks.splice(_index, 1);
+    }
+
+    current.isCheckAll = current.checks.length === current.body.length;
+  }
+
+  checkAll(current) {
+    current.isCheckAll = !current.isCheckAll;
+
+    if (current.isCheckAll) {
+      current.checks = current.body.map((a, b) => b);
+    } else {
+      current.checks = [];
+    }
+  }
+
+}, (_applyDecoratedDescriptor(_class.prototype, "checkRow", [_dec], Object.getOwnPropertyDescriptor(_class.prototype, "checkRow"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "checkAll", [_dec2], Object.getOwnPropertyDescriptor(_class.prototype, "checkAll"), _class.prototype)), _class));
 var _default = TableService;
 exports.default = _default;
 //# sourceMappingURL=table/state.js.map

@@ -7,22 +7,23 @@ exports.default = void 0;
 
 var _adajs = require("adajs");
 
-class SimpleService extends _adajs.Service {
+class CheckboxService extends _adajs.Service {
   defaultData() {
     return {
-      list: [],
+      checks: [],
+      isCheckAll: false,
       rowHeight: 30,
-      titleHeight: 40,
-      checks: []
+      titleHeight: 40
     };
   }
 
   onupdate(current, data) {
     Object.assign(current, data);
+    current.isCheckAll = current.checks.find(a => a !== true);
   }
 
 }
 
-var _default = SimpleService;
+var _default = CheckboxService;
 exports.default = _default;
-//# sourceMappingURL=table/body/simple/state.js.map
+//# sourceMappingURL=table/checkbox/state.js.map

@@ -2,11 +2,12 @@
 
 .table-head {
   line-height: 35px;
-  border-bottom: 1px solid $base;
+  border-bottom: 1px solid $c100;
   white-space: nowrap;
+  float: left;
 
   .cols {
-    border-right: 1px solid $base;
+    border-right: 1px solid $c100;
     padding: 0 10px 0 10px;
     display: inline-block;
     vertical-align: top;
@@ -15,7 +16,7 @@
     &.checkbox {
       font-size: 15px;
       text-align: center;
-      padding:0;
+      padding: 0;
     }
   }
 }

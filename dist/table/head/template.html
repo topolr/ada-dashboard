@@ -1,1 +1,1 @@
-{{if data.checkbox}}    <div class="cols checkbox" style="width:{{ data.rowHeight }}px;line-height:{{ data.titleHeight }}px;"><i class=":ada-dashboard-check_box_outline_blank"></i></div>{{/if}}{{list data.list as item}}<div class="cols" style="width:{{ item.width }}px;height:{{ item.height }}px">{{ item.title }}</div>{{/list}}
+{{list data.list as item}}<div class="cols" style="width:{{ item.width }}px;height:{{ item.height }}px">{{ item.title }}</div>{{/list}}
