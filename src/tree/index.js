@@ -32,7 +32,7 @@ class Tree extends View {
 
     fns() {
         return {
-            getItems: (list, map) => {
+            getItems(list, map) {
                 let t = list.map(a => map[a]);
                 return t;
             }
