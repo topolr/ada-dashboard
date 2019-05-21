@@ -10,10 +10,10 @@
     border-bottom: 1px solid $c100;
     text-align: center;
     &.right {
-      border-right: 1px solid $c100;
+      border-left: 1px solid $c100;
     }
     &.left {
-      border-left: 1px solid $c100;
+      border-right: 1px solid $c100;
     }
   }
   .list {
@@ -28,35 +28,32 @@
       border-bottom: 1px solid $c100;
       .cols {
         font-size: 16px;
-        border-right: 1px solid $c100;
         display: inline-block;
         vertical-align: top;
         text-align: center;
-        &:last-child {
-          border-right: 0;
-        }
+        border-right: 1px solid $c100;
         &:hover {
           background: $c100;
+        }
+        &:last-child {
+          border-right: 0;
         }
       }
       &:nth-child(even) {
         background: $base;
       }
+      &.checked {
+        background: $c200;
+      }
     }
     &.right {
       .row {
-        .cols {
-          border-right: 1px solid $c100;
-          border-left: 0;
-        }
+        border-left: 1px solid $c100;
       }
     }
     &.left {
       .row {
-        .cols {
-          border-left: 1px solid $c100;
-          border-right: 0;
-        }
+        border-right: 1px solid $c100;
       }
     }
   }

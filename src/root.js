@@ -35,7 +35,7 @@ class Root extends StaticViewGroup {
                     { aa: "aaaa2", bb: "bbbbb2", cc: "ccccc2" },
                     { aa: "aaaa3", bb: "bbbbb3", cc: "ccccc3" }
                 ],
-                toolPosition: 'left',
+                toolPosition: 'right',
                 tools: [
                     { title: 'aa', action: 'aa', icon: "ada-dashboard-add_circle" },
                     { title: 'bb', action: 'bb', icon: "ada-dashboard-adjust" }

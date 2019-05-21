@@ -15,6 +15,11 @@ class Checkbox extends View {
         this.dispatchEvent('checkAll');
     }
 
+    @binder('checkRow')
+    checkRow({ index }) {
+        this.dispatchEvent('checkRow', { index });
+    }
+
     scrollTop(top) {
         this.finder("body").getElement().scrollTop = top;
     }

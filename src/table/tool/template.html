@@ -1,7 +1,7 @@
 <div class="{{ data.position+' head' }}" style="line-height:{{ data.height }}px"><i class=":ada-dashboard-settings"></i></div>
 <div class="{{ data.position+' list' }}" style="top:{{ data.height }}px" data-find="body">
-    {{list data.list as row}}
-    <div class="row">
+    {{list data.list as row index}}
+    <div class="{{ data.checks[index]===true?'row checked':'row' }}">
         {{list row as item}}
         <div class="cols" style="width:{{ item.width }}px;height:{{ item.height }}px;">
             <i class="{{ ':'+item.icon }}"></i>

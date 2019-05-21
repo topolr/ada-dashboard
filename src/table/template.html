@@ -10,7 +10,7 @@
     }}"/>
 </div>
 {{/if}}
-<div class="content" style="{{ data.bodyPosition }}">
+<div class="content" style="{{ data.bodyPositionStyle }}">
     <div class="head" data-find="head" style="height: {{ data.titleHeight }}px">
         <@module @type="{{ data.headType }}" @parameter="{{ 
             {
@@ -33,12 +33,13 @@
     </div>
 </div>
 {{if data.tools.length>0}}
-<div class="{{ data.toolPosition==='left'?'tools left':'tools' }}" style="width:{{ data.tools.length*data.rowHeight }}px" data-find="tool">
+<div class="{{ data.toolPosition==='left'?'tools left':'tools' }}" style="{{ data.toolPostionStyle }}" data-find="tool">
     <@module class="tool" @type="{{ data.toolType }}" @parameter="{{ 
         {
             list:data.tool,
             height:data.titleHeight,
-            position:data.toolPosition
+            position:data.toolPosition,
+            checks:data.checks
         } 
     }}"/>
 </div>

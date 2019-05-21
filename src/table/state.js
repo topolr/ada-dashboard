@@ -1,6 +1,6 @@
 import { Service, action } from "adajs";
 import Head from './head';
-import Body from './body/simple';
+import Body from './body';
 import Tool from './tool';
 import Checkbox from './checkbox';
 
@@ -15,7 +15,8 @@ class TableService extends Service {
 			titleHeight: 40,
 			rowHeight: 30,
 			toolPosition: 'right',
-			bodyPosition: 'left:0',
+			bodyPositionStyle: '',
+			toolPostionStyle: '',
 			checkbox: true,
 			tools: [],
 			tool: [],
@@ -48,11 +49,10 @@ class TableService extends Service {
 				return { value: col[key], width, align, height: current.rowHeight };
 			});
 		});
-		current.checks = checks;
-		current.isCheckAll = (current.checks.find(a => a !== true) !== undefined);
 		current.head = cols.map(({ title = '', key = '', width = 300, align = 'left' }) => {
 			return { title, key, width, align, height: current.titleHeight };
 		});
+		let _bodyPostion = { left: 0, right: 0 }, _toolPosition = { width: 0 };
 		if (tools.length > 0) {
 			current.tool = _data.map(() => {
 				return tools.map(a => {
@@ -60,19 +60,33 @@ class TableService extends Service {
 				});
 			});
 			if (current.toolPosition === 'right') {
-				current.bodyPosition = `left:${tools.length * current.rowHeight}px`;
+				_bodyPostion.right = tools.length * current.rowHeight;
+				_toolPosition.right = 0;
 			} else {
-				current.bodyPosition = `right:${tools.length * current.rowHeight}px;left:${current.rowHeight}px`;
+				_bodyPostion.left = tools.length * current.rowHeight;
+				_toolPosition.left = 0;
+			}
+			_toolPosition.width = tools.length * current.rowHeight;
+		}
+		if (current.checkbox) {
+			current.checks = checks;
+			current.isCheckAll = !(current.checks.findIndex(a => a !== true) !== -1);
+			_bodyPostion.left = _bodyPostion.left + current.rowHeight;
+			if (current.toolPosition === 'left') {
+				_toolPosition.left = current.rowHeight;
 			}
 		} else {
-			current.bodyPosition = `left:0;right:0`;
+			current.checks = [];
+			current.isCheckAll = false;
 		}
+		current.bodyPositionStyle = Reflect.ownKeys(_bodyPostion).map(key => `${key}:${_bodyPostion[key]}px`).join(";");
+		current.toolPostionStyle = Reflect.ownKeys(_toolPosition).map(key => `${key}:${_toolPosition[key]}px`).join(";");
 	}
 
 	@action('checkRow')
 	checkRow(current, index) {
 		current.checks[index] = !current.checks[index];
-		current.isCheckAll = !(current.checks.find(a => a !== true) !== undefined);
+		current.isCheckAll = !(current.checks.findIndex(a => a !== true) !== -1);
 	}
 
 	@action('checkAll')

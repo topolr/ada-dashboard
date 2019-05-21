@@ -1,5 +1,5 @@
 {{list data.list as row index}}
-<div class="{{ data.checks.indexOf(index)!==-1?'row checked':'row' }}" onclick="{{ checkRow(row,index) }}">
+<div class="{{ data.checks[index]===true?'row checked':'row' }}" onclick="{{ checkRow(index) }}">
     {{list row as item}}
     <div class="cols" style="width:{{ item.width }}px;text-align:{{ item.align }};height:{{ item.height }}px">
         {{ item.value }}</div>
