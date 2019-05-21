@@ -20,6 +20,16 @@ class Tree extends View {
         this.commit("active", item);
     }
 
+    @binder("toggleselect")
+    toggleSelect({ item }) {
+        this.commit("toggleselect", item);
+    }
+
+    @binder("active")
+    active({item}){
+        this.commit('active',item);
+    }
+
     fns() {
         return {
             getItems: (list, map) => {

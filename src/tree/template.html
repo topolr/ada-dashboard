@@ -1,12 +1,20 @@
 <div class="block">
-    {{log getItems(data.list,data.map)}}
     {{list getItems(data.list,data.map) as item}}
     <div class="{{item.open?'item opened':'item'}}">
-        <div class="{{ item._actived?'head active':'head' }}">
+        <div class="{{ item.actived?'head active':'head' }}">
             {{if item.list.length>0}}
             <div class="arrow" onclick="{{ toggle(item) }}"><i class=":ada-dashboard-play_arrow"></i></div>
             {{else}}
             <div class="noarrow"></div>
+            {{/if}}
+            {{if data.check}}
+            <div class="checkbox" onclick="{{toggleselect(item)}}">
+                {{if item.selected}}
+                <i class=":ada-dashboard-check_box"></i>
+                {{else}}
+                <i class=":ada-dashboard-check_box_outline_blank"></i>
+                {{/if}}
+            </div>
             {{/if}}
             <div class="name" onclick="{{ active(item) }}">{{ item.info.name }}</div>
         </div>
