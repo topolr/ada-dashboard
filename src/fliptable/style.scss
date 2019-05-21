@@ -1,0 +1,44 @@
+@import "./../style/base";
+.fliptable {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .head {
+  }
+  .body {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 35px;
+  }
+  .foot {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    white-space: normal;
+    line-height: 35px;
+    border: 1px solid $c100;
+    cursor: default;
+    .btn,
+    .dot {
+      display: inline-block;
+      vertical-align: top;
+      padding: 0 10px 0 10px;
+      &.disabled {
+        color: $base;
+      }
+      &.current {
+        color: $c100;
+      }
+    }
+    .dot {
+      &.hide {
+        display: none;
+      }
+    }
+  }
+}

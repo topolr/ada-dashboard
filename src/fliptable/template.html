@@ -1,0 +1,32 @@
+<div class="head"></div>
+<div class="body">
+    <@module @type="{{ data.tableType }}" @parameter="{{
+        {
+            cols: data.cols,
+            titleHeight:data.titleHeight,
+            rowHeight: data.rowHeight,
+            toolPosition: data.toolPosition,
+            checkbox: data.checkbox,
+            tools: data.tools,
+            data: data.data,
+            checkPropName: data.checkPropName
+        }
+    }}"/>
+</div>
+<div class="foot">
+    {{list data.pagers as page}}
+        {{if page.name==='prev'}}
+        <div class="{{ page.disabled?'disabled btn':'btn' }}" onclick="{{ prev() }}">
+            <i class=":ada-dashboard-navigate_before"></i>
+        </div>
+        {{elseif page.name==='next'}}
+        <div class="{{ page.disabled?'disabled btn':'btn' }}" onclick="{{ next() }}">
+            <i class=":ada-dashboard-navigate_next"></i>
+        </div>
+        {{elseif page.name==='btn'}}
+        <div class="{{ page.iscurrent?'current btn':'btn' }}" onclick="{{ gotoPage(page) }}">{{ page.num }}</div>
+        {{else}}
+        <div class="{{ page.none?'hide dot':'dot' }}">...</div>
+        {{/if}}
+    {{/list}}
+</div>
