@@ -1,6 +1,5 @@
 import { view, ViewGroup, binder } from "adajs";
 import FliptableService from "./state.js";
-import { PreviousMap } from "postcss";
 
 @view({
     className: "fliptable",

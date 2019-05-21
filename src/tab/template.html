@@ -1,0 +1,14 @@
+<div class="titles">
+    {{list data.tabs as tab}}
+    <div class="{{ tab.active?'title active':'title' }}" onclick="{{ activeTab(tab) }}">{{ tab.name }}</div>
+    {{/list}}
+</div>
+<div class="contents">
+    {{list data.tabs as tab}}
+    <div class="{{ tab.active?'content active':'content' }}">
+        {{if tab.type&&tab.loaded}}
+        <module @type="{{ tab.type }}" @parameter="{{ tab.option }}"/>
+        {{/if}}
+    </div>
+    {{/list}}
+</div>
