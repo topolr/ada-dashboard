@@ -1,5 +1,6 @@
 <div class="block">
     {{list getItems(data.list,data.map) as item}}
+    {{test item.info.name}}
     <div class="{{item.open?'item opened':'item'}}">
         <div class="{{ item.actived?'head active':'head' }}">
             {{if item.list.length>0}}

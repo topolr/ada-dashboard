@@ -26,8 +26,8 @@ class Tree extends View {
     }
 
     @binder("active")
-    active({item}){
-        this.commit('active',item);
+    active({ item }) {
+        this.commit('active', item);
     }
 
     fns() {
@@ -35,6 +35,14 @@ class Tree extends View {
             getItems: (list, map) => {
                 let t = list.map(a => map[a]);
                 return t;
+            }
+        }
+    }
+
+    directives() {
+        return {
+            test(a) {
+                return '<span>' + a + '</span>';
             }
         }
     }
