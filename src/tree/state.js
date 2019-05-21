@@ -6,7 +6,7 @@ class TreeService extends Service {
 		return {
 			list: [],
 			map: {},
-			check: false
+			check: true
 		};
 	}
 
@@ -23,16 +23,12 @@ class TreeService extends Service {
 	toggleSelect(current, a) {
 		let target = current.map[a.id];
 		target.selected = !target.selected;
-		target.list.map(a => current.map[a]).forEach(a => a.selected = target.selected);
+		this.sub(current, target.list, target.selected);
 		target = target.parent;
 		while (target) {
 			target = current.map[target];
 			let has = target.list.map(a => current.map[a]).find(a => a.selected === true);
-			if (has) {
-				target.selected = true;
-			} else {
-				target.selected = false;
-			}
+			target.selected = has !== undefined;
 			target = current.map[target.id].parent;
 		}
 	}
@@ -41,6 +37,13 @@ class TreeService extends Service {
 	active(current, a) {
 		Reflect.ownKeys(current.map).forEach(a => current.map[a].actived = false);
 		current.map[a.id].actived = !current.map[a.id].actived;
+	}
+
+	sub(current, list, selected) {
+		list.map(a => current.map[a]).forEach(a => {
+			a.selected = selected;
+			this.sub(current, a.list, selected);
+		});
 	}
 
 	set(current, list = [], parentId = null) {

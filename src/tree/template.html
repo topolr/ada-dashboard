@@ -19,7 +19,7 @@
             <div class="name" onclick="{{ active(item) }}">{{ item.info.name }}</div>
         </div>
         <div class="body">
-            <@self @parameter="{{ {list:item.list,map:data.map} }}"/>
+            <@self @parameter="{{ {list:item.list,map:data.map,check:data.check} }}"/>
         </div>
     </div>
     {{/list}}

@@ -9,41 +9,31 @@
   bottom: 0;
   padding: 10px;
   overflow: auto;
-  .icon {
-    display: inline-block;
-    vertical-align: middle;
-    width: 1em;
-    height: 1em;
-    stroke-width: 0;
-    stroke: currentColor;
-    fill: currentColor;
-    font-size: 14px;
-  }
   .block {
     .item {
       > .head {
         line-height: 25px;
         > .arrow {
-          width: 15px;
+          width: 25px;
           height: 25px;
           text-align: center;
           display: inline-block;
           vertical-align: top;
-          line-height: 22px;
+          font-size: 16px;
         }
         > .noarrow {
-          width: 15px;
+          width: 25px;
           height: 25px;
           display: inline-block;
           vertical-align: top;
         }
         > .checkbox {
-          width: 15px;
+          width: 25px;
           height: 25px;
           text-align: center;
           display: inline-block;
           vertical-align: top;
-          line-height: 22px;
+          font-size: 16px;
         }
         > .name {
           display: inline-block;
