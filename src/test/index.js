@@ -1,7 +1,7 @@
 import { view, BondViewGroup, binder } from "adajs";
 import TestService from "./state.js";
 import Table from './../fliptable';
-import Tree from './../tree/simple';
+import Tree from './../tree';
 import Alert from './../alert';
 import Message from './../messagebox';
 import Loading from './../loading';

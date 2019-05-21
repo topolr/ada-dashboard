@@ -1,16 +1,17 @@
 <div class="block">
-    {{list data.list as item}}
-    <div class="{{item._opened?'item opened':'item'}}">
+    {{log getItems(data.list,data.map)}}
+    {{list getItems(data.list,data.map) as item}}
+    <div class="{{item.open?'item opened':'item'}}">
         <div class="{{ item._actived?'head active':'head' }}">
             {{if item.list.length>0}}
             <div class="arrow" onclick="{{ toggle(item) }}"><i class=":ada-dashboard-play_arrow"></i></div>
             {{else}}
             <div class="noarrow"></div>
             {{/if}}
-            <div class="name" onclick="{{ active(item) }}">{{ item.name }}</div>
+            <div class="name" onclick="{{ active(item) }}">{{ item.info.name }}</div>
         </div>
         <div class="body">
-            <@self @parameter="{{ {list:item.list} }}"/>
+            <@self @parameter="{{ {list:item.list,map:data.map} }}"/>
         </div>
     </div>
     {{/list}}
