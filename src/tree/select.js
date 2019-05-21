@@ -1,4 +1,4 @@
-import {view, binder} from "adajs";
+import { view, binder } from "adajs";
 import SimpleTree from "./simple";
 import SelectService from "./state/select";
 
@@ -12,8 +12,8 @@ import SelectService from "./state/select";
 })
 class SelectTree extends SimpleTree {
 	@binder("toggleselect")
-	toggleSelect({item}) {
-		this.getDataSet().commit("toggleselect", item);
+	toggleSelect({ item }) {
+		this.commit("toggleselect", item);
 	}
 }
 

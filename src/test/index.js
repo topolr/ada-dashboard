@@ -1,9 +1,11 @@
 import { view, BondViewGroup, binder } from "adajs";
 import TestService from "./state.js";
 import Table from './../fliptable';
+import Tree from './../tree/simple';
 import Alert from './../alert';
 import Message from './../messagebox';
 import Loading from './../loading';
+import Picker from './../datepicker';
 
 @view({
     className: "test",
@@ -15,7 +17,7 @@ import Loading from './../loading';
 })
 class Test extends BondViewGroup {
     tags() {
-        return { xtable: Table };
+        return { xtable: Table, xtree: Tree, picker: Picker };
     }
 
     @binder('alert')

@@ -1,12 +1,15 @@
-import {util as Util} from "adajs";
+import { util as Util } from "adajs";
 
 const util = {
 	initAll(data) {
-		data.forEach(item => {
-			item._opened = false;
-			item._actived = false;
-			item._id = Util.randomid(8);
-			this.initAll(item.list);
+		return data.map(item => {
+			let r = Object.assign({}, item, {
+				_opened: false,
+				_actived: false,
+				_id: Util.randomid(8),
+			});
+			r.list = this.initAll(r.list);
+			return r;
 		});
 	},
 	findItem(current, item) {

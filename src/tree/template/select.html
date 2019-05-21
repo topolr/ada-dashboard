@@ -17,7 +17,7 @@
             <div class="name" onclick="{{active(item)}}">{{item.name}}</div>
         </div>
         <div class="body">
-            <@self @data="{{ {list:item.list,icons:data.icons} }}"/>
+            <@self @parameter="{{ {list:item.list,icons:data.icons} }}"/>
         </div>
     </div>
     {{/list}}

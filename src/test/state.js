@@ -36,6 +36,59 @@ class TestService extends Service {
 					{ title: 'aa', action: 'aa', icon: "ada-dashboard-add_circle" },
 					{ title: 'bb', action: 'bb', icon: "ada-dashboard-adjust" }
 				]
+			},
+			tree: {
+				list: [
+					{
+						name: "aa", list: [
+							{ name: "aaa", list: [] },
+							{
+								name: "bbb", list: [
+									{ name: "aaa", list: [] },
+									{
+										name: "bbb", list: [
+											{ name: "aaa", list: [] },
+											{ name: "bbb", list: [] },
+											{ name: "ccc", list: [] }
+										]
+									},
+									{
+										name: "ccc", list: [
+											{ name: "aaa", list: [] },
+											{ name: "bbb", list: [] },
+											{
+												name: "ccc", list: [
+													{ name: "aaa", list: [] },
+													{ name: "bbb", list: [] },
+													{ name: "ccc", list: [] }
+												]
+											}
+										]
+									}
+								]
+							},
+							{ name: "ccc", list: [] }
+						]
+					},
+					{
+						name: "bb", list: [
+							{ name: "aaa", list: [] },
+							{ name: "bbb", list: [] },
+							{
+								name: "ccc", list: [
+									{ name: "aaa", list: [] },
+									{ name: "bbb", list: [] },
+									{ name: "ccc", list: [] }
+								]
+							}
+						]
+					},
+					{
+						name: "cc", list: [
+							{ name: "ccc", list: [] }
+						]
+					}
+				]
 			}
 		};
 	}

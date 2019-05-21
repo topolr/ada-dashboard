@@ -1,4 +1,4 @@
-import {binder, view, View} from "adajs";
+import { binder, view, View } from "adajs";
 import PannelService from "./state/pannel";
 
 @view({
@@ -11,7 +11,7 @@ import PannelService from "./state/pannel";
 })
 class Pannel extends View {
     @binder("select")
-    select({item}) {
+    select({ item }) {
         this.getDataSet().commit("select", new Date(`${item.year}/${item.month}/${item.day} 0:0:0`)).then(() => {
             this.dispatchEvent("select", this.getCurrentState());
         });
@@ -32,14 +32,14 @@ class Pannel extends View {
     }
 
     @binder("gotoyear")
-    gotoYear({item}) {
+    gotoYear({ item }) {
         this.getDataSet().commit("gotoyear", item.year).then(() => {
             this.dispatchEvent("change", this.getCurrentState());
         });
     }
 
     @binder("gotomonth")
-    gotoMonth({item}) {
+    gotoMonth({ item }) {
         this.getDataSet().commit("gotomonth", item.month).then(() => {
             this.dispatchEvent("change", this.getCurrentState());
         });
@@ -47,13 +47,13 @@ class Pannel extends View {
 
     @binder("showpannel")
     showPannel() {
-        this.getElement().classList.toggle(this.getThisClassName("showpannel"));
+        this.className.toggle('showpannel');
         this.focusScroll();
     }
 
     @binder("closepannel")
     closePannel() {
-        this.getElement().classList.remove(this.getThisClassName("showpannel"));
+        this.className.remove('showpannel');
     }
 
     @binder("today")
@@ -64,7 +64,7 @@ class Pannel extends View {
     }
 
     focusScroll() {
-        let target = this.finder("scroll").getElement().querySelector(`.${this.getThisClassName("selected")}`);
+        let target = this.finder("scroll").getElement().querySelector(`.${this.getElementClassName("selected")}`);
         if (target) {
             this.finder("scroll").getElement().scrollTop = target.offsetTop - 30;
         }

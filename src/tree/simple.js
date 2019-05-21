@@ -1,4 +1,4 @@
-import {view, binder, View} from "adajs";
+import { view, binder, View } from "adajs";
 import TreeService from "./state/simple";
 
 @view({
@@ -11,13 +11,13 @@ import TreeService from "./state/simple";
 })
 class SimpleTree extends View {
 	@binder("toggle")
-	toggle({item}) {
-		this.getDataSet().commit("toggle", item);
+	toggle({ item }) {
+		this.commit("toggle", item);
 	}
 
 	@binder("active")
-	active({item}) {
-		this.getDataSet().commit("active", item);
+	active({ item }) {
+		this.commit("active", item);
 	}
 }
 

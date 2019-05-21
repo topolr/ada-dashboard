@@ -1,4 +1,4 @@
-import {ajax} from "adajs";
+import { ajax } from "adajs";
 
 class File {
     constructor(filex, type) {
@@ -6,13 +6,13 @@ class File {
         this._uri = "";
         if (typeof filex === "string") {
             if (type) {
-                _file = new Blob([filex], {type: type});
+                _file = new Blob([filex], { type: type });
             } else {
                 this._url = filex;
                 _file = File.getBlobFromURI(filex);
             }
         } else if (Array.isArray(filex)) {
-            _file = new Blob(filex, {type: (type || "text/plain")});
+            _file = new Blob(filex, { type: (type || "text/plain") });
         }
         this.file = _file;
     }
@@ -23,7 +23,7 @@ class File {
             let parts = dataURL.split(',');
             let contentType = parts[0].split(':')[1];
             let raw = parts[1];
-            return new Blob([raw], {type: contentType});
+            return new Blob([raw], { type: contentType });
         }
         let parts = dataURL.split(BASE64_MARKER);
         let contentType = parts[0].split(':')[1];
@@ -33,7 +33,7 @@ class File {
         for (let i = 0; i < byteString.length; i++) {
             ia[i] = byteString.charCodeAt(i);
         }
-        return new Blob([ab], {type: contentType});
+        return new Blob([ab], { type: contentType });
     }
 
     static saveAs(blob, filename) {
@@ -50,62 +50,6 @@ class File {
         t.href = url;
         t.download = filename;
         t.dispatchEvent(event);
-    }
-
-    static uploadAsForm(option) {
-        let formdata = new FormData();
-        formdata.append((option.name || "file"), option.file);
-        for (let _p in option.data) {
-            formdata.append(_p, option.data[_p]);
-        }
-        return ajax({
-            url: option.url || null,
-            data: formdata,
-            method: "post",
-            dataType: "json",
-            timeout: option.timeout,
-            query: option.query,
-            headers: option.headers || {},
-            events: {
-                load: function (e) {
-                    let status = e.target.status;
-                    if ((status >= 200 && status < 300) || status === 304 || status === 0) {
-                        if (option.success) {
-                            let a = this.response.responseText;
-                            if (option.dataType === "json") {
-                                try {
-                                    a = window.JSON.parse(a);
-                                } catch (e) {
-                                    a = {};
-                                }
-                            }
-                            option.success(a);
-                        }
-                    } else {
-                        if (option.error)
-                            option.error(e);
-                    }
-                },
-                progress: function (e) {
-                    if (option.progress) {
-                        option.progress({
-                            total: e.total,
-                            loaded: e.loaded,
-                            percent: Math.round(e.loaded * 100 / e.total)
-                        });
-                    }
-                },
-                error: function (e) {
-                    if (option.error)
-                        option.error(e);
-                },
-                abort: function () {
-                    if (option.abort) {
-                        option.abort();
-                    }
-                }
-            }
-        });
     }
 
     isSame(file) {
@@ -311,11 +255,6 @@ class File {
 
     saveAs(filename) {
         File.saveAs(this.file, filename);
-    }
-
-    uploadAsForm(option) {
-        option.file = this.file;
-        return File.uploadAsForm(option);
     }
 }
 
