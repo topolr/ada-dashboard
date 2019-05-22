@@ -1,5 +1,5 @@
 import { view, View } from "adajs";
-import ToolService from "./state.js.js";
+import ToolService from "./state";
 
 @view({
     className: "table-tool",

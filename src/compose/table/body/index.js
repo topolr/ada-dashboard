@@ -1,5 +1,5 @@
 import { view, View, binder } from "adajs";
-import SimpleService from "./state.js.js";
+import SimpleService from "./state";
 
 @view({
     className: "table-simple",

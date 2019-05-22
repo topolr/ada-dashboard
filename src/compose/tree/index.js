@@ -1,5 +1,5 @@
 import { view, View, binder } from "adajs";
-import TreeService from "./state.js.js";
+import TreeService from "./state";
 
 @view({
     className: "tree",

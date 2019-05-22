@@ -1,5 +1,5 @@
 import { view, ViewGroup, handler } from "adajs";
-import TableService from "./state.js.js";
+import TableService from "./state";
 
 @view({
     className: "table",
