@@ -1,5 +1,5 @@
 import { view, View, binder } from "adajs";
-import HeadService from "./state.js";
+import HeadService from "./state.js.js";
 
 @view({
     className: "table-head",

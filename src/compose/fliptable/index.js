@@ -1,5 +1,5 @@
 import { view, ViewGroup, binder } from "adajs";
-import FliptableService from "./state.js";
+import FliptableService from "./state.js.js";
 
 @view({
     className: "fliptable",

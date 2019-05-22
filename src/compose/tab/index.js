@@ -1,5 +1,5 @@
 import {view, ViewGroup, binder} from "adajs";
-import TabService from "./state.js";
+import TabService from "./state.js.js";
 
 @view({
 	className: "tab",

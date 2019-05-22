@@ -1,6 +1,6 @@
-import {view, View, binder} from "adajs";
-import {Sprite, Scene} from "../displayer";
-import File from "../file";
+import { view, View, binder } from "adajs";
+import { Sprite, Scene } from "../../lib/displayer";
+import File from "../../lib/file";
 import PhotocutterService from "./state";
 
 class Cutter {
@@ -315,7 +315,7 @@ class Photocutter extends View {
 	}
 
 	@binder("change")
-	change({e}) {
+	change({ e }) {
 		let files = e.target.files || e.dataTransfer.files;
 		new File(files[0]).getImageElement().then(image => {
 			this.cutter.setImage(image);

@@ -1,5 +1,5 @@
 import { view, View, binder } from "adajs";
-import CheckboxService from "./state.js";
+import CheckboxService from "./state.js.js";
 
 @view({
     className: "table-checkbox",

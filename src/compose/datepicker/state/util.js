@@ -1,6 +1,6 @@
-import leftIcon from "./../icons/left.icon";
-import rightIcon from "./../icons/right.icon";
-import backIcon from "./../icons/back.icon";
+import leftIcon from "../icons/left.icon";
+import rightIcon from "../icons/right.icon";
+import backIcon from "../icons/back.icon";
 
 const util = {
     getDate(str) {
