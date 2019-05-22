@@ -16,6 +16,7 @@
     bottom: 35px;
     box-sizing: border-box;
     border-bottom: 1px solid $primary-base;
+    background: rgba($primary-base-rgb, 0.2);
   }
   .foot {
     position: absolute;
