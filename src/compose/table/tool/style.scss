@@ -7,13 +7,13 @@
   right: 0;
   bottom: 0;
   .head {
-    border-bottom: 1px solid $c100;
+    border-bottom: 1px solid $primary-base;
     text-align: center;
     &.right {
-      border-left: 1px solid $c100;
+      border-left: 1px solid $primary-base;
     }
     &.left {
-      border-right: 1px solid $c100;
+      border-right: 1px solid $primary-base;
     }
   }
   .list {
@@ -25,35 +25,36 @@
     .row {
       line-height: 30px;
       white-space: nowrap;
-      border-bottom: 1px solid $c100;
+      border-bottom: 1px solid $primary-base;
       .cols {
         font-size: 16px;
         display: inline-block;
         vertical-align: top;
         text-align: center;
-        border-right: 1px solid $c100;
+        border-right: 1px solid $primary-base;
+        color: $secondary-base;
         &:hover {
-          background: $c100;
+          background: $primary-dark;
         }
         &:last-child {
           border-right: 0;
         }
       }
       &:nth-child(even) {
-        background: $base;
+        background: rgba($primary-base-rgb, 0.4);
       }
       &.checked {
-        background: $c200;
+        background: rgba($primary-base-rgb, 0.8);
       }
     }
     &.right {
       .row {
-        border-left: 1px solid $c100;
+        border-left: 1px solid $primary-base;
       }
     }
     &.left {
       .row {
-        border-right: 1px solid $c100;
+        border-right: 1px solid $primary-base;
       }
     }
   }

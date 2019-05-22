@@ -5,9 +5,9 @@
   .row {
     line-height: 30px;
     white-space: nowrap;
-    border-bottom: 1px solid $c100;
+    border-bottom: 1px solid $primary-base;
     .cols {
-      border-right: 1px solid $c100;
+      border-right: 1px solid $primary-base;
       padding: 0 10px 0 10px;
       display: inline-block;
       vertical-align: top;
@@ -21,10 +21,10 @@
       }
     }
     &:nth-child(even) {
-      background: $base;
+      background: rgba($primary-base-rgb, 0.4);
     }
-    &.checked{
-      background:$c200;
+    &.checked {
+      background: rgba($primary-base-rgb, 0.8);
     }
   }
 }

@@ -7,9 +7,9 @@
   bottom: 0;
   .head {
     .cols {
-      border-bottom: 1px solid $c100;
+      border-bottom: 1px solid $primary-base;
       text-align: center;
-      border-right: 1px solid $c100;
+      border-right: 1px solid $primary-base;
       font-size: 16px;
     }
   }
@@ -20,14 +20,15 @@
     overflow: hidden;
     .cols {
       font-size: 16px;
-      border-right: 1px solid $c100;
+      border-right: 1px solid $primary-base;
       text-align: center;
-      border-bottom: 1px solid $c100;
+      border-bottom: 1px solid $primary-base;
+      color: $secondary-base;
       &:nth-child(even) {
-        background: $base;
+        background: rgba($primary-base-rgb, 0.4);
       }
-      &.checked{
-        background:$c200;
+      &.checked {
+        background: rgba($primary-base-rgb, 0.8);
       }
     }
   }

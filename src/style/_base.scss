@@ -1,10 +1,13 @@
-$base: var(--theme-base-color);
-$c100: var(--theme-100-color);
-$c200: var(--theme-200-color);
-$c300: var(--theme-300-color);
-$c400: var(--theme-400-color);
-$c500: var(--theme-500-color);
-$c600: var(--theme-600-color);
-$c700: var(--theme-700-color);
-$c800: var(--theme-800-color);
-$c900: var(--theme-900-color);
+$primary-base: var(--primary-base);
+$primary-light: var(--primary-light);
+$primary-dark: var(--primary-dark);
+$secondary-base: var(--secondary-base);
+$secondary-light: var(--secondary-light);
+$secondary-dark: var(--secondary-dark);
+
+$primary-base-rgb: var(--primary-base-rgb);
+$primary-light-rgb: var(--primary-light-rgb);
+$primary-dark-rgb: var(--primary-dark-rgb);
+$secondary-base-rgb: var(--secondary-base-rgb);
+$secondary-light-rgb: var(--secondary-light-rgb);
+$secondary-dark-rgb: var(--secondary-dark-rgb);

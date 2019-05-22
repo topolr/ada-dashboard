@@ -2,12 +2,12 @@
 
 .table-head {
   line-height: 35px;
-  border-bottom: 1px solid $c100;
+  border-bottom: 1px solid $primary-base;
   white-space: nowrap;
   float: left;
 
   .cols {
-    border-right: 1px solid $c100;
+    border-right: 1px solid $primary-base;
     padding: 0 10px 0 10px;
     display: inline-block;
     vertical-align: top;
