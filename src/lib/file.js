@@ -1,5 +1,3 @@
-import { ajax } from "adajs";
-
 class File {
     constructor(filex, type) {
         let _file = filex;

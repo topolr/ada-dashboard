@@ -44,7 +44,7 @@ let dataURItoBlob = function (dataURL) {
         let parts = dataURL.split(',');
         let contentType = parts[0].split(':')[1];
         let raw = parts[1];
-        return new Blob([raw], {type: contentType});
+        return new Blob([raw], { type: contentType });
     }
     let parts = dataURL.split(BASE64_MARKER);
     let contentType = parts[0].split(':')[1];
@@ -54,7 +54,7 @@ let dataURItoBlob = function (dataURL) {
     for (let i = 0; i < byteString.length; i++) {
         ia[i] = byteString.charCodeAt(i);
     }
-    return new Blob([ab], {type: contentType});
+    return new Blob([ab], { type: contentType });
 };
 
 class event {
@@ -585,7 +585,7 @@ class Scene {
         };
         Object.assign(ops, option);
         let domInfo = ops.dom.getBoundingClientRect();
-        let info = {left: 0, top: 0}, _a = ops.dom;
+        let info = { left: 0, top: 0 }, _a = ops.dom;
         while (_a) {
             info.left = info.left + _a.offsetLeft;
             info.top = info.top + _a.offsetTop;
@@ -649,4 +649,4 @@ class Scene {
         }
     }
 }
-export  {Sprite, Scene};
+export { Sprite, Scene };
