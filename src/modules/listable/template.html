@@ -1,13 +1,13 @@
 <div class="header">
     <div class="data">
-        {{list data.header as item}}
+        {{list data._header as item}}
         <div class="item" style="width:{{ item.width }}%">{{ item.title }}</div>
         {{/list}}
     </div>
     <div class="tools" style="width:{{ data.tools.length*35 }}px"></div>
 </div>
 <div class="body">
-    {{list data.body as items}}
+    {{list data._body as items}}
     <div class="list">
         <div class="data">
             <div class="items">

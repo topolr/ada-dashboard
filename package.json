@@ -48,6 +48,6 @@
     "uglifycss": "0.0.29"
   },
   "dependencies": {
-    "adajs": "^3.0.0-beta.43"
+    "adajs": "^3.0.0-beta.46"
   }
 }
