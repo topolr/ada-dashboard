@@ -1,0 +1,19 @@
+<div class="head">
+    <div class="btn"><i class=":ada-dashboard-note_add"></i></div>
+    <div class="btn"><i class=":ada-dashboard-playlist_add"></i></div>
+    <div class="btn"><i class=":ada-dashboard-refresh"></i></div>
+    <div class="btn" onclick="{{ closeAll() }}"><i class=":ada-dashboard-clear_all"></i></div>
+</div>
+<div class="body">
+    <div class="content">
+        <tree @parameter="{{ {list:data.list} }}"/>
+    </div>
+    <div class="crumbs">
+        {{list data.crumbs as item index}}
+        <div class="crumb">{{ item.name }}</div>
+        {{if index!==data.crumbs.length-1}}
+            <div class="arrow"><i class=":ada-dashboard-keyboard_arrow_right"></i></div>
+        {{/if}}
+        {{/list}}
+    </div>
+</div>

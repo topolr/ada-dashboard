@@ -35,6 +35,7 @@ class FliptableService extends Service {
 				page: current.currentPage,
 				size: current.pageSize
 			})).then(({ data }) => {
+				console.log(data);
 				let { total, list } = data;
 				current.data = list;
 				current.totalPage = total;

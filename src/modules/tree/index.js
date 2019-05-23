@@ -1,5 +1,6 @@
-import { view, View, binder } from "adajs";
+import { view, View, binder, subscribe } from "adajs";
 import TreeService from "./state";
+import eventDispatcher from './../../lib/dispatcher';
 
 @view({
     className: "tree",
@@ -10,6 +11,22 @@ import TreeService from "./state";
     }
 })
 class Tree extends View {
+    onready() {
+        eventDispatcher.observe(this);
+    }
+
+    onunload() {
+        eventDispatcher.unobserve(this);
+    }
+
+    @subscribe('click')
+    clickTree(e) {
+        if (e.target === this.getElement()) {
+            this.commit('unselect');
+            this.dispatchEvent('active', []);
+        }
+    }
+
     @binder("toggle")
     toggle({ item }) {
         this.commit("toggle", item);
@@ -28,6 +45,11 @@ class Tree extends View {
     @binder("active")
     active({ item }) {
         this.commit('active', item);
+        this.dispatchEvent('active', this.getDataSet().getComputeData('crumb', item));
+    }
+
+    closeAll() {
+        this.commit('closeall');
     }
 
     fns() {
@@ -35,14 +57,6 @@ class Tree extends View {
             getItems(list, map) {
                 let t = list.map(a => map[a]);
                 return t;
-            }
-        }
-    }
-
-    directives() {
-        return {
-            test(a) {
-                return '<span>' + a + '</span>';
             }
         }
     }

@@ -1,0 +1,68 @@
+@import "./../../style/base";
+.compose-tree {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid $light-primary-color;
+  .head {
+    line-height: 35px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    text-align: right;
+    border-bottom: 1px solid $light-primary-color;
+    .btn {
+      width: 35px;
+      text-align: center;
+      display: inline-block;
+      vertical-align: top;
+    }
+  }
+  .body {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 35px;
+    .content {
+      position: absolute;
+      left: 0;
+      bottom: 25px;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+    .crumbs {
+      line-height: 25px;
+      padding: 0 10px 0 10px;
+      border-top: 1px solid $light-primary-color;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 2;
+      background: rgba($light-primary-color-rgb, 0.4);
+      height: 25px;
+      font-size: 12px;
+      cursor: default;
+      color: $secondary-text-color;
+      white-space: nowrap;
+      overflow: hidden;
+      .crumb {
+        display: inline-block;
+        vertical-align: top;
+        max-width: 60px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .arrow {
+        display: inline-block;
+        vertical-align: top;
+      }
+    }
+  }
+}

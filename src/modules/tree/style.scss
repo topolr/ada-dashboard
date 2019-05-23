@@ -14,35 +14,29 @@
     .item {
       > .head {
         line-height: 25px;
+        display: flex;
         > .arrow {
           width: 25px;
           height: 25px;
           text-align: center;
-          display: inline-block;
-          vertical-align: top;
           font-size: 16px;
           color:$primary-text-color;
         }
         > .noarrow {
           width: 25px;
           height: 25px;
-          display: inline-block;
-          vertical-align: top;
         }
         > .checkbox {
           width: 25px;
           height: 25px;
           text-align: center;
-          display: inline-block;
-          vertical-align: top;
           font-size: 16px;
           margin-left: -3px;
           color:$secondary-text-color;
         }
         > .name {
-          display: inline-block;
-          vertical-align: top;
           padding: 0 5px 0 0;
+          flex: 1;
         }
         &.active {
           > .name {

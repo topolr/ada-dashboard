@@ -1,4 +1,4 @@
-import { Service, util, action } from "adajs";
+import { Service, util, action, compute } from "adajs";
 
 class TreeService extends Service {
 
@@ -37,6 +37,28 @@ class TreeService extends Service {
 	active(current, a) {
 		Reflect.ownKeys(current.map).forEach(a => current.map[a].actived = false);
 		current.map[a.id].actived = !current.map[a.id].actived;
+	}
+
+	@action('closeall')
+	closeAll(current) {
+		Reflect.ownKeys(current.map).forEach(a => current.map[a].open = false);
+	}
+
+	@action('unselect')
+	unselect(current) {
+		Reflect.ownKeys(current.map).forEach(a => current.map[a].actived = false);
+	}
+
+	@compute('crumb')
+	getCrumb(current, item) {
+		let r = [];
+		let target = item.id;
+		while (target) {
+			target = current.map[target];
+			r.push(target.info);
+			target = target.parent;
+		}
+		return r;
 	}
 
 	sub(current, list, selected) {
