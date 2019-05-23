@@ -24,6 +24,13 @@ class ComposeTree extends ViewGroup {
     active({ data }) {
         this.commit('setcurmbs', data);
     }
+
+    @binder('refresh')
+    refresh() {
+        this.commit('showloading').then(() => {
+            this.commit('refresh');
+        });
+    }
 }
 
 export default ComposeTree;

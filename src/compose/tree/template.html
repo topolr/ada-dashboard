@@ -1,7 +1,7 @@
 <div class="head">
     <div class="btn"><i class=":ada-dashboard-note_add"></i></div>
     <div class="btn"><i class=":ada-dashboard-playlist_add"></i></div>
-    <div class="btn"><i class=":ada-dashboard-refresh"></i></div>
+    <div class="btn" onclick="{{ refresh() }}"><i class=":ada-dashboard-refresh"></i></div>
     <div class="btn" onclick="{{ closeAll() }}"><i class=":ada-dashboard-clear_all"></i></div>
 </div>
 <div class="body">
@@ -12,8 +12,13 @@
         {{list data.crumbs as item index}}
         <div class="crumb">{{ item.name }}</div>
         {{if index!==data.crumbs.length-1}}
-            <div class="arrow"><i class=":ada-dashboard-keyboard_arrow_right"></i></div>
+        <div class="arrow"><i class=":ada-dashboard-keyboard_arrow_right"></i></div>
         {{/if}}
         {{/list}}
     </div>
 </div>
+{{if data.loading}}
+<div class="loading">
+    <div class="content"><i class=":ada-dashboard-refresh :fa-spin"></i></div>
+</div>
+{{/if}}
