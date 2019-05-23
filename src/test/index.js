@@ -1,11 +1,12 @@
 import { view, BondViewGroup, binder } from "adajs";
 import TestService from "./state.js";
 import Table from '../compose/fliptable';
-import Tree from '../compose/tree';
+import Tree from '../compose/crumbtree';
 import Alert from '../modules/alert';
 import Message from '../modules/messagebox';
 import Loading from '../modules/loading';
 import Picker from '../modules/datepicker';
+import Listable from '../modules/listable';
 
 @view({
     className: "test",
@@ -17,7 +18,7 @@ import Picker from '../modules/datepicker';
 })
 class Test extends BondViewGroup {
     tags() {
-        return { xtable: Table, xtree: Tree, picker: Picker };
+        return { xtable: Table, xtree: Tree, picker: Picker, listable: Listable };
     }
 
     @binder('alert')

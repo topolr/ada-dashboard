@@ -2,7 +2,7 @@ import { view, ViewGroup, binder } from "adajs";
 import FliptableService from "./state";
 
 @view({
-    className: "fliptable",
+    className: "compose-fliptable",
     template: "./template.html",
     style: "./style.scss",
     dataset: {

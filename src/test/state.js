@@ -12,6 +12,19 @@ class TestService extends Service {
 					{ title: 'bb', action: 'bb', icon: "ada-dashboard-adjust" }
 				]
 			},
+			listtable: {
+				cols: [{ title: "Name", key: "name", width: 33.3333 }, { title: "Age", key: "age", width: 33.3333 }, { title: "BirthDay", key: "birthday", width: 33.3333 }],
+				tools: [
+					{ title: 'aa', action: 'aa', icon: "ada-dashboard-add_circle" },
+					{ title: 'bb', action: 'bb', icon: "ada-dashboard-adjust" }
+				],
+				list: [
+					{ name: 'aa', age: 'xx', birthday: '2020202020' },
+					{ name: 'aa', age: 'xx', birthday: '2020202020' },
+					{ name: 'aa', age: 'xx', birthday: '2020202020' },
+					{ name: 'aa', age: 'xx', birthday: '2020202020' }
+				]
+			},
 			tree: {
 				url: '/tree.json'
 			}

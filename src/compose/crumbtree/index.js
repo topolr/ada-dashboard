@@ -3,7 +3,7 @@ import TreeService from "./state.js";
 import Tree from './../../modules/tree';
 
 @view({
-    className: "compose-tree",
+    className: "compose-crumbtree",
     template: "./template.html",
     style: "./style.scss",
     dataset: {

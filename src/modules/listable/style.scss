@@ -1,0 +1,43 @@
+@import "./../../style/base";
+.modules-listable {
+  .header {
+    line-height: 40px;
+    display: flex;
+    border-bottom: 1px solid $default-primary-color;
+    .data {
+      flex: 1;
+      .item {
+        display: inline-block;
+        vertical-align: top;
+        &:last-child {
+          text-align: right;
+        }
+      }
+    }
+  }
+  .body {
+    .list {
+      display: flex;
+      line-height: 35px;
+      .data {
+        flex: 1;
+        .items {
+          .item {
+            display: inline-block;
+            vertical-align: top;
+            &:last-child {
+              text-align: right;
+            }
+          }
+        }
+      }
+      .tools {
+        .tool {
+          display: inline-block;
+          vertical-align: top;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
