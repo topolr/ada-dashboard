@@ -17,14 +17,16 @@
     {{list data.pagers as page}}
         {{if page.name==='prev'}}
         <div class="{{ page.disabled?'disabled btn':'btn' }}" onclick="{{ prev() }}">
-            <i class=":ada-dashboard-navigate_before"></i>
+            <div><i class=":ada-dashboard-navigate_before"></i></div>
         </div>
         {{elseif page.name==='next'}}
         <div class="{{ page.disabled?'disabled btn':'btn' }}" onclick="{{ next() }}">
-            <i class=":ada-dashboard-navigate_next"></i>
+            <div><i class=":ada-dashboard-navigate_next"></i></div>
         </div>
         {{elseif page.name==='btn'}}
-        <div class="{{ page.iscurrent?'current btn':'btn' }}" onclick="{{ gotoPage(page) }}">{{ page.num }}</div>
+        <div class="{{ page.iscurrent?'current btn':'btn' }}" onclick="{{ gotoPage(page) }}">
+            <div>{{ page.num }}</div>
+        </div>
         {{else}}
         <div class="{{ page.none?'hide dot':'dot' }}">...</div>
         {{/if}}

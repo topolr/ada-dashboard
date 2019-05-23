@@ -1,28 +1,31 @@
 :root {
-  --primary-base: #eeeeee;
-  --primary-light: #ffffff;
-  --primary-dark: #bcbcbc;
-  --secondary-base: #546e7a;
-  --secondary-light: #819ca9;
-  --secondary-dark: #29434e;
-  --primary-base-rgb: 238, 238, 238;
-  --primary-light-rgb: 255, 255, 255;
-  --primary-dark-rgb: 188, 188, 188;
-  --secondary-base-rbg: 84, 110, 122;
-  --secondary-light-rgb: 129, 156, 169;
-  --secondary-dark-rgb: 41, 67, 78;
+  --dark-primary-color: #00796b;
+  --default-primary-color: #009688;
+  --light-primary-color: #b2dfdb;
+  --text-primary-color: #ffffff;
+  --accent-color: #448aff;
+  --primary-text-color: #212121;
+  --secondary-text-color: #757575;
+  --divider-color: #bdbdbd;
+  --dark-primary-rgb-color: 0, 121, 107;
+  --default-primary-rgb-color: 0, 150, 136;
+  --light-primary-rgb-color: 178, 223, 219;
+  --text-primary-rgb-color: 255, 255, 255;
+  --accent-rgb-color: 68, 138, 255;
+  --primary-text-rgb-color: 33, 33, 33;
+  --secondary-text-rgb-color: 117, 117, 117;
+  --divider-rgb-color: 189, 189, 189;
 }
 
 html {
-  font: 400 14px / 1 "-apple-system", "BlinkMacSystemFont", "PingFang SC",
-    "Helvetica Neue", "STHeiti", "Microsoft Yahei", "Tahoma", "Simsun",
-    "sans-serif";
+  font: 400 14px / 1 "-apple-system", "BlinkMacSystemFont", "PingFang SC", "Helvetica Neue", "STHeiti",
+    "Microsoft Yahei", "Tahoma", "Simsun", "sans-serif";
 }
 html,
 body {
   margin: 0;
   padding: 0;
 }
-div{
+div {
   box-sizing: border-box;
 }

@@ -1,5 +1,5 @@
 <div class="head">
-    <div class="cols" style="width:{{ data.rowHeight }}px;line-height:{{ data.titleHeight }}px;" onclick="{{ checkAll() }}">
+    <div class="{{ data.isCheckAll?'cols checked':'cols' }}" style="width:{{ data.rowHeight }}px;line-height:{{ data.titleHeight }}px;" onclick="{{ checkAll() }}">
         {{if data.isCheckAll}}
         <i class=":ada-dashboard-check_box"></i>
         {{else}}

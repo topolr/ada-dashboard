@@ -6,11 +6,18 @@
   right: 0;
   bottom: 0;
   .head {
+    border-bottom: 1px solid $light-primary-color;
+    background: $text-primary-color;
+    position: relative;
+    z-index: 2;
     .cols {
-      border-bottom: 1px solid $primary-base;
       text-align: center;
-      border-right: 1px solid $primary-base;
+      border-right: 1px solid $light-primary-color;
       font-size: 16px;
+      color: $divider-color;
+      &.checked {
+        color: $primary-text-color;
+      }
     }
   }
   .list {
@@ -20,15 +27,19 @@
     overflow: hidden;
     .cols {
       font-size: 16px;
-      border-right: 1px solid $primary-base;
+      border-right: 1px solid $light-primary-color;
+      border-bottom: 1px solid $light-primary-color;
       text-align: center;
-      border-bottom: 1px solid $primary-base;
-      color: $secondary-base;
-      &:nth-child(even) {
-        background: rgba($primary-base-rgb, 0.4);
+      color: $divider-color;
+      // &:nth-child(even) {
+      //   background: rgba($light-primary-color-rgb, 0.2);
+      // }
+      &:nth-child(odd) {
+        background: $text-primary-color;
       }
       &.checked {
-        background: rgba($primary-base-rgb, 0.8);
+        background: rgba($light-primary-color-rgb, 0.5);
+        color: $primary-text-color;
       }
     }
   }

@@ -7,13 +7,16 @@
   right: 0;
   bottom: 0;
   .head {
-    border-bottom: 1px solid $primary-base;
+    border-bottom: 1px solid $light-primary-color;
+    background: $text-primary-color;
     text-align: center;
+    position: relative;
+    z-index: 2;
     &.right {
-      border-left: 1px solid $primary-base;
+      border-left: 1px solid $light-primary-color;
     }
     &.left {
-      border-right: 1px solid $primary-base;
+      border-right: 1px solid $light-primary-color;
     }
   }
   .list {
@@ -25,36 +28,35 @@
     .row {
       line-height: 30px;
       white-space: nowrap;
-      border-bottom: 1px solid $primary-base;
+      border-bottom: 1px solid $light-primary-color;
       .cols {
         font-size: 16px;
         display: inline-block;
         vertical-align: top;
         text-align: center;
-        border-right: 1px solid $primary-base;
-        color: $secondary-base;
-        &:hover {
-          background: $primary-dark;
-        }
+        border-right: 1px solid $light-primary-color;
         &:last-child {
           border-right: 0;
         }
       }
-      &:nth-child(even) {
-        background: rgba($primary-base-rgb, 0.4);
+      // &:nth-child(even) {
+      //   background: rgba($light-primary-color-rgb, 0.2);
+      // }
+      &:nth-child(odd) {
+        background: $text-primary-color;
       }
       &.checked {
-        background: rgba($primary-base-rgb, 0.8);
+        background: rgba($light-primary-color-rgb, 0.5);
       }
     }
     &.right {
       .row {
-        border-left: 1px solid $primary-base;
+        border-left: 1px solid $light-primary-color;
       }
     }
     &.left {
       .row {
-        border-right: 1px solid $primary-base;
+        border-right: 1px solid $light-primary-color;
       }
     }
   }

@@ -1,5 +1,5 @@
 import { Service, action } from "adajs";
-import Head from './head';
+import Head from './header';
 import Body from './body';
 import Tool from './tool';
 import Checkbox from './checkbox';

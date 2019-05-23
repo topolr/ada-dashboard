@@ -15,31 +15,41 @@
     right: 0;
     bottom: 35px;
     box-sizing: border-box;
-    border-bottom: 1px solid $primary-base;
-    background: rgba($primary-base-rgb, 0.2);
+    border-bottom: 1px solid $light-primary-color;
+    background: rgba($light-primary-color-rgb, 0.2);
   }
   .foot {
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
-    white-space: normal;
+    white-space: nowrap;
     cursor: default;
     z-index: 99;
     box-sizing: border-box;
-    border: 1px solid $primary-base;
+    border: 1px solid $light-primary-color;
     border-top: 0;
     .btn,
     .dot {
-      line-height: 35px;
       display: inline-block;
       vertical-align: top;
-      padding: 0 10px 0 10px;
+      padding: 6px;
+      font-size: 12px;
+      div {
+        width: 22px;
+        line-height: 22px;
+        text-align: center;
+        border-radius: 50%;
+      }
       &.disabled {
-        color: $primary-base;
+        color: $light-primary-color;
       }
       &.current {
-        color: $primary-dark;
+        color: $primary-text-color;
+        div {
+          background: $accent-color;
+          color:$text-primary-color;
+        }
       }
     }
     .dot {

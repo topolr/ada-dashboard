@@ -2,13 +2,14 @@
 
 .table-simple {
   display: grid;
+  font-size: 12px;
+  // background:$text-primary-color;
   .row {
     line-height: 30px;
     white-space: nowrap;
-    border-bottom: 1px solid $primary-base;
-    background: $primary-light;
+    border-bottom: 1px solid $light-primary-color;
     .cols {
-      border-right: 1px solid $primary-base;
+      border-right: 1px solid $light-primary-color;
       padding: 0 10px 0 10px;
       display: inline-block;
       vertical-align: top;
@@ -21,11 +22,14 @@
         border-right: 0;
       }
     }
-    &:nth-child(even) {
-      background: rgba($primary-base-rgb, 0.4);
+    // &:nth-child(even) {
+    //   background: rgba($light-primary-color-rgb, 0.2);
+    // }
+    &:nth-child(odd) {
+      background:$text-primary-color;
     }
     &.checked {
-      background: rgba($primary-base-rgb, 0.8);
+      background: rgba($light-primary-color-rgb, 0.5);
     }
   }
 }

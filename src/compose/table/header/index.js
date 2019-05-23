@@ -2,7 +2,7 @@ import { view, View, binder } from "adajs";
 import HeadService from "./state";
 
 @view({
-    className: "table-head",
+    className: "table-header",
     template: "./template.html",
     style: "./style.scss",
     dataset: {
