@@ -1,5 +1,5 @@
 import { Service, action } from "adajs";
-import Table from './../table';
+import Table from '../../modules/table';
 
 class FliptableService extends Service {
 	defaultData() {

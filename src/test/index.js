@@ -1,11 +1,11 @@
 import { view, BondViewGroup, binder } from "adajs";
 import TestService from "./state.js";
-import Table from './../compose/fliptable';
-import Tree from './../compose/tree';
-import Alert from './../compose/alert';
-import Message from './../compose/messagebox';
-import Loading from './../compose/loading';
-import Picker from './../compose/datepicker';
+import Table from '../compose/flip';
+import Tree from '../modules/tree';
+import Alert from '../modules/alert';
+import Message from '../modules/messagebox';
+import Loading from '../modules/loading';
+import Picker from '../modules/datepicker';
 
 @view({
     className: "test",

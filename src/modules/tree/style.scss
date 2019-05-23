@@ -2,7 +2,6 @@
 .tree {
   font-size: 13px;
   cursor: default;
-  background: #eeeeee;
   position: absolute;
   left: 0;
   top: 0;
@@ -10,6 +9,7 @@
   bottom: 0;
   padding: 10px;
   overflow: auto;
+  background: rgba($light-primary-color-rgb, 0.2);
   .block {
     .item {
       > .head {
@@ -21,6 +21,7 @@
           display: inline-block;
           vertical-align: top;
           font-size: 16px;
+          color:$primary-text-color;
         }
         > .noarrow {
           width: 25px;
@@ -36,6 +37,7 @@
           vertical-align: top;
           font-size: 16px;
           margin-left: -3px;
+          color:$secondary-text-color;
         }
         > .name {
           display: inline-block;
@@ -44,6 +46,7 @@
         }
         &.active {
           > .name {
+            color:$accent-color;
           }
         }
       }
