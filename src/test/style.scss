@@ -1,8 +1,19 @@
+@import './../style/base';
 .test {
   .container {
     height: 500px;
     position: relative;
     width: 300px;
     margin: 50px auto;
+  }
+  .btn {
+    line-height: 35px;
+    padding: 0 20px 0 20px;
+    display: inline-block;
+    margin: 10px;
+    background:$default-primary-color;
+    color:$text-primary-color;
+    border-radius: 5px;
+    cursor: default;
   }
 }
