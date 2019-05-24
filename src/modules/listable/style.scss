@@ -1,5 +1,6 @@
 @import "./../../style/base";
 .modules-listable {
+  font-size: 12px;
   .header {
     line-height: 40px;
     display: flex;
@@ -9,6 +10,9 @@
       .item {
         display: inline-block;
         vertical-align: top;
+        &:first-child {
+          padding-left: 10px;
+        }
         &:last-child {
           text-align: right;
         }
@@ -25,6 +29,12 @@
           .item {
             display: inline-block;
             vertical-align: top;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            &:first-child {
+              padding-left: 10px;
+            }
             &:last-child {
               text-align: right;
             }
@@ -37,6 +47,9 @@
           vertical-align: top;
           text-align: center;
         }
+      }
+      &:nth-child(even) {
+        background: rgba($light-primary-color-rgb, 0.2);
       }
     }
   }
