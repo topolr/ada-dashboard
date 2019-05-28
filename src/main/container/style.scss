@@ -1,4 +1,5 @@
 @import "./../../style/base";
+
 .main-container {
   position: absolute;
   left: 0;
@@ -10,31 +11,47 @@
     left: 0;
     top: 0;
     bottom: 0;
-    width: 200px;
+    width: 240px;
     z-index: 1;
+    background: $primary-text-color;
     .head {
-      height: 50px;
-      border-bottom: 1px solid $light-primary-color;
       position: absolute;
       left: 0;
       top: 0;
       right: 0;
       z-index: 3;
+      display: flex;
+      padding: 10px;
+      // border-bottom: 1px solid rgba($secondary-text-color-rgb,.5);
+      .image {
+        height: 40px;
+        background-image: url("./images/logo2.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: left top;
+        width: 40px;
+      }
+      .name {
+        line-height: 40px;
+        flex: 1;
+        color: $text-primary-color;
+        font-size: 20px;
+        padding: 0 0 0 10px;
+      }
     }
     .body {
       position: absolute;
-      top: 50px;
+      top: 70px;
       left: 0;
       right: 0;
-      bottom: 30px;
+      bottom: 25px;
       z-index: 1;
     }
     .foot {
       position: absolute;
       left: 0;
       right: 0;
-      line-height: 30px;
-      border-top: 1px solid $light-primary-color;
+      line-height: 25px;
       z-index: 2;
     }
   }
@@ -43,26 +60,36 @@
     left: 0;
     top: 0;
     bottom: 0;
-    left: 200px;
+    left: 240px;
     right: 0;
     z-index: 2;
     border-left: 1px solid $light-primary-color;
     .head {
-      height: 50px;
+      height: 40px;
       border-bottom: 1px solid $light-primary-color;
       position: absolute;
       left: 0;
       top: 0;
       right: 0;
       z-index: 2;
+      .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: 40px;
+        text-align: center;
+        width:40px;
+        font-size: 17px;
+      }
     }
     .body {
       position: absolute;
       left: 0;
-      top: 50px;
+      top: 40px;
       right: 0;
       bottom: 0;
       z-index: 1;
+      background: rgba($light-primary-color-rgb, 0.2);
     }
   }
 }

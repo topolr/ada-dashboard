@@ -1,0 +1,18 @@
+{
+    "code":"0",
+    "data":[
+        {"name":"menu1","icon":"ada-dashboard-low_priority","path":"","sub":[
+            {"name":"submenu1","icon":"ada-dashboard-motorcycle","path":""},
+            {"name":"submenu2","icon":"ada-dashboard-movie_creation","path":""},
+            {"name":"submenu3","icon":"ada-dashboard-multiline_chart","path":""}
+        ]},
+        {"name":"menu2","icon":"ada-dashboard-markunread_mailbox","path":""},
+        {"name":"menu3","icon":"ada-dashboard-mail_outline","path":""},
+        {"name":"menu4","icon":"ada-dashboard-mic","path":"","sub":[
+            {"name":"submenu1","icon":"ada-dashboard-motorcycle","path":""},
+            {"name":"submenu2","icon":"ada-dashboard-movie_creation","path":""},
+            {"name":"submenu3","icon":"ada-dashboard-multiline_chart","path":""}
+        ]},
+        {"name":"menu5","icon":"ada-dashboard-memory","path":""}
+    ]
+}

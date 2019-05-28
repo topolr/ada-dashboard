@@ -1,0 +1,45 @@
+@import "./../../style/base";
+.main-menu {
+  color: rgba($text-primary-color-rgb, 0.5);
+  .item {
+    font-size: 12px;
+    .menu {
+      line-height: 35px;
+      display: flex;
+      .icon {
+        width: 45px;
+        text-align: center;
+        font-size: 15px;
+      }
+      .name {
+        flex: 1;
+      }
+      .arrow {
+        width: 35px;
+        text-align: center;
+      }
+    }
+    .sub {
+      line-height: 30px;
+      padding-left: 45px;
+      display: none;
+    }
+    &:hover {
+      color: rgba($text-primary-color-rgb, 1);
+      background: rgba($primary-text-color-rgb, 0.4);
+    }
+    &.open {
+      .menu {
+        color: rgba($text-primary-color-rgb, 1);
+        .arrow {
+          width: 35px;
+          text-align: center;
+          transform: rotate(180deg);
+        }
+      }
+      .sub {
+        display: block;
+      }
+    }
+  }
+}

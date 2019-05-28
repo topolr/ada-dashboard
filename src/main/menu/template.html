@@ -1,0 +1,18 @@
+{{list data._list as item}}
+<div class="{{ item._open?'item open':'item' }}">
+    <div class="menu" onclick="{{ active(item) }}">
+        <div class="icon"><i class="{{ ':'+item.icon }}"></i></div>
+        <div class="name">{{ item.name }}</div>
+        {{if item.sub&&item.sub.length>0}}
+        <div class="arrow"><i class=":ada-dashboard-keyboard_arrow_down"></i></div>
+        {{/if}}
+    </div>
+    {{if item.sub&&item.sub.length>0}}
+        <div class="sub">
+        {{list item.sub as sub}}
+            <div class="subitem">{{ sub.name }}</div>
+        {{/list}}
+        </div>
+    {{/if}}
+</div>
+{{/list}}

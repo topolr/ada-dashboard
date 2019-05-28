@@ -2,7 +2,14 @@ import {Service} from "adajs";
 
 class ContainerService extends Service{
 	defaultData(){
-		return {};
+		return {
+			tree:{
+				url: '/tree.json'
+			},
+			menu:{
+				url:'/menu.json'
+			}
+		};
 	}
 
 	onupdate(current,data){
