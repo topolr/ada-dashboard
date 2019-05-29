@@ -8,6 +8,7 @@ import Container from './main/container';
 class Root extends StaticViewGroup {
     onready() {
         this.addChild(Container);
+        // this.addChild(Login);
     }
 }
 

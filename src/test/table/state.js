@@ -5,7 +5,7 @@ class TableService extends Service {
 		return {
 			table: {
 				url: '/table.json',
-				cols: [{ title: "Name", key: "name", width: 100 }, { title: "Age", key: "age", width: 100 }, { title: "BirthDay", key: "birthday", width: 100 }],
+				cols: [{ title: "Name", key: "name", width: 200 }, { title: "Age", key: "age", width: 300 }, { title: "BirthDay", key: "birthday", width: 300 }],
 				toolPosition: 'right',
 				tools: [
 					{ title: 'aa', action: 'aa', icon: "ada-dashboard-add_circle" },
