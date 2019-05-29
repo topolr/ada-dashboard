@@ -1,0 +1,66 @@
+@import "./../../style/base";
+.main-login {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    bottom: 0;
+    background: rgba($primary-text-color-rgb, 1);
+    .logo {
+      height: 50px;
+      background-image: url("./images/logo2.png");
+      background-repeat: no-repeat;
+      background-position: top left;
+      background-size: contain;
+      position: absolute;
+      left: 50px;
+      top: 50px;
+      width: 50px;
+    }
+  }
+  .right {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    .box {
+      margin: 200px 0 0 100px;
+      width: 400px;
+      .title {
+        line-height: 80px;
+        font-size: 25px;
+      }
+      .field {
+        margin-bottom: 20px;
+        .label {
+          line-height: 30px;
+        }
+        .input {
+          input {
+            border: 1px solid $default-primary-color;
+            height: 40px;
+            padding: 0 10px 0 10px;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            outline: none;
+          }
+        }
+      }
+      .btn {
+        line-height: 45px;
+        text-align: center;
+        background: $dark-primary-color;
+        color: $text-primary-color;
+        border-radius: 5px;
+      }
+    }
+  }
+}

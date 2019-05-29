@@ -1,8 +1,8 @@
 import { root, StaticViewGroup } from 'adajs';
 import './style/index.css';
 import './style/style.css';
-import Test from './test';
 import Container from './main/container';
+// import Login from './main/login';
 
 @root()
 class Root extends StaticViewGroup {
