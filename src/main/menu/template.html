@@ -1,4 +1,4 @@
-{{list data._list as item}}
+{{list getItems(data.list,data.map) as item}}
 <div class="{{ item._open?'item open':'item' }}">
     <div class="menu" onclick="{{ active(item) }}">
         <div class="icon"><i class="{{ ':'+item.icon }}"></i></div>
@@ -9,8 +9,8 @@
     </div>
     {{if item.sub&&item.sub.length>0}}
         <div class="sub">
-        {{list item.sub as sub}}
-            <div class="subitem">{{ sub.name }}</div>
+        {{list getItems(item.sub,data.map) as sub}}
+            <div class="{{ sub._active?'subitem active':'subitem' }}" onclick="{{ activesub(sub,item) }}">{{ sub.name }}</div>
         {{/list}}
         </div>
     {{/if}}

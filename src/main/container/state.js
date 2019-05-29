@@ -1,19 +1,93 @@
-import {Service} from "adajs";
+import { Service, action, util } from "adajs";
+import Tabpage from './../tabpage';
 
-class ContainerService extends Service{
-	defaultData(){
+class ContainerService extends Service {
+	defaultData() {
 		return {
-			tree:{
-				url: '/tree.json'
-			},
-			menu:{
-				url:'/menu.json'
-			}
+			menuURL: '/menu.json',
+			_menuMap: {},
+			_menuList: [],
+			_crumbs: [],
+			_open: false,
+			_currentPageType: null,
+			_currentPageOption: null
 		};
 	}
 
-	onupdate(current,data){
-		Object.assign(current,data);
+	onupdate(current, data) {
+		this.assign(current, data);
+		current._menuMap = {};
+		return this.request.get(current.menuURL).then(({ data = [] }) => {
+			data.unshift({
+				name: 'HOME',
+				icon: "ada-dashboard-directions",
+				path: '/',
+				page: 'test/table/index.js'
+			});
+			current._menuList = this.setMenu(current, data);
+		});
+	}
+
+	setMenu(current, list, parent = '') {
+		return list.map(item => {
+			let id = util.randomid();
+			item._id = id;
+			item._parent = parent;
+			item._open = false;
+			item._active = false;
+			current._menuMap[id] = item;
+			if (item.sub) {
+				item.sub = this.setMenu(current, item.sub, id);
+			}
+			return id;
+		});
+	}
+
+	@action('toggleWin')
+	toggleWin(current) {
+		current._open = !current._open;
+	}
+
+	@action('flip')
+	flip(current, item) {
+		Reflect.ownKeys(current._menuMap).forEach(a => {
+			current._menuMap[a]._active = false;
+			current._menuMap[a]._open = false;
+		});
+		let target = current._menuMap[item._id], crumbs = [];
+		while (target) {
+			target._open = true;
+			target._active = true;
+			crumbs.push(target);
+			target = current._menuMap[target._parent];
+		}
+		if (crumbs.length > 2) {
+			crumbs.shift();
+		}
+		current._crumbs = crumbs.reverse();
+		let page = null;
+		if (crumbs.length === 1) {
+			page = crumbs[0].page;
+			current._currentPageOption = {};
+		} else if (crumbs.length === 2) {
+			if (crumbs[1].sub && crumbs[1].sub.length > 0) {
+				current._currentPageType = Tabpage;
+				let tabs = crumbs[1].sub.map(a => current._menuMap[a]);
+				let target = tabs.find(tab => tab._active === true);
+				if (!target) {
+					tabs[0]._active = true;
+				}
+				current._currentPageOption = { tabs };
+			} else {
+				page = crumbs[1].page;
+				current._currentPageOption = {};
+			}
+		}
+		if (page) {
+			return import(page).then(type => {
+				current._currentPageType = type;
+			});
+		}
 	}
 }
 

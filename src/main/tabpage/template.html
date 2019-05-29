@@ -1,0 +1,14 @@
+<div class="tabs">
+{{list data._tabs as tab}}
+<div class="{{ tab.active?'tab active':'tab' }}" onclick="{{ active(tab) }}">{{ tab.name }}</div>
+{{/list}}
+</div>
+<div class="contents">
+    {{list data._tabs as tab}}
+    <div class="{{ tab.active?'content active':'content' }}">
+        {{if tab.loaded}}
+        <module @type="{{ tab.type }}"/>
+        {{/if}}
+    </div>
+    {{/list}}
+</div>

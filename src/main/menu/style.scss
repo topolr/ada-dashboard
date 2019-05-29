@@ -1,11 +1,13 @@
 @import "./../../style/base";
 .main-menu {
   color: rgba($text-primary-color-rgb, 0.5);
+  cursor: default;
   .item {
     font-size: 12px;
     .menu {
       line-height: 35px;
       display: flex;
+      transition: all ease-in-out .3s;
       .icon {
         width: 45px;
         text-align: center;
@@ -18,19 +20,31 @@
         width: 35px;
         text-align: center;
       }
+      &:hover {
+        color: rgba($text-primary-color-rgb, 1);
+        background: rgba($primary-text-color-rgb, 0.4);
+      }
     }
     .sub {
       line-height: 30px;
       padding-left: 45px;
       display: none;
-    }
-    &:hover {
-      color: rgba($text-primary-color-rgb, 1);
-      background: rgba($primary-text-color-rgb, 0.4);
+      background: rgba($primary-text-color-rgb, 0.8);
+      .subitem {
+        transition: all ease-in-out .3s;
+        &:hover {
+          color: rgba($divider-color-rgb, 0.5);
+        }
+        &.active {
+          color: rgba($text-primary-color-rgb, 0.7);
+          background: rgba($primary-text-color-rgb, 1);
+        }
+      }
     }
     &.open {
       .menu {
         color: rgba($text-primary-color-rgb, 1);
+        background: rgba($primary-text-color-rgb, 0.4);
         .arrow {
           width: 35px;
           text-align: center;

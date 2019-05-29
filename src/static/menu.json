@@ -1,18 +1,22 @@
 {
     "code":"0",
     "data":[
-        {"name":"menu1","icon":"ada-dashboard-low_priority","path":"","sub":[
-            {"name":"submenu1","icon":"ada-dashboard-motorcycle","path":""},
-            {"name":"submenu2","icon":"ada-dashboard-movie_creation","path":""},
-            {"name":"submenu3","icon":"ada-dashboard-multiline_chart","path":""}
+        {"name":"menu1","icon":"ada-dashboard-low_priority","path":"/menu1","page":"test/table/index.js","sub":[
+            {"name":"submenu1","icon":"ada-dashboard-motorcycle","path":"/menu1/submenu1","page":"test/table/index.js"},
+            {"name":"submenu2","icon":"ada-dashboard-movie_creation","path":"/menu1/submenu2","page":"test/table/index.js"},
+            {"name":"submenu3","icon":"ada-dashboard-multiline_chart","path":"/menu1/submenu3","page":"test/table/index.js","sub":[
+                {"name":"submenu11","icon":"ada-dashboard-motorcycle","path":"/menu1/submenu3/submenu11","page":"test/table/index.js"},
+                {"name":"submenu22","icon":"ada-dashboard-movie_creation","path":"/menu1/submenu3/submenu22","page":"test/table/index.js"},
+                {"name":"submenu33","icon":"ada-dashboard-multiline_chart","path":"/menu1/submenu3/submenu33","page":"test/table/index.js"}
+            ]}
         ]},
-        {"name":"menu2","icon":"ada-dashboard-markunread_mailbox","path":""},
-        {"name":"menu3","icon":"ada-dashboard-mail_outline","path":""},
-        {"name":"menu4","icon":"ada-dashboard-mic","path":"","sub":[
-            {"name":"submenu1","icon":"ada-dashboard-motorcycle","path":""},
-            {"name":"submenu2","icon":"ada-dashboard-movie_creation","path":""},
-            {"name":"submenu3","icon":"ada-dashboard-multiline_chart","path":""}
+        {"name":"menu2","icon":"ada-dashboard-markunread_mailbox","path":"/menu2","page":"test/table/index.js"},
+        {"name":"menu3","icon":"ada-dashboard-mail_outline","path":"/menu3","page":"test/table/index.js"},
+        {"name":"menu4","icon":"ada-dashboard-mic","path":"/menu4","page":"test/table/index.js","sub":[
+            {"name":"submenu1","icon":"ada-dashboard-motorcycle","path":"/menu4/submenu1/submenu11","page":"test/table/index.js"},
+            {"name":"submenu2","icon":"ada-dashboard-movie_creation","path":"/menu4/submenu2/submenu22","page":"test/table/index.js"},
+            {"name":"submenu3","icon":"ada-dashboard-multiline_chart","path":"/menu4/submenu3/submenu33","page":"test/table/index.js"}
         ]},
-        {"name":"menu5","icon":"ada-dashboard-memory","path":""}
+        {"name":"menu5","icon":"ada-dashboard-memory","path":"/menu5","page":"test/table/index.js"}
     ]
 }

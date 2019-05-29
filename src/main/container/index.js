@@ -1,7 +1,7 @@
-import { view, BondViewGroup } from "adajs";
+import { view, BondViewGroup, handler, binder } from "adajs";
 import ContainerService from "./state.js";
-import Tree from './../../compose/crumbtree';
 import Menu from './../../main/menu';
+import Router from './../../lib/router';
 
 @view({
     className: "main-container",
@@ -13,7 +13,29 @@ import Menu from './../../main/menu';
 })
 class Container extends BondViewGroup {
     tags() {
-        return { tree: Tree, menu: Menu }
+        return { menu: Menu }
+    }
+
+    onready() {
+        let _router = this.router = new Router(this.context);
+        let map = this.getCurrentState()._menuMap;
+        Reflect.ownKeys(map).forEach(key => {
+            let item = map[key];
+            _router.bind(item.path === "/" ? "/" : item.path, (e) => {
+                this.commit("flip", item);
+            });
+        });
+        this.router.open('/');
+    }
+
+    @binder('toggleWin')
+    toggleWin() {
+        this.commit('toggleWin');
+    }
+
+    @handler("gotoPage")
+    gotoPage({ data }) {
+        this.router.open(data.path);
     }
 }
 

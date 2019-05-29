@@ -4,7 +4,7 @@ let app = {
     sourcePath: "./src/",
     distPath: "./dist/",
     indexPath: "./dist/index.html",
-    entryPath: "./src/entries/",
+    entryPath: "./src/test/",
     main: "./src/root.js",
     staticPath: "./src/static",
     baseInfo: {
