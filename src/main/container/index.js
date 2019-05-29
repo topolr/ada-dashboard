@@ -25,7 +25,7 @@ class Container extends BondViewGroup {
                 this.commit("flip", item);
             });
         });
-        this.router.open('/');
+        this.router.run();
     }
 
     @binder('toggleWin')

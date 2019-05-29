@@ -19,6 +19,17 @@ let app = {
             { name: 'apple_mobile_web_app_capable', content: "yes" }
         ]
     },
+    indexPaths() {
+        let urls = [];
+        let set = (data) => {
+            data.forEach(a => {
+                urls.push(a.path);
+                set(a.sub || []);
+            });
+        }
+        set(require("./src/static/menu.json").data);
+        return urls;
+    },
     ssr: {
         urls: ["/"],
         output: "./dist2/"
