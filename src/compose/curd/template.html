@@ -1,1 +1,15 @@
-<div></div>
+<div class="btns">
+    {{list data.btns as btn}}
+    <div class="btn" onclick="{{ action(btn) }}"><i class="{{ ':'+btn.icon }}"></i></div>
+    {{/list}}
+</div>
+<div class="{{ data._currentRow?'table open':'table' }}">
+    <div class="left">
+        <module @type="{{ data.tableType }}" @parameter="{{ data.tableOption }}"/>
+    </div>
+    <div class="right">
+        {{list data._currentRow as row}}
+        <module @type="{{ row.type }}" @parameter="{{ row }}"/>
+        {{/list}}
+    </div>
+</div>

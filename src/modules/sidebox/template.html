@@ -1,0 +1,17 @@
+<div class="mask"></div>
+<div class="box">
+    <div class="title">
+        <div class="desc">{{ data.title }}</div>
+        <div class="remove" onclick="{{ close() }}"><i class=":ada-dashboard-close"></i></div>
+    </div>
+    <div class="body">
+        <module @type="{{ data.innerType }}" @parameter="{{ data.innerOption }}"/>
+    </div>
+    {{if data.btns.length>0}}
+    <div class="btns">
+        {{list data.btns as btn}}
+        <div class="btn">{{ btn.name }}</div>
+        {{/list}}
+    </div>
+    {{/if}}
+</div>

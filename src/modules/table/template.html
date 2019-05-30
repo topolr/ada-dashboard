@@ -2,44 +2,44 @@
 <div class="checkbox" style="width:{{ data.rowHeight }}px" data-find="checkbox">
     <@module @type="{{ data.checkboxType }}" @parameter="{{ 
         {
-            checks:data.checks,
+            checks:data._checks,
             rowHeight:data.rowHeight,
             titleHeight:data.titleHeight,
-            isCheckAll:data.isCheckAll
+            isCheckAll:data._isCheckAll
         } 
     }}"/>
 </div>
 {{/if}}
-<div class="content" style="{{ data.bodyPositionStyle }}">
+<div class="content" style="{{ data._bodyPositionStyle }}">
     <div class="head" data-find="head" style="line-height: {{ data.titleHeight }}px">
         <@module @type="{{ data.headType }}" @parameter="{{ 
             {
-                list:data.head,
+                list:data._head,
                 rowHeight:data.rowHeight,
                 titleHeight:data.titleHeight,
-                isCheckAll:data.isCheckAll
+                isCheckAll:data._isCheckAll
             } 
         }}"/>
     </div>
     <div class="body" style="top:{{ data.titleHeight }}px" data-find="body">
         <@module @type="{{ data.bodyType }}" @parameter="{{ 
             {
-                list:data.body,
+                list:data._body,
                 rowHeight:data.rowHeight,
                 titleHeight:data.titleHeight,
-                checks:data.checks
+                checks:data._checks
             } 
         }}"/>
     </div>
 </div>
 {{if data.tools.length>0}}
-<div class="{{ data.toolPosition==='left'?'tools left':'tools' }}" style="{{ data.toolPostionStyle }}" data-find="tool">
+<div class="{{ data.toolPosition==='left'?'tools left':'tools' }}" style="{{ data._toolPostionStyle }}" data-find="tool">
     <@module class="tool" @type="{{ data.toolType }}" @parameter="{{ 
         {
-            list:data.tool,
+            list:data._tool,
             height:data.titleHeight,
             position:data.toolPosition,
-            checks:data.checks
+            checks:data._checks
         } 
     }}"/>
 </div>

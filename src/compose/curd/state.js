@@ -1,4 +1,4 @@
-import { Service } from "adajs";
+import { Service, action } from "adajs";
 import Table from './../fliptable';
 
 class CurdService extends Service {
@@ -14,12 +14,25 @@ class CurdService extends Service {
 			addFields: [],
 			filterFields: [],
 			tableType: Table,
-			tableOption: {}
+			tableOption: {},
+			_currentRow: null
 		};
 	}
 
 	onupdate(current, data) {
 		Object.assign(current, data);
+	}
+
+	@action('show-detail')
+	showDetail(current, row) {
+		current._currentRow = current.detailFields.map(({ type, key, label }) => {
+			return {
+				type,
+				key,
+				label,
+				value: row[key] || ''
+			}
+		});
 	}
 }
 

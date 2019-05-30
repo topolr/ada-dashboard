@@ -1,6 +1,6 @@
 import { view, ViewGroup } from "adajs";
 import TableService from "./state.js";
-import Table from './../../compose/fliptable';
+import Table from './../../compose/curd';
 
 @view({
     className: "test-table",

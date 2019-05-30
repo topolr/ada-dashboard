@@ -11,8 +11,8 @@ import SimpleService from "./state";
 })
 class Simple extends View {
     @binder('checkRow')
-    checkRow({ index }) {
-        this.dispatchEvent('checkRow', { index });
+    checkRow({ index, row }) {
+        this.dispatchEvent('checkRow', { index, row });
     }
 }
 

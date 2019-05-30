@@ -22,6 +22,7 @@ class Table extends ViewGroup {
     @handler('checkRow')
     checkRow({ data }) {
         this.commit('checkRow', data.index);
+        this.dispatchEvent('rowClick', this.getCurrentState().data[data.index]);
     }
 
     @handler('checkAll')
