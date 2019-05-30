@@ -1,0 +1,40 @@
+.field-input {
+  margin-bottom: 10px;
+  .field {
+    .label {
+      line-height: 25px;
+      font-size: 12px;
+    }
+    .input {
+      border: 1px solid #D7D7D7;
+      border-radius: 5px;
+      background: white;
+      input {
+        height: 30px;
+        box-sizing: border-box;
+        border: 0;
+        padding: 0 5px 0 5px;
+        background: transparent;
+        width: 100%;
+        outline: none;
+      }
+    }
+    .desc {
+      line-height: 18px;
+      color: #555555;
+      font-size: 12px;
+      padding: 0 2px 0 2px;
+    }
+    .error-msg {
+      line-height: 18px;
+      color: #9a2011;
+      font-size: 12px;
+      padding: 0 2px 0 2px;
+    }
+    &.error {
+      .input {
+        border: 1px solid #9a2011;
+      }
+    }
+  }
+}

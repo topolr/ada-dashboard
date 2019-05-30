@@ -1,0 +1,40 @@
+.select {
+  margin-bottom: 10px;
+  .field {
+    .label {
+      line-height: 25px;
+      font-size: 12px;
+    }
+    .input {
+      background: white;
+      border: 1px solid #D7D7D7;
+      border-radius: 5px;
+      select {
+        box-sizing: border-box;
+        border: 0;
+        padding: 5px;
+        background: transparent;
+        width: 100%;
+        outline: none;
+        height: 30px;
+      }
+    }
+    .desc {
+      line-height: 18px;
+      color: #555555;
+      font-size: 12px;
+      padding: 0 2px 0 2px;
+    }
+    .error-msg {
+      line-height: 18px;
+      color: #9a2011;
+      font-size: 12px;
+      padding: 0 2px 0 2px;
+    }
+    &.error {
+      .input {
+        border: 1px solid #9a2011;
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.form {
+  padding: 10px;
+  .btns {
+    .btn {
+      line-height: 35px;
+      text-align: center;
+      margin-bottom: 10px;
+      background: #3D78A7;
+      color: white;
+      border-radius: 5px;
+      &:active {
+        background: #39628d;
+      }
+    }
+  }
+}

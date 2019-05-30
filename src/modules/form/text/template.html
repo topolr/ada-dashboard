@@ -1,0 +1,14 @@
+<div class="{{ data.error?'field error':'field' }}">
+    {{if data.label}}
+    <div class="label">{{ data.label }}</div>
+    {{/if}}
+    <div class="input">
+        <textarea data-find="input">{{ data.value }}</textarea>
+    </div>
+    {{if data.description}}
+    <div class="desc">{{ data.description }}</div>
+    {{/if}}
+    {{if data.error&&data.errorMsg}}
+    <div class="error-msg">{{ data.errorMsg }}</div>
+    {{/if}}
+</div>
