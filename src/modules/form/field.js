@@ -1,6 +1,6 @@
-import { ViewGroup } from "adajs";
+import { BondViewGroup } from "adajs";
 
-class BaseField extends ViewGroup {
+class BaseField extends BondViewGroup {
 	getName() {
 		return null;
 	}
