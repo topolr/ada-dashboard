@@ -23,6 +23,12 @@
       left: 0;
       top: 100%;
       z-index: 999;
+      display: none;
+    }
+    &.open {
+      .date {
+        display: block;
+      }
     }
   }
   .desc {

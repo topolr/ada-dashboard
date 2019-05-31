@@ -1,4 +1,4 @@
-import {handler, view, ViewGroup} from "adajs";
+import { handler, view, ViewGroup } from "adajs";
 import RangeGroupService from "./state/rangegroup";
 import RangePannel from "./rangepannel";
 import util from "./state/util";
@@ -26,7 +26,7 @@ class RangeGroup extends ViewGroup {
         this.hideBtns();
     }
 
-    hideBtns(){
+    hideBtns() {
         let left = this.getChildByName("left"), right = this.getChildByName("right");
         [...left.getElement().querySelectorAll(".datepannel-btn")].pop().style.display = "none";
         [...right.getElement().querySelectorAll(".datepannel-btn")].shift().style.display = "none";
@@ -36,7 +36,7 @@ class RangeGroup extends ViewGroup {
     @handler("change")
     change(e) {
         let date = new Date(`${e.data.current.year}/${e.data.current.month}/1 0:0:0`);
-        let {name} = this.getTheOtherPannel(e.target), current = "left";
+        let { name } = this.getTheOtherPannel(e.target), current = "left";
         if (name === "left") {
             current = "right";
         }
@@ -51,16 +51,21 @@ class RangeGroup extends ViewGroup {
 
     @handler("select")
     select(e) {
-        let {name} = this.getTheOtherPannel(e.target);
+        let { name } = this.getTheOtherPannel(e.target);
         this.commit("select", {
             left: this.getChildByName("left").getCurrentState(),
             right: this.getChildByName("right").getCurrentState(),
             target: name === "left" ? "right" : "left"
+        }).then(() => {
+            let a = this.getCurrentState().selectDates;
+            if (a.length === 2) {
+                this.dispatchEvent('date-selected', a);
+            }
         });
     }
 
     @handler("sethoverend")
-    setHoverEnd({target}) {
+    setHoverEnd({ target }) {
         this.commit("setrange", target.getCurrentState().hover);
     }
 
