@@ -1,7 +1,9 @@
+@import "./../../../style/base";
 .rangegroup {
     display: inline-block;
     white-space: nowrap;
-    box-shadow: 0 0 10px #d7d7d7;
+    box-shadow: 0 0 10px $divider-color;
+    background: $text-primary-color;
     .left {
         display: inline-block;
         vertical-align: top;
