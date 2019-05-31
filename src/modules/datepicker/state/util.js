@@ -60,7 +60,7 @@ const util = {
         } else {
             month = month - 1;
         }
-        return {year, month};
+        return { year, month };
     },
     getNextMonth(year, month) {
         if (month + 1 > 12) {
@@ -69,7 +69,7 @@ const util = {
         } else {
             month = month + 1;
         }
-        return {year, month};
+        return { year, month };
     },
     getQuarterStartMonth(nowMonth) {
         let quarterStartMonth = 0;
@@ -105,7 +105,7 @@ const util = {
         let date = util.getDate(`${year}/${month}/01 0:0:0`);
         let first = date.getDay() - 1;
         let prevs = [], nexts = [], currents = [];
-        let {year: prevYear, month: prevMonth} = util.getPrevMonth(year, month);
+        let { year: prevYear, month: prevMonth } = util.getPrevMonth(year, month);
         for (let i = first; i >= 0; i--) {
             prevs.push({
                 type: "prev",
@@ -128,7 +128,7 @@ const util = {
             });
         }
         let last = 42 - days - first + 1;
-        let {year: nextYear, month: nextMonth} = util.getNextMonth(year, month);
+        let { year: nextYear, month: nextMonth } = util.getNextMonth(year, month);
         for (let i = 1; i <= last; i++) {
             nexts.push({
                 type: "next",
@@ -192,6 +192,9 @@ const util = {
                         day.selected = time === start || time === end;
                         if (time === start) {
                             day.selectedStart = true;
+                            if (start === end) {
+                                day.selectedEnd = true;
+                            }
                         } else if (time === end) {
                             day.selectedEnd = true;
                         }
@@ -216,6 +219,9 @@ const util = {
                     // day.selected = time === start || time === end;
                     if (time === start) {
                         day.selectedStart = true;
+                        if (start === end) {
+                            day.selectedEnd = true;
+                        }
                     } else if (time === end) {
                         day.selectedEnd = true;
                     }
@@ -277,10 +283,10 @@ const util = {
             }
             mc++;
         }
-        result.pannel = {years, months};
+        result.pannel = { years, months };
         return result;
     },
-    getFinalPannelDates(dateObject, selectDates = [], offset = {before: null, after: null}, hover = {
+    getFinalPannelDates(dateObject, selectDates = [], offset = { before: null, after: null }, hover = {
         start: null,
         end: null
     }, ishover = false) {
@@ -292,7 +298,7 @@ const util = {
             selectDates,
             offset,
             hover,
-            icons: {leftIcon, rightIcon, backIcon}
+            icons: { leftIcon, rightIcon, backIcon }
         }, result));
     }
 };

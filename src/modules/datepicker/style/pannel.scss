@@ -120,6 +120,14 @@
             background: transparent;
           }
         }
+        &.cselectedstart.cselectedend{
+          background: rgba($dark-primary-color-rgb, 0.9);
+          color: $text-primary-color;
+          border-radius: 10px;
+          .inner {
+            background: transparent;
+          }
+        }
       }
       &.selectedin {
         background: $light-primary-color;
