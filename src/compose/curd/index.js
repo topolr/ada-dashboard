@@ -49,6 +49,20 @@ class Curd extends BondViewGroup {
         this.commit('show-detail', data.row);
     }
 
+    @handler('table-tool-edit')
+    tableToolEdit() {
+        this.addChild(Sidebox, {
+            container: this.getElement(),
+            parameter: {
+                title: 'Edit Row',
+                innerType: Form,
+                innerOption: {
+                    fields: this.getCurrentState().editFields
+                }
+            }
+        });
+    }
+
     @handler('hide-detail')
     hideDetail() {
         this.commit('hide-detail');

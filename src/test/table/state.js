@@ -14,8 +14,10 @@ class TableService extends Service {
 				addURL: '',
 				removeURL: '',
 				searchURL: '',
-				detailURL:'/detail.json',
-				editFields: [],
+				detailURL: '/detail.json',
+				editFields: [
+					{ type: Input, label: 'username', name: 'username' }
+				],
 				detailFields: [
 					{ type: Input, key: 'name', label: 'name' },
 					{ type: Input, key: 'age', label: 'age' }
@@ -34,6 +36,7 @@ class TableService extends Service {
 					toolPosition: 'right',
 					tools: [
 						{ title: 'detail', action: 'detail', icon: "ada-dashboard-description" },
+						{ title: 'edit', action: 'edit', icon: 'ada-dashboard-mode_edit' },
 						{ title: 'remove', action: 'remove', icon: "ada-dashboard-close" }
 					]
 				}
