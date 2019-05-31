@@ -1,4 +1,4 @@
-import { view, View } from "adajs";
+import { view, View, binder } from "adajs";
 import ToolService from "./state";
 
 @view({
@@ -12,6 +12,11 @@ import ToolService from "./state";
 class Tool extends View {
     scrollTop(top) {
         this.finder("body").getElement().scrollTop = top;
+    }
+
+    @binder('action')
+    action({ item, index }) {
+        this.dispatchEvent(`table-tool-${item.action}`, { item, index });
     }
 }
 

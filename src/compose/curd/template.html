@@ -3,13 +3,25 @@
     <div class="btn" onclick="{{ action(btn) }}"><i class="{{ ':'+btn.icon }}"></i></div>
     {{/list}}
 </div>
-<div class="{{ data._currentRow?'table open':'table' }}">
+<div class="{{ data._detail_open?'table open':'table' }}">
     <div class="left">
         <module @type="{{ data.tableType }}" @parameter="{{ data.tableOption }}"/>
     </div>
-    <div class="right">
-        {{list data._currentRow as row}}
-        <module @type="{{ row.type }}" @parameter="{{ row }}"/>
-        {{/list}}
+    <div class="right" data-find="detail">
+        {{if data._detail_open}}
+        <xdetail @parameter="{{ {url:data.detailURL,fields:data.detailFields,parameter:data._detail_row} }}"/>
+        {{/if}}
+    </div>
+    <div class="{{ data._search_open?'search open':'search' }}" data-find="search">
+        <div class="head">
+            <div class="title">Search</div>
+            <div class="close" onclick="{{ hideSearch() }}"><i class=":ada-dashboard-close"></i></div>
+        </div>
+        <div class="body">
+            <xform @parameter="{{ {fields:data.filterFields} }}"/>
+        </div>
+        <div class="foot">
+            <div class="btn" onclick="{{ hideSearch() }}"><i class=":ada-dashboard-search"></i></div>
+        </div>
     </div>
 </div>

@@ -2,7 +2,10 @@ import {Service} from "adajs";
 
 class DetailService extends Service{
 	defaultData(){
-		return {};
+		return {
+			fields: [],
+			btns:[]
+		};
 	}
 
 	onupdate(current,data){

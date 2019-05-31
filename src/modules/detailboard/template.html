@@ -1,0 +1,18 @@
+<div class="title">
+    <div class="desc">{{ data.title }}</div>
+    <div class="remove" onclick="{{ close() }}"><i class=":ada-dashboard-close"></i></div>
+</div>
+<div class="body">
+    {{if !data._loading}}
+    <detail @parameter="{{ {fields:data._fields} }}"/>
+    {{else}}
+    <div class="loading"></div>
+    {{/if}}
+</div>
+{{if data.btns.length>0}}
+<div class="btns">
+    {{list data.btns as btn}}
+    <div class="btn">{{ btn.name }}</div>
+    {{/list}}
+</div>
+{{/if}}

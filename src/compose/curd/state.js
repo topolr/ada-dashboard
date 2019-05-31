@@ -8,14 +8,17 @@ class CurdService extends Service {
 			editURL: '',
 			addURL: '',
 			removeURL: '',
-			findURL: '',
+			searchURL: '',
+			detailURL: '',
 			editFields: [],
 			detailFields: [],
 			addFields: [],
 			filterFields: [],
 			tableType: Table,
 			tableOption: {},
-			_currentRow: null
+			_detail_open: false,
+			_detail_row: null,
+			_search_open: false
 		};
 	}
 
@@ -25,14 +28,23 @@ class CurdService extends Service {
 
 	@action('show-detail')
 	showDetail(current, row) {
-		current._currentRow = current.detailFields.map(({ type, key, label }) => {
-			return {
-				type,
-				key,
-				label,
-				value: row[key] || ''
-			}
-		});
+		current._detail_open = true;
+		current._detail_row = row;
+	}
+
+	@action('hide-detail')
+	hideDetail(current) {
+		current._detail_open = false;
+	}
+
+	@action('hide-search')
+	hideSearch(current) {
+		current._search_open = false;
+	}
+
+	@action('show-search')
+	showSearch(current) {
+		current._search_open = true;
 	}
 }
 

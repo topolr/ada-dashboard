@@ -43,6 +43,59 @@
       border-left: 0;
       display: none;
       padding: 10px;
+      background: $text-primary-color;
+    }
+    .search {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 300px;
+      bottom: 0;
+      z-index: 5;
+      background: $text-primary-color;
+      box-shadow: 0 0 5px $divider-color;
+      display: none;
+      .head {
+        line-height: 41px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        display: flex;
+        z-index: 3;
+        border-bottom: 1px solid $light-primary-color;
+        .title {
+          padding: 0 0 0 10px;
+          flex: 1;
+        }
+        .close {
+          width: 35px;
+          text-align: center;
+        }
+      }
+      .body {
+        position: absolute;
+        left: 0;
+        top: 40px;
+        right: 0;
+        bottom: 35px;
+        z-index: 1;
+      }
+      .foot {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border-top: 1px solid $light-primary-color;
+        z-index: 2;
+        .btn {
+          text-align: center;
+          line-height: 35px;
+        }
+      }
+      &.open {
+        display: block;
+      }
     }
     &.open {
       .left {

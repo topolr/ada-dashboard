@@ -1,0 +1,43 @@
+@import "./../../style/base";
+.modules-detailboard {
+  width: 350px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  .title {
+    line-height: 40px;
+    padding: 0 0 0 15px;
+    border-bottom: 1px solid rgba($divider-color-rgb, 0.5);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    display: flex;
+    .desc {
+      flex: 1;
+    }
+    .remove {
+      width: 45px;
+      text-align: center;
+    }
+  }
+  .body {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    bottom: 35px;
+    right: 0;
+    padding:15px;
+  }
+  .btns {
+    line-height: 35px;
+    .btn {
+      padding: 0 10px 0 10px;
+      display: inline-block;
+    }
+  }
+}

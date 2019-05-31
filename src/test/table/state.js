@@ -6,13 +6,15 @@ class TableService extends Service {
 		return {
 			table: {
 				btns: [
-					{ name: "filter", icon: "ada-dashboard-filter_list", action: 'filter' },
-					{ name: "add", icon: "ada-dashboard-add", action: 'add' }
+					{ name: "search", icon: "ada-dashboard-filter_list", action: 'search' },
+					{ name: "add", icon: "ada-dashboard-add", action: 'add' },
+					{ name: "remove", icon: "ada-dashboard-close", action: 'remove' }
 				],
 				editURL: '',
 				addURL: '',
 				removeURL: '',
-				findURL: '',
+				searchURL: '',
+				detailURL:'/detail.json',
 				editFields: [],
 				detailFields: [
 					{ type: Input, key: 'name', label: 'name' },
@@ -22,14 +24,17 @@ class TableService extends Service {
 					{ type: Input, label: 'username', name: 'username' },
 					{ type: Input, label: 'password', name: 'password' }
 				],
-				filterFields: [],
+				filterFields: [
+					{ type: Input, label: 'username', name: 'username' },
+					{ type: Input, label: 'password', name: 'password' }
+				],
 				tableOption: {
 					url: '/table.json',
 					cols: [{ title: "Name", key: "name", width: 200 }, { title: "Age", key: "age", width: 300 }, { title: "BirthDay", key: "birthday", width: 300 }],
 					toolPosition: 'right',
 					tools: [
-						{ title: 'aa', action: 'aa', icon: "ada-dashboard-add_circle" },
-						{ title: 'bb', action: 'bb', icon: "ada-dashboard-adjust" }
+						{ title: 'detail', action: 'detail', icon: "ada-dashboard-description" },
+						{ title: 'remove', action: 'remove', icon: "ada-dashboard-close" }
 					]
 				}
 			}

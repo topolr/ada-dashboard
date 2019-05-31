@@ -22,12 +22,17 @@ class Table extends ViewGroup {
     @handler('checkRow')
     checkRow({ data }) {
         this.commit('checkRow', data.index);
-        this.dispatchEvent('rowClick', this.getCurrentState().data[data.index]);
+        this.dispatchEvent('rowClick');
     }
 
     @handler('checkAll')
     checkAll() {
         this.commit('checkAll');
+    }
+
+    @handler('table-tool-detail')
+    tableToolDetail({ data }) {
+        data.row = this.getCurrentState().data[data.index];
     }
 }
 

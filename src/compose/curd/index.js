@@ -1,7 +1,8 @@
-import { view, BondViewGroup, binder, handler } from "adajs";
+import { view, BondViewGroup, binder, handler, subscribe } from "adajs";
 import CurdService from "./state.js";
 import Form from './../../modules/form';
 import Sidebox from './../../modules/sidebox';
+import DetailBoard from './../../modules/detailboard';
 
 @view({
     className: "compose-curd",
@@ -14,7 +15,8 @@ import Sidebox from './../../modules/sidebox';
 class Curd extends BondViewGroup {
     tags() {
         return {
-            xform: Form
+            xform: Form,
+            xdetail: DetailBoard
         }
     }
 
@@ -32,12 +34,24 @@ class Curd extends BondViewGroup {
                     }
                 }
             });
+        } else if (action === 'search') {
+            this.commit('show-search');
         }
     }
 
-    @handler('rowClick')
-    rowClick({ data }) {
-        this.commit('show-detail', data);
+    @binder('hideSearch')
+    hideSearch() {
+        this.commit('hide-search');
+    }
+
+    @handler('table-tool-detail')
+    tableToolDetail({ data }) {
+        this.commit('show-detail', data.row);
+    }
+
+    @handler('hide-detail')
+    hideDetail() {
+        this.commit('hide-detail');
     }
 }
 

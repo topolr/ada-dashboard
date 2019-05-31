@@ -1,1 +1,10 @@
-<div></div>
+{{list data.fields as field}}
+<module @type="{{ field.type }}" @parameter="{{ field }}"/>
+{{/list}}
+{{if data.btns.length>0}}
+<div class="btns">
+    {{list data.btns as btn}}
+    <div class="btn" onclick="{{ action(btn) }}">{{ btn.name }}</div>
+    {{/list}}
+</div>
+{{/if}}

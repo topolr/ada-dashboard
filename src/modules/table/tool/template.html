@@ -3,7 +3,7 @@
     {{list data.list as row index}}
     <div class="{{ data.checks[index]===true?'row checked':'row' }}">
         {{list row as item}}
-        <div class="cols" style="width:{{ item.width }}px;height:{{ item.height }}px;">
+        <div class="cols" style="width:{{ item.width }}px;height:{{ item.height }}px;" onclick="{{ action(item,index) }}">
             <i class="{{ ':'+item.icon }}"></i>
         </div>
         {{/list}}
