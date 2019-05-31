@@ -69,6 +69,16 @@ class RangeGroup extends ViewGroup {
         this.commit("setrange", target.getCurrentState().hover);
     }
 
+    @handler('date-show-pannel')
+    dateShowPannle(e) {
+        let left = this.getChildByName("left");
+        if (e.target === left) {
+            this.getChildByName("right").closePannel();
+        } else {
+            left.closePannel();
+        }
+    }
+
     getTheOtherPannel(pannel) {
         let left = this.getChildByName("left");
         if (pannel === left) {

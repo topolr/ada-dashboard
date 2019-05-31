@@ -1,4 +1,4 @@
-import { Service } from "adajs";
+import { Service, action } from "adajs";
 
 class DetailBoardService extends Service {
 	defaultData() {
@@ -15,6 +15,15 @@ class DetailBoardService extends Service {
 
 	onupdate(current, data) {
 		this.assign(current, data);
+	}
+
+	@action('show-loading')
+	showLoading(current) {
+		current._loading = true;
+	}
+
+	@action('get-detail')
+	getDetail(current) {
 		return this.request.get(current.url).then(({ data }) => {
 			current._loading = false;
 			current._fields = current.fields.map(({ type, key, label }) => {

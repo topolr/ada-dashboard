@@ -50,6 +50,7 @@ class Pannel extends View {
     showPannel() {
         this.className.toggle('showpannel');
         this.focusScroll();
+        this.dispatchEvent('date-show-pannel');
     }
 
     @binder("closepannel")

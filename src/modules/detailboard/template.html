@@ -9,6 +9,9 @@
     <div class="loading"></div>
     {{/if}}
 </div>
+{{if data._loading}}
+<div class="loading"><div class=":cp-round"></div></div>
+{{/if}}
 {{if data.btns.length>0}}
 <div class="btns">
     {{list data.btns as btn}}

@@ -6,9 +6,9 @@
       font-size: 12px;
     }
     .input {
-      background: white;
-      border: 1px solid #D7D7D7;
+      border: 1px solid $divider-color;
       border-radius: 5px;
+      background: $text-primary-color;
       select {
         box-sizing: border-box;
         border: 0;
@@ -21,7 +21,7 @@
     }
     .desc {
       line-height: 18px;
-      color: #555555;
+      color: $secondary-text-color;
       font-size: 12px;
       padding: 0 2px 0 2px;
     }

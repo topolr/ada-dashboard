@@ -26,10 +26,21 @@
     //   background: rgba($light-primary-color-rgb, 0.2);
     // }
     &:nth-child(odd) {
-      background:$text-primary-color;
+      background: $text-primary-color;
     }
     &.checked {
       background: rgba($light-primary-color-rgb, 0.5);
+    }
+  }
+  .no-record {
+    text-align: center;
+    color: $divider-color;
+    margin-top: 200px;
+    .icon {
+      font-size: 50px;
+    }
+    .desc {
+      line-height: 40px;
     }
   }
 }

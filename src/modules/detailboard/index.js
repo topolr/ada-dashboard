@@ -11,6 +11,10 @@ import Detail from './../detail';
     }
 })
 class DetailBoard extends ViewGroup {
+    onready() {
+        this.commit('show-loading').then(() => this.commit('get-detail'));
+    }
+
     tags() {
         return {
             detail: Detail

@@ -1,3 +1,4 @@
+@import "./../../../style/base";
 .field-text {
   margin-bottom: 10px;
   .field {
@@ -6,9 +7,9 @@
       font-size: 12px;
     }
     .input {
-      background: white;
-      border: 1px solid #D7D7D7;
+      border: 1px solid $divider-color;
       border-radius: 5px;
+      background: $text-primary-color;
       textarea {
         box-sizing: border-box;
         border: 0;
@@ -18,12 +19,12 @@
         max-width: 100%;
         min-width: 100%;
         outline: none;
-        height:60px;
+        height: 60px;
       }
     }
     .desc {
       line-height: 18px;
-      color: #555555;
+      color: $secondary-text-color;
       font-size: 12px;
       padding: 0 2px 0 2px;
     }

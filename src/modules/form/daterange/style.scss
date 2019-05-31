@@ -1,3 +1,4 @@
+@import "./../../../style/base";
 .modules-form-daterange {
   margin-bottom: 10px;
   .label {
@@ -6,9 +7,9 @@
   }
   .input {
     position: relative;
-    border: 1px solid #d7d7d7;
+    border: 1px solid $divider-color;
     border-radius: 5px;
-    background: white;
+    background: $text-primary-color;
     input {
       height: 30px;
       box-sizing: border-box;
@@ -33,7 +34,7 @@
   }
   .desc {
     line-height: 18px;
-    color: #555555;
+    color: $secondary-text-color;
     font-size: 12px;
     padding: 0 2px 0 2px;
   }

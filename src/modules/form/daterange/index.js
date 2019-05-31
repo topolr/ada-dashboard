@@ -4,6 +4,18 @@ import BaseField from "../field";
 import Date from '../../datepicker/rangegroup';
 import dispatcher from '../../../lib/dispatcher';
 
+function isRemoved(node) {
+    let r = false, target = node;
+    while (target && target !== document) {
+        if (!target.parentNode) {
+            r = true;
+            break;
+        } else {
+            target = target.parentNode;
+        }
+    }
+    return r;
+}
 @view({
     className: "modules-form-daterange",
     template: "./template.html",
@@ -24,7 +36,9 @@ class DateRangeField extends BaseField {
     @subscribe('click')
     onclick(e) {
         if (!this.getElement().contains(e.target)) {
-            this.commit('close');
+            if (!isRemoved(e.target)) {
+                this.commit('close');
+            }
         }
     }
 

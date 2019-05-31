@@ -31,7 +31,7 @@
     top: 40px;
     bottom: 35px;
     right: 0;
-    padding:15px;
+    padding: 15px;
   }
   .btns {
     line-height: 35px;
@@ -39,5 +39,17 @@
       padding: 0 10px 0 10px;
       display: inline-block;
     }
+  }
+  .loading {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -webkit-box-orient: vertical;
   }
 }

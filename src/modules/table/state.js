@@ -79,6 +79,9 @@ class TableService extends Service {
 			current._checks = [];
 			current._isCheckAll = false;
 		}
+		if (current._checks.length === 0) {
+			current._isCheckAll = false;
+		}
 		current._bodyPositionStyle = Reflect.ownKeys(_bodyPostion).map(key => `${key}:${_bodyPostion[key]}px`).join(";");
 		current._toolPostionStyle = Reflect.ownKeys(_toolPosition).map(key => `${key}:${_toolPosition[key]}px`).join(";");
 	}

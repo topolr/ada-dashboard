@@ -9,7 +9,7 @@
     </div>
     <div class="right" data-find="detail">
         {{if data._detail_open}}
-        <xdetail @parameter="{{ {url:data.detailURL,fields:data.detailFields,parameter:data._detail_row} }}"/>
+        <xdetail @parameter="{{ {url:data.detailURL,fields:data.detailFields,parameter:data._detail_row,title:'Detail'} }}"/>
         {{/if}}
     </div>
     <div class="{{ data._search_open?'search open':'search' }}" data-find="search">

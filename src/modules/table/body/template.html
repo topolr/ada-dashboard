@@ -1,3 +1,4 @@
+{{if data.list.length>0}}
 {{list data.list as row index}}
 <div class="{{ data.checks[index]===true?'row checked':'row' }}" onclick="{{ checkRow(index,row) }}">
     {{list row as item}}
@@ -6,3 +7,9 @@
     {{/list}}
 </div>
 {{/list}}
+{{else}}
+<div class="no-record">
+    <div class="icon"><i class=":ada-dashboard-assignment"></i></div>
+    <div class="desc">No Records</div>
+</div>
+{{/if}}

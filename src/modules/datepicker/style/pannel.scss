@@ -4,6 +4,7 @@
   width: 280px;
   position: relative;
   box-shadow: 0 0 10px $divider-color;
+  background: $text-primary-color;
   .info {
     display: flex;
     line-height: 30px;
@@ -77,7 +78,7 @@
         }
       }
       &.selectedend {
-        background: rgba($default-primary-color-rgb, 0.8);
+        background: rgba($default-primary-color-rgb, 0.9);
         border-radius: 0 10px 10px 0;
         color: $text-primary-color;
         .inner {
@@ -92,23 +93,32 @@
         }
       }
       &.selected {
-        background: $dark-primary-color;
-        color: $text-primary-color;
         .inner {
+          background: rgba($dark-primary-color-rgb, 0.9);
+          color: $text-primary-color;
+          border-radius: 50%;
           &:hover {
-            background: transparent;
-            border-radius: 0;
+            background: rgba($default-primary-color-rgb, 1);
           }
           &.current {
-            background: transparent;
-            border-radius: 0;
+            background: rgba($default-primary-color-rgb, 1);
           }
         }
         &.cselectedstart {
+          background: rgba($dark-primary-color-rgb, 0.9);
+          color: $text-primary-color;
           border-radius: 10px 0 0 10px;
+          .inner {
+            background: transparent;
+          }
         }
         &.cselectedend {
+          background: rgba($dark-primary-color-rgb, 0.9);
+          color: $text-primary-color;
           border-radius: 0 10px 10px 0;
+          .inner {
+            background: transparent;
+          }
         }
       }
       &.selectedin {
@@ -130,6 +140,9 @@
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 9;
+    box-shadow: 0 5px 10px $divider-color;
+    background: $text-primary-color;
     .top {
       line-height: 30px;
       display: flex;
@@ -151,7 +164,6 @@
       line-height: 30px;
       background: $text-primary-color;
       height: 180px;
-      box-shadow: 0 5px 10px $divider-color;
       .left {
         flex-grow: 1;
         overflow: auto;
@@ -188,7 +200,8 @@
       left: 0;
       right: 0;
       bottom: 0;
-      top: 180px;
+      height:5px;
+      background:$light-primary-color;
     }
   }
   &.showpannel {
