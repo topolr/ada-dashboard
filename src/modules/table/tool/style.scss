@@ -34,9 +34,14 @@
         display: inline-block;
         vertical-align: top;
         text-align: center;
+        color: $secondary-text-color;
         border-right: 1px solid $light-primary-color;
+        transition: all ease-in-out 0.3s;
         &:last-child {
           border-right: 0;
+        }
+        &:hover {
+          color: $primary-text-color;
         }
       }
       // &:nth-child(even) {
