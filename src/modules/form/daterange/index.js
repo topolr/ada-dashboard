@@ -35,7 +35,9 @@ class DateRangeField extends BaseField {
 
     @handler('date-selected')
     dateSelected({ data }) {
-        this.commit('set-value', data);
+        if (data.length === 2) {
+            this.commit('set-value', data);
+        }
     }
 
     tags() {

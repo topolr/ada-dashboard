@@ -13,7 +13,7 @@
     }}"/>
 </div>
 <div class="foot">
-    {{list data.pagers as page}}
+    {{list data._pagers as page}}
         {{if page.name==='prev'}}
         <div class="{{ page.disabled?'disabled btn':'btn' }}" onclick="{{ prev() }}">
             <div><i class=":ada-dashboard-navigate_before"></i></div>
@@ -31,3 +31,6 @@
         {{/if}}
     {{/list}}
 </div>
+{{if data._loading}}
+<div class="loading"><div class=":cp-round"></div></div>
+{{/if}}

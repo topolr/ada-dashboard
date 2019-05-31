@@ -6,7 +6,7 @@
 <div class="contents">
     {{list data._tabs as tab}}
     <div class="{{ tab.active?'content active':'content' }}">
-        {{if tab.loaded}}
+        {{if tab.type}}
         <module @type="{{ tab.type }}"/>
         {{/if}}
     </div>

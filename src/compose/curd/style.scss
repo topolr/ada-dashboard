@@ -26,36 +26,41 @@
     right: 10px;
     bottom: 10px;
     top: 40px;
-    box-shadow: 0 5px 10px $divider-color;
+    overflow: hidden;
+    z-index: 10;
+    background: $text-primary-color;
     .left {
       position: absolute;
       left: 0;
       top: 0;
       bottom: 0;
       right: 0;
+      transition: all ease-in-out 0.3s;
     }
     .right {
       position: absolute;
       top: 0;
       right: 0;
       bottom: 0;
-      width: 350px;
+      width: 0;
+      overflow: hidden;
       border-left: 1px solid $light-primary-color;
-      // border-left: 0;
-      display: none;
       padding: 10px;
       background: $text-primary-color;
+      transition: all ease-in-out 0.3s;
+      display: none;
     }
     .search {
       position: absolute;
       left: 0;
       top: 0;
       width: 300px;
-      bottom: 0;
+      bottom: 40px;
       z-index: 5;
       background: $text-primary-color;
-      box-shadow: 0 0 5px $divider-color;
-      display: none;
+      box-shadow: 0 5px 15px $divider-color;
+      transition: all ease-in-out 0.3s;
+      transform: translateX(-400px);
       .head {
         line-height: 40px;
         position: absolute;
@@ -95,7 +100,7 @@
         }
       }
       &.open {
-        display: block;
+        transform: translateX(0);
       }
     }
     &.open {
@@ -104,17 +109,46 @@
       }
       .right {
         display: block;
+        width: 350px;
       }
     }
   }
-  .box {
+  .border-left {
     position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 360px;
-    z-index: 500;
-    background: $text-primary-color;
-    box-shadow: 0 0 5px $divider-color;
+    left: 10px;
+    top: 50px;
+    bottom: 20px;
+    width: 20px;
+    border-radius: 0 0 0 50%;
+    box-shadow: 0 0 15px $divider-color;
+    z-index: 1;
+  }
+  .border-right {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    bottom: 20px;
+    width: 20px;
+    border-radius: 0 0 50% 0;
+    box-shadow: 0 0 15px $divider-color;
+    z-index: 1;
+  }
+  .border-top {
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    right: 10px;
+    height: 20px;
+    box-shadow: 0 0px 5px $divider-color;
+    border-radius: 10%;
+  }
+  .border-bottom {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    height: 20px;
+    box-shadow: 0 0px 15px $divider-color;
+    border-radius: 50%;
   }
 }

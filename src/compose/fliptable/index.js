@@ -10,19 +10,23 @@ import FliptableService from "./state";
     }
 })
 class Fliptable extends ViewGroup {
+    onready() {
+        this.commit('show-loading').then(() => this.commit('gotoPage', 1));
+    }
+
     @binder('prev')
     prev() {
-        this.commit('prev');
+        this.commit('show-loading').then(() => this.commit('prev'));
     }
 
     @binder('next')
     next() {
-        this.commit('next');
+        this.commit('show-loading').then(() => this.commit('next'));
     }
 
     @binder('gotoPage')
     gotoPage({ page }) {
-        this.commit('gotoPage');
+        this.commit('show-loading').then(() => this.commit('gotoPage', page.num));
     }
 }
 

@@ -16,7 +16,7 @@ class TabpageService extends Service {
 				page: tab.page,
 				path: tab.path,
 				active: tab._active,
-				loaded: current._map[tab._id] !== undefined,
+				id: tab._id,
 				type: current._map[tab._id]
 			};
 		});
@@ -24,7 +24,7 @@ class TabpageService extends Service {
 		if (target && !target.type) {
 			return import(target.page).then(type => {
 				target.type = type;
-				target.loaded = true;
+				current._map[target.id] = type;
 			}).then(() => current);
 		}
 	}

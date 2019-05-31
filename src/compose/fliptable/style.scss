@@ -12,7 +12,7 @@
     right: 0;
     bottom: 36px;
     box-sizing: border-box;
-    border-bottom: 1px solid $light-primary-color;
+    // border-bottom: 1px solid $light-primary-color;
     background: rgba($light-primary-color-rgb, 0.2);
     z-index: 1;
   }
@@ -39,7 +39,7 @@
         border-radius: 50%;
         width: 24px;
         text-align: center;
-        margin:6px;
+        margin: 6px;
       }
       &.disabled {
         color: $light-primary-color;
@@ -57,5 +57,17 @@
         display: none;
       }
     }
+  }
+  .loading {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    -webkit-box-orient: vertical;
   }
 }

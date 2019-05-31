@@ -7,8 +7,6 @@ class FliptableService extends Service {
 			tableType: Table,
 			url: '/table.json',
 			parameter: {},
-			currentPage: 1,
-			totalPage: 1,
 			pageSize: 10,
 			cols: [],
 			titleHeight: 40,
@@ -18,39 +16,47 @@ class FliptableService extends Service {
 			tools: [],
 			data: [],
 			checkPropName: 'check',
-			pagers: []
+			_loading: false,
+			_currentPage: 1,
+			_totalPage: 1,
+			_pagers: []
 		};
 	}
 
 	onupdate(current, data) {
-		Object.assign(current, data);
-		return this.gotoPage(current, 1);
+		this.assign(current, data);
 	}
 
-	@action('gotopage')
+	@action('show-loading')
+	showLoading(current) {
+		current._loading = true;
+	}
+
+	@action('gotoPage')
 	gotoPage(current, page) {
-		if (page > 0 && page <= current.totalPage) {
-			current.currentPage = page;
+		if (page > 0 && page <= current._totalPage) {
+			current._currentPage = page;
 			return this.request.get(current.url, Object.assign(current.parameter, {
-				page: current.currentPage,
+				page: current._currentPage,
 				size: current.pageSize
 			})).then(({ data }) => {
 				let { total, list } = data;
 				current.data = list;
-				current.totalPage = total;
-				current.pagers = this.getPagesData(current.currentPage, total);
+				current._totalPage = total;
+				current._loading = false;
+				current._pagers = this.getPagesData(current._currentPage, total);
 			});
 		}
 	}
 
 	@action('prev')
 	prev(current) {
-		return this.gotoPage(current, current.currentPage + 1);
+		return this.gotoPage(current, current._currentPage - 1);
 	}
 
 	@action('next')
 	next(current) {
-		return this.gotoPage(current, current.currentPage - 1);
+		return this.gotoPage(current, current._currentPage + 1);
 	}
 
 	getPagesData(current, total) {
