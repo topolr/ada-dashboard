@@ -1,0 +1,51 @@
+.modules-form-daterange {
+  margin-bottom: 10px;
+  .label {
+    line-height: 25px;
+    font-size: 12px;
+  }
+  .input {
+    position: relative;
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+    background: white;
+    input {
+      height: 30px;
+      box-sizing: border-box;
+      border: 0;
+      padding: 0 5px 0 5px;
+      background: transparent;
+      width: 100%;
+      outline: none;
+    }
+    .date {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      z-index: 999;
+      display: none;
+    }
+    &.open {
+      .date {
+        display: block;
+      }
+    }
+  }
+  .desc {
+    line-height: 18px;
+    color: #555555;
+    font-size: 12px;
+    padding: 0 2px 0 2px;
+  }
+  .error-msg {
+    line-height: 18px;
+    color: #9a2011;
+    font-size: 12px;
+    padding: 0 2px 0 2px;
+  }
+  &.error {
+    .input {
+      border: 1px solid #9a2011;
+    }
+  }
+}

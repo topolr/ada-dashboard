@@ -1,18 +1,18 @@
 import { view, subscribe, binder, handler } from "adajs";
 import DateService from "./state.js";
 import BaseField from "../field";
-import Date from '../../datepicker/pannel';
+import Date from '../../datepicker/rangegroup';
 import dispatcher from '../../../lib/dispatcher';
 
 @view({
-    className: "modules-form-date",
+    className: "modules-form-daterange",
     template: "./template.html",
     style: "./style.scss",
     dataset: {
         service: DateService
     }
 })
-class DateField extends BaseField {
+class DateRangeField extends BaseField {
     oncreated() {
         dispatcher.observe(this);
     }
@@ -43,4 +43,4 @@ class DateField extends BaseField {
     }
 }
 
-export default DateField;
+export default DateRangeField;

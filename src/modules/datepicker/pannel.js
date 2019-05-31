@@ -14,6 +14,7 @@ class Pannel extends View {
     select({ item }) {
         this.getDataSet().commit("select", new Date(`${item.year}/${item.month}/${item.day} 0:0:0`)).then(() => {
             this.dispatchEvent("select", this.getCurrentState());
+            this.dispatchEvent("date-selected", this.getCurrentState().selectDates);
         });
     }
 

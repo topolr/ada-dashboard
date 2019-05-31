@@ -1,0 +1,15 @@
+<div class="{{ data.error?'field error':'field' }}">
+    {{if data.label}}
+        <div class="label">{{ data.label }}</div>
+    {{/if}}
+    <div class="{{ data._open?'input open':'input' }}">
+        <input data-find="input" onclick="{{ open() }}" readonly='true' type="text" placeholder="{{ data.placeholder }}" value="{{ data.value }}"/>
+        <div class='date' data-find="date"><date/></div>
+    </div>
+    {{if data.description}}
+        <div class="desc">{{ data.description }}</div>
+    {{/if}}
+    {{if data.error&&data.errorMsg}}
+        <div class="error-msg">{{ data.errorMsg }}</div>
+    {{/if}}
+</div>

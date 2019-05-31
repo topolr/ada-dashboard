@@ -26,6 +26,7 @@
     right: 10px;
     bottom: 10px;
     top: 40px;
+    box-shadow: 0 5px 10px $divider-color;
     .left {
       position: absolute;
       left: 0;
@@ -39,8 +40,8 @@
       right: 0;
       bottom: 0;
       width: 350px;
-      border: 1px solid $light-primary-color;
-      border-left: 0;
+      border-left: 1px solid $light-primary-color;
+      // border-left: 0;
       display: none;
       padding: 10px;
       background: $text-primary-color;

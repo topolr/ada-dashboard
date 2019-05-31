@@ -5,18 +5,16 @@
   top: 0;
   right: 0;
   bottom: 0;
-  .head {
-    box-sizing: border-box;
-  }
   .body {
     position: absolute;
     left: 0;
     top: 0;
     right: 0;
-    bottom: 35px;
+    bottom: 36px;
     box-sizing: border-box;
     border-bottom: 1px solid $light-primary-color;
     background: rgba($light-primary-color-rgb, 0.2);
+    z-index: 1;
   }
   .foot {
     position: absolute;
@@ -26,19 +24,22 @@
     white-space: nowrap;
     cursor: default;
     box-sizing: border-box;
-    border: 1px solid $light-primary-color;
-    border-top: 0;
+    line-height: 36px;
+    z-index: 2;
+    // border-right: 1px solid $light-primary-color;
+    // border-top: 0;
     .btn,
     .dot {
       display: inline-block;
       vertical-align: top;
-      padding: 6px;
       font-size: 12px;
       div {
-        width: 22px;
-        line-height: 22px;
+        line-height: 24px;
         text-align: center;
         border-radius: 50%;
+        width: 24px;
+        text-align: center;
+        margin:6px;
       }
       &.disabled {
         color: $light-primary-color;
@@ -47,7 +48,7 @@
         color: $primary-text-color;
         div {
           background: $accent-color;
-          color:$text-primary-color;
+          color: $text-primary-color;
         }
       }
     }

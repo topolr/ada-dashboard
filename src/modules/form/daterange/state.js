@@ -24,6 +24,7 @@ function format(date, format) {
 		});
 	}, format);
 }
+
 class DateService extends Service {
 	defaultData() {
 		return {
@@ -57,7 +58,7 @@ class DateService extends Service {
 
 	@action('set-value')
 	setValue(current, dates) {
-		current.value = `${format(dates[0], current.format)}`;
+		current.value = `${format(dates[0], current.format)} ~ ${format(dates[1], current.format)}`;
 		current._open = false;
 	}
 }
