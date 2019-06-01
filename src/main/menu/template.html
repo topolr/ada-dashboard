@@ -3,14 +3,14 @@
     <div class="menu" onclick="{{ active(item) }}">
         <div class="icon"><i class="{{ ':'+item.icon }}"></i></div>
         <div class="name">{{ item.name }}</div>
-        {{if item.sub&&item.sub.length>0}}
+        {{if item.list&&item.list.length>0}}
         <div class="arrow"><i class=":ada-dashboard-keyboard_arrow_down"></i></div>
         {{/if}}
     </div>
-    {{if item.sub&&item.sub.length>0}}
+    {{if item.list&&item.list.length>0}}
         <div class="sub">
-        {{list getItems(item.sub,data.map) as sub}}
-            <div class="{{ sub._active?'subitem active':'subitem' }}" onclick="{{ activesub(sub,item) }}">{{ sub.name }}</div>
+        {{list getItems(item.list,data.map) as list}}
+            <div class="{{ list._active?'subitem active':'subitem' }}" onclick="{{ activesub(list,item) }}">{{ list.name }}</div>
         {{/list}}
         </div>
     {{/if}}

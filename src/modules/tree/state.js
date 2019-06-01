@@ -62,6 +62,12 @@ class TreeService extends Service {
 		return r;
 	}
 
+	@compute('activeNode')
+	getActiveNode(current) {
+		let id = Reflect.ownKeys(current.map).find(id => current.map[id].actived === true);
+		return current.map[id];
+	}
+
 	sub(current, list, selected) {
 		list.map(a => current.map[a]).forEach(a => {
 			a.selected = selected;
@@ -71,9 +77,31 @@ class TreeService extends Service {
 
 	set(current, list = [], parentId = null) {
 		return list.map(item => {
-			let id = util.randomid();
-			let result = { id, parent: parentId, info: item, actived: false, open: false, selected: false, list: this.set(current, item.list, id) };
-			current.map[id] = result;
+			let id = item.id || util.randomid();
+			let cache = current.map[id];
+			let result = null;
+			if (cache) {
+				result = {
+					id,
+					parent: parentId,
+					info: item,
+					actived: cache.actived,
+					open: cache.open,
+					selected: cache.selected,
+					list: this.set(current, item.list, id)
+				};
+			} else {
+				result = {
+					id,
+					parent: parentId,
+					info: item,
+					actived: false,
+					open: false,
+					selected: false,
+					list: this.set(current, item.list, id)
+				};
+			}
+			current.map[id] = Object.assign(cache || {}, result);
 			return id;
 		});
 	}

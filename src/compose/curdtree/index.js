@@ -3,6 +3,7 @@ import TreeService from "./state.js";
 import Tree from './../../modules/tree';
 import Form from './../../modules/form';
 import Sidebox from './../../modules/sidebox';
+import Loading from './../../modules/loading';
 
 @view({
     className: "compose-curdtree",
@@ -36,6 +37,14 @@ class ComposeCurdTree extends BondViewGroup {
 
     @binder('add')
     add() {
+        let { addURL } = this.getCurrentState();
+        let tree = this.getChildByName('tree'), parentNodeId = '';
+        if (tree) {
+            let active = tree.getActiveNode();
+            if (active) {
+                parentNodeId = active.info.id;
+            }
+        }
         this.addChild(Sidebox, {
             container: this.getElement(),
             parameter: {
@@ -43,8 +52,34 @@ class ComposeCurdTree extends BondViewGroup {
                 innerType: Form,
                 innerOption: {
                     fields: this.getCurrentState().addFields
-                }
+                },
+                btns: [
+                    { name: 'Add', action: 'add' }
+                ]
             }
+        }).then(box => {
+            box.on('add', () => {
+                let form = box.getChildAt(0);
+                form.check().then(result => {
+                    if (result) {
+                        this.addChild(Loading).then(loading => {
+                            form.getValue().then(info => {
+                                info.parentNodeId = parentNodeId;
+                                this.context.request.post(addURL, info).then(() => {
+                                    loading.showSuccess();
+                                    loading.close();
+                                    box.close();
+                                    this.refresh();
+                                }).catch((e) => {
+                                    console.log(e);
+                                    loading.showError();
+                                    loading.close();
+                                });
+                            });
+                        });
+                    }
+                });
+            });
         });
     }
 

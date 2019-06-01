@@ -7,7 +7,14 @@
 </div>
 <div class="body">
     <div class="content">
-        <tree @parameter="{{ {list:data._list,check:data.check} }}"/>
+        {{if data._list&&data._list.length>0}}
+        <tree @name="tree" @parameter="{{ {list:data._list,check:data.check} }}"/>
+        {{else}}
+        <div class="no-record">
+            <div class="icon"><i class=":ada-dashboard-assignment"></i></div>
+            <div class="desc">No Records</div>
+        </div>
+        {{/if}}
     </div>
     <div class="crumbs">
         {{list data._crumbs as item index}}

@@ -37,8 +37,8 @@ class ContainerService extends Service {
 			item._open = false;
 			item._active = false;
 			current._menuMap[id] = item;
-			if (item.sub) {
-				item.sub = this.setMenu(current, item.sub, id);
+			if (item.list) {
+				item.list = this.setMenu(current, item.list, id);
 			}
 			return id;
 		});
@@ -68,14 +68,14 @@ class ContainerService extends Service {
 		current._crumbs = crumbs.reverse();
 		let page = null;
 		if (crumbs.length === 1) {
-			if (!(crumbs[0].sub && crumbs[0].sub.length > 0)) {
+			if (!(crumbs[0].list && crumbs[0].list.length > 0)) {
 				page = crumbs[0].page;
 				current._currentPageOption = {};
 			}
 		} else if (crumbs.length === 2) {
-			if (crumbs[1].sub && crumbs[1].sub.length > 0) {
+			if (crumbs[1].list && crumbs[1].list.length > 0) {
 				current._currentPageType = Tabpage;
-				let tabs = crumbs[1].sub.map(a => current._menuMap[a]);
+				let tabs = crumbs[1].list.map(a => current._menuMap[a]);
 				let target = tabs.find(tab => tab._active === true);
 				if (!target) {
 					tabs[0]._active = true;

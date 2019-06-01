@@ -13,13 +13,24 @@
     top: 0;
     right: 0;
     z-index: 2;
-    padding: 0 10px 0 10px;
+    padding: 0 10px 0 15px;
     .title {
       display: inline-block;
       vertical-align: top;
       padding: 0 10px 0 10px;
       font-size: 12px;
       position: relative;
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: $default-primary-color;
+        border-radius: 50%;
+        top: 18px;
+        left: 0;
+      }
       &:after {
         content: "";
         width: 0;

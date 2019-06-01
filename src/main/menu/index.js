@@ -16,8 +16,8 @@ class Menu extends View {
     }
 
     @binder('activesub')
-    activesub({ sub }) {
-        this.dispatchEvent('gotoPage',sub);
+    activesub({ list }) {
+        this.dispatchEvent('gotoPage',list);
     }
 
     fns() {

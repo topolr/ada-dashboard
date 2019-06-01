@@ -48,6 +48,10 @@ class Tree extends View {
         this.dispatchEvent('active', this.getDataSet().getComputeData('crumb', item));
     }
 
+    getActiveNode() {
+        return this.getDataSet().getComputeData('activeNode');
+    }
+
     closeAll() {
         this.commit('closeall');
     }
