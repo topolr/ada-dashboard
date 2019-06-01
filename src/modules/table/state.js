@@ -19,6 +19,7 @@ class TableService extends Service {
 			checkbox: true,
 			tools: [],
 			data: [],
+			loading: false,
 			_bodyPositionStyle: '',
 			_toolPostionStyle: '',
 			_tool: [],
@@ -30,18 +31,14 @@ class TableService extends Service {
 	}
 
 	onupdate(current, data) {
-		this.setTable(current, data);
+		this.assign(current, data);
+		this.setTable(current);
 	}
 
-	setTable(current, data) {
-		let cols = data.cols || current.cols,
-			tools = data.tools || current.tools,
-			_data = data.data || current.data;
-		current.headType = data.headType || Head;
-		current.bodyType = data.bodyType || Body;
-		current.data = _data;
-		current.tools = tools;
-		current.toolPosition = data.toolPosition || 'right';
+	setTable(current) {
+		let cols = current.cols,
+			tools = current.tools,
+			_data = current.data;
 		let checks = [];
 		current._body = _data.map(col => {
 			checks.push(col[current.checkPropName]);

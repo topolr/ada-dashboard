@@ -8,12 +8,16 @@
 <div class="body">
     <div class="content">
         {{if data._list&&data._list.length>0}}
-        <tree @name="tree" @parameter="{{ {list:data._list,check:data.check} }}"/>
+            <tree @name="tree" @parameter="{{ {list:data._list,check:data.check} }}"/>
         {{else}}
-        <div class="no-record">
-            <div class="icon"><i class=":ada-dashboard-assignment"></i></div>
-            <div class="desc">No Records</div>
-        </div>
+            {{if !data._loading}}
+            <div class="no-record">
+                <div class="icon"><i class=":ada-dashboard-assignment"></i></div>
+                <div class="desc">No Records</div>
+            </div>
+            {{else}}
+            <div class='loading'></div>
+            {{/if}}
         {{/if}}
     </div>
     <div class="crumbs">

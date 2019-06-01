@@ -4,14 +4,15 @@ class SimpleService extends Service {
 	defaultData() {
 		return {
 			list: [],
-			rowHeight:30,
-			titleHeight:40,
-			checks:[]
+			rowHeight: 30,
+			titleHeight: 40,
+			checks: [],
+			loading: false
 		};
 	}
 
 	onupdate(current, data) {
-		Object.assign(current, data);
+		this.assign(current, data);
 	}
 }
 

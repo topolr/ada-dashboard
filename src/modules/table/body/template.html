@@ -1,15 +1,18 @@
-{{if data.list.length>0}}
-{{list data.list as row index}}
-<div class="{{ data.checks[index]===true?'row checked':'row' }}" onclick="{{ checkRow(index,row) }}">
-    {{list row as item}}
-    <div class="cols" style="width:{{ item.width }}px;text-align:{{ item.align }};height:{{ item.height }}px">
-        {{ item.value }}</div>
+{{if data.list&&data.list.length>0}}
+    {{list data.list as row index}}
+    <div class="{{ data.checks[index]===true?'row checked':'row' }}" onclick="{{ checkRow(index,row) }}">
+        {{list row as item}}
+        <div class="cols" style="width:{{ item.width }}px;text-align:{{ item.align }};height:{{ item.height }}px">{{ item.value }}</div>
+        {{/list}}
+    </div>
     {{/list}}
-</div>
-{{/list}}
 {{else}}
-<div class="no-record">
-    <div class="icon"><i class=":ada-dashboard-assignment"></i></div>
-    <div class="desc">No Records</div>
-</div>
+    {{if !data.loading}}
+    <div class="no-record">
+        <div class="icon"><i class=":ada-dashboard-assignment"></i></div>
+        <div class="desc">No Records</div>
+    </div>
+    {{else}}
+    <div class='loading'></div>
+    {{/if}}
 {{/if}}
