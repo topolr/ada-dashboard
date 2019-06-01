@@ -31,8 +31,22 @@ class Curd extends BondViewGroup {
                     innerType: Form,
                     innerOption: {
                         fields: this.getCurrentState().addFields
-                    }
+                    },
+                    btns: [
+                        { name: 'Add', action: 'add' }
+                    ]
                 }
+            }).then(box => {
+                box.on('add', () => {
+                    let form = box.getChildAt(0);
+                    form.check().then(result => {
+                        if (result) {
+                            form.getValue().then(info => {
+                                console.log(info);
+                            });
+                        }
+                    });
+                });
             });
         } else if (action === 'search') {
             this.commit('show-search');

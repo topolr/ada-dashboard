@@ -48,13 +48,19 @@
       position: absolute;
       left: 0;
       top: 39px;
-      bottom: 35px;
+      bottom: 40px;
       right: 0;
     }
     .btns {
-      line-height: 35px;
+      line-height: 40px;
+      position: absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      z-index: 3;
+      text-align: right;
       .btn {
-        padding: 0 10px 0 10px;
+        padding: 0 20px 0 20px;
         display: inline-block;
       }
     }

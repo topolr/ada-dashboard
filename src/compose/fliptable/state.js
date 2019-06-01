@@ -42,9 +42,9 @@ class FliptableService extends Service {
 			})).then(({ data }) => {
 				let { total, list } = data;
 				current.data = list;
-				current._totalPage = total;
+				current._totalPage = (total < current.pageSize ? 1 : (total % current.pageSize === 0 ? total / current.pageSize : parseInt(total / current.pageSize) + 1));
 				current._loading = false;
-				current._pagers = this.getPagesData(current._currentPage, total);
+				current._pagers = this.getPagesData(current._currentPage, current._totalPage);
 			});
 		}
 	}

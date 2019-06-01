@@ -23,6 +23,11 @@ class Sidebox extends ViewGroup {
             this.getParent().removeChild(this);
         }, 300);
     }
+
+    @binder('action')
+    action({ btn }) {
+        this.emit(btn.action, btn);
+    }
 }
 
 export default Sidebox;

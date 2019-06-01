@@ -22,7 +22,7 @@
         <div class="{{ page.disabled?'disabled btn':'btn' }}" onclick="{{ next() }}">
             <div><i class=":ada-dashboard-navigate_next"></i></div>
         </div>
-        {{elseif page.name==='btn'}}
+        {{elseif page.name==='btn'&&!page.none}}
         <div class="{{ page.iscurrent?'current btn':'btn' }}" onclick="{{ gotoPage(page) }}">
             <div>{{ page.num }}</div>
         </div>
