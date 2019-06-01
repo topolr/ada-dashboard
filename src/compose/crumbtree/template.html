@@ -1,23 +1,28 @@
 <div class="head">
-    <div class="btn"><i class=":ada-dashboard-note_add"></i></div>
+    <div class="btn" onclick="{{ add() }}"><i class=":ada-dashboard-note_add"></i></div>
+    <div class="btn" onclick="{{ edit() }}"><i class=":ada-dashboard-mode_edit"></i></div>
     <div class="btn" onclick="{{ refresh() }}"><i class=":ada-dashboard-refresh"></i></div>
     <div class="btn" onclick="{{ closeAll() }}"><i class=":ada-dashboard-unfold_less"></i></div>
 </div>
 <div class="body">
     <div class="content">
-        <tree @parameter="{{ {list:data.list} }}"/>
+        <tree @parameter="{{ {list:data._list} }}"/>
     </div>
     <div class="crumbs">
-        {{list data.crumbs as item index}}
+        {{list data._crumbs as item index}}
         <div class="crumb">{{ item.name }}</div>
-        {{if index!==data.crumbs.length-1}}
+        {{if index!==data._crumbs.length-1}}
         <div class="arrow"><i class=":ada-dashboard-keyboard_arrow_right"></i></div>
         {{/if}}
         {{/list}}
     </div>
 </div>
-{{if data.loading}}
-<div class="loading">
+<div class="border-top"></div>
+<div class="border-left"></div>
+<div class="border-right"></div>
+<div class="border-bottom"></div>
+{{if data._loading}}
+<div class="_loading">
     <div class="content"><i class=":ada-dashboard-refresh :fa-spin"></i></div>
 </div>
 {{/if}}

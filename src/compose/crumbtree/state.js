@@ -5,36 +5,40 @@ class TreeService extends Service {
 		return {
 			url: '/tree.json',
 			parameter: {},
-			list: [],
-			crumbs: [],
-			loading: true
+			editURL:'',
+			editFields:[],
+			addURL:'',
+			addFields:[],
+			removeURL:'',
+			_list: [],
+			_crumbs: [],
+			_loading: true
 		};
 	}
 
 	onupdate(current, data) {
-		current.url = data.url;
-		current.parameter = data.parameter || {};
+		this.assign(current, data);
 		return this.request.get(current.url, current.parameter).then(({ data }) => {
-			current.list = data;
-			current.loading = false;
+			current._list = data;
+			current._loading = false;
 		});
 	}
 
 	@action('setcurmbs')
 	setcurmbs(current, crums) {
-		current.crumbs = crums.map(a => a).reverse();
+		current._crumbs = crums.map(a => a).reverse();
 	}
 
 	@action('showloading')
 	showLoading(current) {
-		current.loading = true;
+		current._loading = true;
 	}
 
 	@action('refresh')
 	refresh(current) {
 		return this.request.get(current.url, current.parameter).then(({ data }) => {
-			current.list = data;
-			current.loading = false;
+			current._list = data;
+			current._loading = false;
 		});
 	}
 }

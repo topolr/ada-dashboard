@@ -5,6 +5,7 @@ class ContainerService extends Service {
 	defaultData() {
 		return {
 			menuURL: '/menu.json',
+			indexPage: 'test/table/index.js',
 			_menuMap: {},
 			_menuList: [],
 			_crumbs: [],
@@ -22,7 +23,7 @@ class ContainerService extends Service {
 				name: 'HOME',
 				icon: "ada-dashboard-directions",
 				path: '/',
-				page: 'test/table/index.js'
+				page: current.indexPage
 			});
 			current._menuList = this.setMenu(current, data);
 		});

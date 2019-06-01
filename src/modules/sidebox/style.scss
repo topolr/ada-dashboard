@@ -18,10 +18,10 @@
     z-index: 2;
     width: 350px;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 10px;
+    top: 40px;
     right: 0;
-    bottom: 0;
+    bottom: 10px;
     background: $text-primary-color;
     transform: translateX(-100%);
     transition: all ease-in-out 0.3s;
@@ -61,9 +61,9 @@
   }
   .border-right {
     position: absolute;
-    left: 330px;
-    top: 10px;
-    bottom: 0;
+    left: 340px;
+    top: 50px;
+    bottom: 10px;
     width: 20px;
     box-shadow: 0 0 10px $divider-color;
     border-radius: 0 0 50% 0;
@@ -73,8 +73,8 @@
   }
   .border-top {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 10px;
+    top: 40px;
     width: 350px;
     height: 10px;
     border-radius: 10%;

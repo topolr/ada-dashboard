@@ -7,7 +7,11 @@ import Container from './main/container';
 @root()
 class Root extends StaticViewGroup {
     onready() {
-        this.addChild(Container);
+        this.addChild(Container, {
+            parameter: {
+                indexPage: 'test/tabletree/index.js'
+            }
+        });
         // this.addChild(Login);
     }
 }

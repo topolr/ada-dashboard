@@ -1,6 +1,8 @@
-import { view, ViewGroup, binder, handler } from "adajs";
+import { view, BondViewGroup, binder, handler } from "adajs";
 import TreeService from "./state.js";
 import Tree from './../../modules/tree';
+import Form from './../../modules/form';
+import Sidebox from './../../modules/sidebox';
 
 @view({
     className: "compose-crumbtree",
@@ -10,7 +12,7 @@ import Tree from './../../modules/tree';
         service: TreeService
     }
 })
-class ComposeTree extends ViewGroup {
+class ComposeTree extends BondViewGroup {
     tags() {
         return { tree: Tree };
     }
@@ -29,6 +31,34 @@ class ComposeTree extends ViewGroup {
     refresh() {
         this.commit('showloading').then(() => {
             this.commit('refresh');
+        });
+    }
+
+    @binder('add')
+    add() {
+        this.addChild(Sidebox, {
+            container: this.getElement(),
+            parameter: {
+                title: 'Add Node',
+                innerType: Form,
+                innerOption: {
+                    fields: this.getCurrentState().addFields
+                }
+            }
+        });
+    }
+
+    @binder('edit')
+    edit() {
+        this.addChild(Sidebox, {
+            container: this.getElement(),
+            parameter: {
+                title: 'Edit Node',
+                innerType: Form,
+                innerOption: {
+                    fields: this.getCurrentState().editFields
+                }
+            }
         });
     }
 }
