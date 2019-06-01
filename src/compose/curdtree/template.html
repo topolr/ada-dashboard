@@ -1,4 +1,5 @@
 <div class="head">
+    <div class="title">{{ data.title }}</div>
     <div class="btn" onclick="{{ add() }}"><i class=":ada-dashboard-note_add"></i></div>
     <div class="btn" onclick="{{ edit() }}"><i class=":ada-dashboard-mode_edit"></i></div>
     <div class="btn" onclick="{{ refresh() }}"><i class=":ada-dashboard-refresh"></i></div>
@@ -6,7 +7,7 @@
 </div>
 <div class="body">
     <div class="content">
-        <tree @parameter="{{ {list:data._list} }}"/>
+        <tree @parameter="{{ {list:data._list,check:data.check} }}"/>
     </div>
     <div class="crumbs">
         {{list data._crumbs as item index}}

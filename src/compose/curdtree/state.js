@@ -3,13 +3,15 @@ import { Service, action } from "adajs";
 class TreeService extends Service {
 	defaultData() {
 		return {
+			title: 'Tree Curd',
 			url: '/tree.json',
 			parameter: {},
-			editURL:'',
-			editFields:[],
-			addURL:'',
-			addFields:[],
-			removeURL:'',
+			editURL: '',
+			editFields: [],
+			addURL: '',
+			addFields: [],
+			removeURL: '',
+			check:true,
 			_list: [],
 			_crumbs: [],
 			_loading: true

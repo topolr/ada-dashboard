@@ -10,8 +10,9 @@ class TreeService extends Service {
 		};
 	}
 
-	onupdate(current, { list }) {
+	onupdate(current, { list, check = true }) {
 		current.list = this.set(current, list);
+		current.check = check;
 	}
 
 	@action('toggle')

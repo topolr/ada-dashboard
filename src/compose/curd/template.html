@@ -1,4 +1,5 @@
 <div class="btns">
+    <div class="title">{{ data.title }}</div>
     {{list data.btns as btn}}
     <div class="btn" onclick="{{ action(btn) }}"><i class="{{ ':'+btn.icon }}"></i></div>
     {{/list}}
@@ -25,7 +26,15 @@
         </div>
     </div>
 </div>
+{{if data.borderTop}}
 <div class="border-top"></div>
+{{/if}}
+{{if data.borderLeft}}
 <div class="border-left"></div>
+{{/if}}
+{{if data.borderRight}}
 <div class="border-right"></div>
+{{/if}}
+{{if data.borderBottom}}
 <div class="border-bottom"></div>
+{{/if}}

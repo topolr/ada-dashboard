@@ -1,5 +1,5 @@
 import { Service } from "adajs";
-import Tree from './../crumbtree';
+import Tree from './../curdtree';
 import Table from './../curd';
 
 class TabletreeService extends Service {

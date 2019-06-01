@@ -5,14 +5,14 @@ import Form from './../../modules/form';
 import Sidebox from './../../modules/sidebox';
 
 @view({
-    className: "compose-crumbtree",
+    className: "compose-curdtree",
     template: "./template.html",
     style: "./style.scss",
     dataset: {
         service: TreeService
     }
 })
-class ComposeTree extends BondViewGroup {
+class ComposeCurdTree extends BondViewGroup {
     tags() {
         return { tree: Tree };
     }
@@ -63,4 +63,4 @@ class ComposeTree extends BondViewGroup {
     }
 }
 
-export default ComposeTree;
+export default ComposeCurdTree;

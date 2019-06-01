@@ -4,6 +4,7 @@ import Table from './../fliptable';
 class CurdService extends Service {
 	defaultData() {
 		return {
+			title: 'Table Curd',
 			btns: [],
 			editURL: '',
 			addURL: '',
@@ -16,6 +17,10 @@ class CurdService extends Service {
 			filterFields: [],
 			tableType: Table,
 			tableOption: {},
+			borderLeft:true,
+			borderTop:true,
+			borderRight:true,
+			borderBottom:true,
 			_detail_open: false,
 			_detail_row: null,
 			_search_open: false
