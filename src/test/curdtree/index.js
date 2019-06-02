@@ -1,6 +1,6 @@
 import { view, BondViewGroup } from "adajs";
 import CurdtreeService from "./state.js";
-import Crudtree from './../../compose/crumbtree';
+import Crudtree from './../../compose/curdtree';
 
 @view({
     className: "test-curdtree",

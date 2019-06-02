@@ -1,0 +1,50 @@
+@import "./../../style/base";
+.main-index {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  -webkit-box-orient: vertical;
+  .bg {
+    background-image: url("./images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    filter: blur(9px);
+  }
+  .content {
+    position: relative;
+    color: $text-primary-color;
+    .logo {
+      width: 120px;
+      height: 120px;
+      background-image: url("./images/logo2.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      margin:0 auto;
+      border-radius: 50%;
+      border:5px solid $text-primary-color;
+    }
+    .desc {
+      line-height: 40px;
+      font-size: 30px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .tip {
+      line-height: 20px;
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+}
