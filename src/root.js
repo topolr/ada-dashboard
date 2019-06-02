@@ -8,12 +8,12 @@ import Login from './main/login';
 @root()
 class Root extends StaticViewGroup {
     onready() {
-        // this.addChild(Container, {
-        //     parameter: {
-        //         indexPage: 'main/index/index.js'
-        //     }
-        // });
-        this.addChild(Login);
+        this.addChild(Container, {
+            parameter: {
+                indexPage: 'main/index/index.js'
+            }
+        });
+        // this.addChild(Login);
     }
 }
 

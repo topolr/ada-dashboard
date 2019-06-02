@@ -5,30 +5,29 @@
   top: 0;
   right: 0;
   bottom: 0;
+  .bg {
+    background-image: url("./images/bg.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: -20px;
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    filter: blur(9px);
+  }
   .left {
     position: absolute;
     left: 0;
     top: 0;
     width: 55%;
     bottom: 0;
-    background: rgba($primary-text-color-rgb, 1);
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-pack: center;
     -webkit-box-align: center;
     -webkit-box-orient: vertical;
-    .bg {
-      background-image: url("./images/bg.jpg");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: absolute;
-      left: -20px;
-      top: -20px;
-      right: -20px;
-      bottom: -20px;
-      filter: blur(9px);
-    }
     .content {
       position: relative;
       color: $text-primary-color;
@@ -62,6 +61,7 @@
     top: 0;
     right: 0;
     bottom: 0;
+    background: rgba($text-primary-color-rgb, 0.9);
     .box {
       margin: 300px 0 0 100px;
       width: 400px;
