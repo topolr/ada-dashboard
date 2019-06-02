@@ -36,34 +36,31 @@ class TableService extends Service {
 	}
 
 	setTable(current) {
-		let cols = current.cols,
-			tools = current.tools,
-			_data = current.data;
 		let checks = [];
-		current._body = _data.map(col => {
+		current._body = current.data.map(col => {
 			checks.push(col[current.checkPropName]);
-			return cols.map(({ key, width = 300, align = 'left' }) => {
+			return current.cols.map(({ key, width = 300, align = 'left' }) => {
 				return { value: col[key], width, align, height: current.rowHeight };
 			});
 		});
-		current._head = cols.map(({ title = '', key = '', width = 300, align = 'left' }) => {
+		current._head = current.cols.map(({ title = '', key = '', width = 300, align = 'left' }) => {
 			return { title, key, width, align, height: current.titleHeight };
 		});
 		let _bodyPostion = { left: 0, right: 0 }, _toolPosition = { width: 0 };
-		if (tools.length > 0) {
-			current._tool = _data.map(() => {
-				return tools.map(a => {
+		if (current.tools.length > 0) {
+			current._tool = current.data.map(() => {
+				return current.tools.map(a => {
 					return Object.assign({}, a, { width: current.rowHeight, height: current.rowHeight });
 				});
 			});
 			if (current.toolPosition === 'right') {
-				_bodyPostion.right = tools.length * current.rowHeight;
+				_bodyPostion.right = current.tools.length * current.rowHeight;
 				_toolPosition.right = 0;
 			} else {
-				_bodyPostion.left = tools.length * current.rowHeight;
+				_bodyPostion.left = current.tools.length * current.rowHeight;
 				_toolPosition.left = 0;
 			}
-			_toolPosition.width = tools.length * current.rowHeight;
+			_toolPosition.width = current.tools.length * current.rowHeight;
 		}
 		if (current.checkbox) {
 			current._checks = checks;

@@ -6,7 +6,7 @@
 </div>
 <div class="{{ data._detail_open?'table open':'table' }}">
     <div class="left">
-        <module @type="{{ data.tableType }}" @parameter="{{ data.tableOption }}"/>
+        <module @name="table" @type="{{ data.tableType }}" @parameter="{{ data.tableOption }}"/>
     </div>
     <div class="right" data-find="detail">
         {{if data._detail_open}}

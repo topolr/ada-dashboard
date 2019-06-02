@@ -28,6 +28,10 @@ class Fliptable extends ViewGroup {
     gotoPage({ page }) {
         this.commit('show-loading').then(() => this.commit('gotoPage', page.num));
     }
+
+    refresh(){
+        this.commit('show-loading').then(() => this.commit('refresh'));
+    }
 }
 
 export default Fliptable;

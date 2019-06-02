@@ -52,6 +52,10 @@ class Tree extends View {
         return this.getDataSet().getComputeData('activeNode');
     }
 
+    getSelectedNodes() {
+        return this.getDataSet().getComputeData('selectedNodes');
+    }
+
     closeAll() {
         this.commit('closeall');
     }

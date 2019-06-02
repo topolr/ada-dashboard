@@ -6,13 +6,15 @@ class TreeService extends Service {
 		return {
 			list: [],
 			map: {},
-			check: true
+			check: true,
+			checkNodes: []
 		};
 	}
 
-	onupdate(current, { list, check = true }) {
-		current.list = this.set(current, list);
+	onupdate(current, { list, check = true, checkNodes = [] }) {
 		current.check = check;
+		current.checkNodes = checkNodes;
+		current.list = this.set(current, list);
 	}
 
 	@action('toggle')
@@ -50,6 +52,15 @@ class TreeService extends Service {
 		Reflect.ownKeys(current.map).forEach(a => current.map[a].actived = false);
 	}
 
+	@action('set-selects')
+	setSelects(current, nodeIds) {
+		current.checkNodes = nodeIds;
+		Reflect.ownKeys(current.map).forEach(a => {
+			let item = current.map[a];
+			item.selected = nodeIds.indexOf(item.info.id) !== -1;
+		});
+	}
+
 	@compute('crumb')
 	getCrumb(current, item) {
 		let r = [];
@@ -66,6 +77,11 @@ class TreeService extends Service {
 	getActiveNode(current) {
 		let id = Reflect.ownKeys(current.map).find(id => current.map[id].actived === true);
 		return current.map[id];
+	}
+
+	@compute('selectedNodes')
+	getSelectedNodes(current) {
+		return Reflect.ownKeys(current.map).map(id => current.map[id]).filter(a => a.selected === true);
 	}
 
 	sub(current, list, selected) {
@@ -100,6 +116,10 @@ class TreeService extends Service {
 					selected: false,
 					list: this.set(current, item.list, id)
 				};
+			}
+			if (current.check && current.checkNodes.length > 0) {
+				let { info } = result;
+				result.selected = current.checkNodes.indexOf(info.id) !== -1;
 			}
 			current.map[id] = Object.assign(cache || {}, result);
 			return id;

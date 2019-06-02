@@ -7,12 +7,10 @@
     </div>
     {{/list}}
 {{else}}
-    {{if !data.loading}}
+    {{if data.loading===false}}
     <div class="no-record">
         <div class="icon"><i class=":ada-dashboard-assignment"></i></div>
         <div class="desc">No Records</div>
     </div>
-    {{else}}
-    <div class='loading'></div>
     {{/if}}
 {{/if}}

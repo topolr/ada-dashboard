@@ -30,9 +30,13 @@ class Table extends ViewGroup {
         this.commit('checkAll');
     }
 
-    @handler('table-tool-detail')
-    tableToolDetail({ data }) {
-        data.row = this.getCurrentState().data[data.index];
+    @handler('table-tool-action')
+    tableToolAction({ data }) {
+        this.dispatchEvent(`table-tool-${data.item.action}`, {
+            index: data.index,
+            action: data.item,
+            row: this.getCurrentState().data[data.index]
+        });
     }
 }
 

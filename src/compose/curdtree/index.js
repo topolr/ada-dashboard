@@ -37,7 +37,7 @@ class ComposeCurdTree extends BondViewGroup {
 
     @binder('add')
     add() {
-        let { addURL } = this.getCurrentState();
+        let { addURL, parentNodeName } = this.getCurrentState();
         let tree = this.getChildByName('tree'), parentNodeId = '';
         if (tree) {
             let active = tree.getActiveNode();
@@ -64,7 +64,7 @@ class ComposeCurdTree extends BondViewGroup {
                     if (result) {
                         this.addChild(Loading).then(loading => {
                             form.getValue().then(info => {
-                                info.parentNodeId = parentNodeId;
+                                info[parentNodeName] = parentNodeId;
                                 this.context.request.post(addURL, info).then(() => {
                                     loading.showSuccess();
                                     loading.close();
@@ -95,6 +95,14 @@ class ComposeCurdTree extends BondViewGroup {
                 }
             }
         });
+    }
+
+    setSelects(nodeIds) {
+        this.getChildByName('tree').commit('set-selects', nodeIds);
+    }
+
+    getSelectedNodes() {
+        return this.getChildByName('tree').getSelectedNodes();
     }
 }
 

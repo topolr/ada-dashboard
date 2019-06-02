@@ -32,6 +32,11 @@ class FliptableService extends Service {
 		current._loading = true;
 	}
 
+	@action('refresh')
+	refresh(current) {
+		return this.gotoPage(current, 1);
+	}
+
 	@action('gotoPage')
 	gotoPage(current, page) {
 		if (page > 0 && page <= current._totalPage) {

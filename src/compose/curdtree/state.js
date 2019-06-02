@@ -11,7 +11,9 @@ class TreeService extends Service {
 			addURL: '',
 			addFields: [],
 			removeURL: '',
-			check:true,
+			check: true,
+			parentNodeName: 'parentNodeId',
+			checkNodes: [],
 			_list: [],
 			_crumbs: [],
 			_loading: true
@@ -34,6 +36,11 @@ class TreeService extends Service {
 	@action('showloading')
 	showLoading(current) {
 		current._loading = true;
+	}
+
+	@action('hideloading')
+	hideLoading(current) {
+		current._loading = false;
 	}
 
 	@action('refresh')

@@ -16,7 +16,7 @@ class Tool extends View {
 
     @binder('action')
     action({ item, index }) {
-        this.dispatchEvent(`table-tool-${item.action}`, { item, index });
+        this.dispatchEvent(`table-tool-action`, { item, index });
     }
 }
 

@@ -3,6 +3,7 @@ import CurdService from "./state.js";
 import Form from './../../modules/form';
 import Sidebox from './../../modules/sidebox';
 import DetailBoard from './../../modules/detailboard';
+import Loading from './../../modules/loading';
 
 @view({
     className: "compose-curd",
@@ -22,6 +23,7 @@ class Curd extends BondViewGroup {
 
     @binder('action')
     action({ btn }) {
+        let { addFields, addURL } = this.getCurrentState();
         let { action } = btn;
         if (action === 'add') {
             this.addChild(Sidebox, {
@@ -30,7 +32,7 @@ class Curd extends BondViewGroup {
                     title: 'Add Row',
                     innerType: Form,
                     innerOption: {
-                        fields: this.getCurrentState().addFields
+                        fields: addFields
                     },
                     btns: [
                         { name: 'Add', action: 'add' }
@@ -41,8 +43,19 @@ class Curd extends BondViewGroup {
                     let form = box.getChildAt(0);
                     form.check().then(result => {
                         if (result) {
-                            form.getValue().then(info => {
-                                console.log(info);
+                            this.addChild(Loading).then(loading => {
+                                form.getValue().then(info => {
+                                    this.context.request.post(addURL, info).then(() => {
+                                        loading.showSuccess();
+                                        loading.close();
+                                        box.close();
+                                        this.refresh();
+                                    }).catch((e) => {
+                                        console.log(e);
+                                        loading.showError();
+                                        loading.close();
+                                    });
+                                });
                             });
                         }
                     });
@@ -80,6 +93,10 @@ class Curd extends BondViewGroup {
     @handler('hide-detail')
     hideDetail() {
         this.commit('hide-detail');
+    }
+
+    refresh() {
+        this.getChildByName('table').refresh();
     }
 }
 
