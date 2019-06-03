@@ -1,6 +1,6 @@
 import { view } from "adajs";
 import InputService from "./../input/state";
-import Input from './../index';
+import Input from './../input';
 
 @view({
     className: "modules-form-text",
@@ -11,6 +11,9 @@ import Input from './../index';
     }
 })
 class Text extends Input {
+    onready(){
+        window.text=this;
+    }
 }
 
 export default Text;

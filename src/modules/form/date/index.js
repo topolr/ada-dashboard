@@ -66,7 +66,7 @@ class DateField extends BaseField {
     }
 
     check() {
-        return this.commit('check').then(() => this.getCurrentState().error === false);
+        return this.commit('check').then(() => this.getCurrentState()._error === false);
     }
 }
 

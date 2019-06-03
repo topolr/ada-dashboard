@@ -46,7 +46,7 @@ class Input extends BaseField {
             ps = ps.then(() => this.commit('show-loading'));
         }
         return ps.then(() => {
-            return this.commit('check', this.getValue()).then(() => this.getCurrentState().error === false);
+            return this.commit('check', this.getValue()).then(() => this.getCurrentState()._error === false);
         });
     }
 }

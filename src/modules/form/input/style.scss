@@ -32,6 +32,12 @@
       font-size: 12px;
       padding: 0 2px 0 2px;
     }
+    &.disabled {
+      .input {
+        border: 1px solid rgba($divider-color-rgb, 0.5);
+        background: rgba($divider-color-rgb,.1);
+      }
+    }
     &.error {
       .input {
         border: 1px solid #9a2011;

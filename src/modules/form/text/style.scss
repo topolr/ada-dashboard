@@ -10,13 +10,17 @@
       border: 1px solid $divider-color;
       border-radius: 5px;
       background: $text-primary-color;
-      input {
-        height: 30px;
+      textarea {
+        height: 90px;
+        max-height: 90px;
+        min-height: 90px;
         box-sizing: border-box;
         border: 0;
-        padding: 0 5px 0 5px;
+        padding: 5px;
         background: transparent;
         width: 100%;
+        max-width: 100%;
+        min-width: 100%;
         outline: none;
       }
     }
@@ -31,6 +35,12 @@
       color: #9a2011;
       font-size: 12px;
       padding: 0 2px 0 2px;
+    }
+    &.disabled {
+      .input {
+        border: 1px solid rgba($divider-color-rgb, 0.5);
+        background: rgba($divider-color-rgb,.1);
+      }
     }
     &.error {
       .input {

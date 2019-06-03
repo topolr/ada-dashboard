@@ -1,3 +1,4 @@
+@import "./../../../style/base";
 .select {
   margin-bottom: 10px;
   .field {
@@ -9,7 +10,9 @@
       border: 1px solid $divider-color;
       border-radius: 5px;
       background: $text-primary-color;
-      select {
+      position: relative;
+      cursor: default;
+      input {
         box-sizing: border-box;
         border: 0;
         padding: 5px;
@@ -17,6 +20,34 @@
         width: 100%;
         outline: none;
         height: 30px;
+        cursor: default;
+      }
+      .list {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        line-height: 30px;
+        box-shadow: 0 5px 10px $divider-color;
+        border-radius: 3px;
+        display: none;
+        .item {
+          padding: 0 15px 0 15px;
+          white-space: nowrap;
+          &:hover {
+            background: rgba($divider-color-rgb, 0.2);
+            color: $primary-text-color;
+          }
+          &.selected {
+            background: $accent-color;
+            color: $text-primary-color;
+          }
+        }
+      }
+      &.open {
+        .list {
+          display: block;
+        }
       }
     }
     .desc {

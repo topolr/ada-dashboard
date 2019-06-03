@@ -2,6 +2,8 @@ import { Service } from "adajs";
 import Input from './../../modules/form/input';
 import Date from './../../modules/form/date';
 import Daterange from './../../modules/form/daterange';
+import Text from './../../modules/form/text';
+import Select from './../../modules/form/select';
 
 class TableService extends Service {
 	defaultData() {
@@ -26,9 +28,15 @@ class TableService extends Service {
 				],
 				addFields: [
 					{ type: Input, label: 'username', name: 'username', required: true },
-					{ type: Input, label: 'password', name: 'password', required: true },
 					{ type: Date, label: 'password', name: 'password', required: true },
-					{ type: Daterange, label: 'password', name: 'password', required: true }
+					{ type: Daterange, label: 'password', name: 'password', required: true },
+					{ type: Text, label: 'password', name: 'password', required: true },
+					{ type: Select, label: 'password', name: 'password', required: true,options:[
+						{name:'aa',value:'1'},
+						{name:'bb',value:'2'},
+						{name:'cc',value:'3'},
+						{name:'dd',value:'4'}
+					]}
 				],
 				filterFields: [
 					{ type: Input, label: 'username', name: 'username' },

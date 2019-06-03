@@ -9,13 +9,29 @@ class SelectService extends Service {
             value: "",
             options: [],
             disabled: false,
+            showLoading: false,
+            _value: '',
+            _current: null,
+            _loading: false,
             _error: false,
-            _errorMsg: ""
+            _errorMsg: "",
+            _open: false
         };
     }
 
     onupdate(current, data) {
-        return util.extend(current, data);
+        this.assign(current, data);
+        current._current = current.options.find(a => a.value === current.value) || {};
+    }
+
+    @action('open')
+    open(current) {
+        current._open = true;
+    }
+
+    @action('close')
+    close(current) {
+        current._open = false;
     }
 
     @action("setValue")
@@ -39,6 +55,12 @@ class SelectService extends Service {
         if (current.check) {
             return Promise.resolve().then(current.check(current, value));
         }
+    }
+
+    @action('select')
+    select(current, option) {
+        current._current = option;
+        current._open = false;
     }
 }
 

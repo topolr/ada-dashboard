@@ -9,7 +9,7 @@ class ContainerService extends Service {
 			_menuMap: {},
 			_menuList: [],
 			_crumbs: [],
-			_open: false,
+			_open: true,
 			_currentPageType: null,
 			_currentPageOption: null
 		};
