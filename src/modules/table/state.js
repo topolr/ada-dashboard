@@ -35,6 +35,7 @@ class TableService extends Service {
 	}
 
 	onupdate(current, data) {
+		current._selectIds=new Set();
 		this.assign(current, data);
 		current.selectIds.forEach(a => current._selectIds.add(a));
 		this.setTable(current);

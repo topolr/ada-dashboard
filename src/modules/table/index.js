@@ -1,5 +1,6 @@
 import { view, ViewGroup, handler } from "adajs";
 import TableService from "./state";
+import { diffArray } from './util';
 
 @view({
     className: "table",
@@ -21,15 +22,19 @@ class Table extends ViewGroup {
 
     @handler('checkRow')
     checkRow({ data }) {
+        let old = this.getAllSelectedIds();
         this.commit('checkRow', data.index).then(() => {
-            this.dispatchEvent('table-select-change', this.getDataSet().getComputeData('get-select-ids'));
+            let current = this.getAllSelectedIds();
+            this.dispatchEvent('table-select-change', diffArray(old, current));
         });
     }
 
     @handler('checkAll')
     checkAll() {
+        let old = this.getAllSelectedIds();
         this.commit('checkAll').then(() => {
-            this.dispatchEvent('table-select-change', this.getDataSet().getComputeData('get-select-ids'));
+            let current = this.getAllSelectedIds();
+            this.dispatchEvent('table-select-change', diffArray(old, current));
         });
     }
 

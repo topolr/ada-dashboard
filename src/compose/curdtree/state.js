@@ -14,6 +14,7 @@ class TreeService extends Service {
 			check: true,
 			parentNodeName: 'parentNodeId',
 			checkNodes: [],
+			open: true,
 			_list: [],
 			_crumbs: [],
 			_loading: true
@@ -26,6 +27,16 @@ class TreeService extends Service {
 			current._list = data;
 			current._loading = false;
 		});
+	}
+
+	@action('open-all')
+	openAll(current){
+		current.open=true;
+	}
+
+	@action('close-all')
+	closeAll(current){
+		current.open=false;
 	}
 
 	@action('setcurmbs')

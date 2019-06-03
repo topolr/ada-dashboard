@@ -30,6 +30,7 @@
         background-size: contain;
         background-position: left top;
         width: 40px;
+        transition: all ease-in-out .3s;
       }
       .name {
         line-height: 40px;
@@ -37,6 +38,8 @@
         color: $text-primary-color;
         font-size: 20px;
         padding: 0 0 0 10px;
+        transition: all ease-in-out .3s;
+        opacity: 1;
       }
     }
     .body {
@@ -46,6 +49,7 @@
       right: 0;
       bottom: 25px;
       z-index: 1;
+      transition: all ease-in-out .3s;
       .title {
         line-height: 40px;
         color: $text-primary-color;
@@ -130,6 +134,26 @@
     right: 0;
     bottom: 0;
     &.open {
+      .left{
+        .head{
+          .image{
+            width:25px;
+            height:25px;
+          }
+          .name{
+            opacity: 0;
+          }
+        }
+        .body{
+          top:40px;
+          .title{
+            display: none;
+          }
+          .menu{
+            top:0;
+          }
+        }
+      }
       .right {
         left: 45px;
       }

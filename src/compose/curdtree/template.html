@@ -3,12 +3,16 @@
     <div class="btn" onclick="{{ add() }}"><i class=":ada-dashboard-note_add"></i></div>
     <div class="btn" onclick="{{ edit() }}"><i class=":ada-dashboard-mode_edit"></i></div>
     <div class="btn" onclick="{{ refresh() }}"><i class=":ada-dashboard-refresh"></i></div>
+    {{if data.open}}
     <div class="btn" onclick="{{ closeAll() }}"><i class=":ada-dashboard-unfold_less"></i></div>
+    {{else}}
+    <div class="btn" onclick="{{ openAll() }}"><i class=":ada-dashboard-unfold_more"></i></div>
+    {{/if}}
 </div>
 <div class="body">
     <div class="content">
         {{if data._list&&data._list.length>0}}
-            <tree @name="tree" @parameter="{{ {list:data._list,check:data.check,checkNodes:data.checkNodes} }}"/>
+            <tree @name="tree" @parameter="{{ {list:data._list,check:data.check,checkNodes:data.checkNodes,open:data.open} }}"/>
         {{else}}
             {{if !data._loading}}
             <div class="no-record">

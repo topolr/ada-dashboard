@@ -20,10 +20,19 @@ class ComposeCurdTree extends BondViewGroup {
 
     @binder('closeAll')
     closeAll() {
-        this.getChildAt(0).closeAll();
+        this.commit('close-all').then(() => {
+            this.getChildByName('tree').closeAll();
+        });
     }
 
-    @handler('active')
+    @binder('openAll')
+    openAll() {
+        this.commit('open-all').then(() => {
+            this.getChildByName('tree').openAll();
+        });
+    }
+
+    @handler('tree-active')
     active({ data }) {
         this.commit('setcurmbs', data);
     }
@@ -103,6 +112,10 @@ class ComposeCurdTree extends BondViewGroup {
 
     getSelectedNodes() {
         return this.getChildByName('tree').getSelectedNodes();
+    }
+
+    getActiveNode() {
+        return this.getChildByName('tree').getActiveNode();
     }
 }
 

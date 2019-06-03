@@ -7,13 +7,15 @@ class TreeService extends Service {
 			list: [],
 			map: {},
 			check: true,
-			checkNodes: []
+			checkNodes: [],
+			open: true
 		};
 	}
 
-	onupdate(current, { list, check = true, checkNodes = [] }) {
+	onupdate(current, { list, check = true, checkNodes = [], open = true }) {
 		current.check = check;
 		current.checkNodes = checkNodes;
+		current.open = open;
 		current.list = this.set(current, list);
 	}
 
@@ -45,6 +47,11 @@ class TreeService extends Service {
 	@action('closeall')
 	closeAll(current) {
 		Reflect.ownKeys(current.map).forEach(a => current.map[a].open = false);
+	}
+
+	@action('openall')
+	openAll(current) {
+		Reflect.ownKeys(current.map).forEach(a => current.map[a].open = true);
 	}
 
 	@action('unselect')
@@ -112,7 +119,7 @@ class TreeService extends Service {
 					parent: parentId,
 					info: item,
 					actived: false,
-					open: false,
+					open: current.open,
 					selected: false,
 					list: this.set(current, item.list, id)
 				};

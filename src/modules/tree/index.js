@@ -23,18 +23,13 @@ class Tree extends View {
     clickTree(e) {
         if (e.target === this.getElement()) {
             this.commit('unselect');
-            this.dispatchEvent('active', []);
+            this.dispatchEvent('tree-active', []);
         }
     }
 
     @binder("toggle")
     toggle({ item }) {
         this.commit("toggle", item);
-    }
-
-    @binder("active")
-    active({ item }) {
-        this.commit("active", item);
     }
 
     @binder("toggleselect")
@@ -44,8 +39,7 @@ class Tree extends View {
 
     @binder("active")
     active({ item }) {
-        this.commit('active', item);
-        this.dispatchEvent('active', this.getDataSet().getComputeData('crumb', item));
+        this.commit('active', item).then(() => this.dispatchEvent('tree-active', this.getDataSet().getComputeData('crumb', item)));
     }
 
     getActiveNode() {
@@ -58,6 +52,10 @@ class Tree extends View {
 
     closeAll() {
         this.commit('closeall');
+    }
+
+    openAll() {
+        this.commit('openall');
     }
 
     fns() {
