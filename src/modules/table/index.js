@@ -21,13 +21,16 @@ class Table extends ViewGroup {
 
     @handler('checkRow')
     checkRow({ data }) {
-        this.commit('checkRow', data.index);
-        this.dispatchEvent('rowClick');
+        this.commit('checkRow', data.index).then(() => {
+            this.dispatchEvent('table-select-change', this.getDataSet().getComputeData('get-select-ids'));
+        });
     }
 
     @handler('checkAll')
     checkAll() {
-        this.commit('checkAll');
+        this.commit('checkAll').then(() => {
+            this.dispatchEvent('table-select-change', this.getDataSet().getComputeData('get-select-ids'));
+        });
     }
 
     @handler('table-tool-action')
@@ -37,6 +40,31 @@ class Table extends ViewGroup {
             action: data.item,
             row: this.getCurrentState().data[data.index]
         });
+    }
+
+    getAllSelectedIds() {
+        return this.getDataSet().getComputeData('get-select-ids');
+    }
+
+    getAllSelectedRows() {
+        let { _tableMap } = this.getCurrentState();
+        return this.getAllSelectedIds().map(id => _tableMap[id]);
+    }
+
+    getSelectedRows() {
+        let { data, selectIdName } = this.getCurrentState(), r = [];
+        this.getAllSelectedIds().forEach(id => {
+            let a = data.find(item => item[selectIdName] === id);
+            if (a) {
+                r.push(a);
+            }
+        });
+        return r;
+    }
+
+    getSelectedIds() {
+        let { selectIdName } = this.getCurrentState()
+        return this.getSelectedRows().map(row => row[selectIdName]);
     }
 }
 

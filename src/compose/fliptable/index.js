@@ -29,7 +29,27 @@ class Fliptable extends ViewGroup {
         this.commit('show-loading').then(() => this.commit('gotoPage', page.num));
     }
 
-    refresh(){
+    setSelectIds(ids) {
+        this.commit('set-select-ids', ids);
+    }
+
+    getSelectedRows() {
+        return this.getChildByName('table').getSelectedRows();
+    }
+
+    getAllSelectedIds() {
+        return this.getChildByName('table').getAllSelectedIds();
+    }
+
+    getAllSelectedRows() {
+        return this.getChildByName('table').getAllSelectedRows();
+    }
+
+    getSelectedIds() {
+        return this.getChildByName('table').getSelectedIds();
+    }
+
+    refresh() {
         this.commit('show-loading').then(() => this.commit('refresh'));
     }
 }

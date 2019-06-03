@@ -1,5 +1,5 @@
 <div class="body">
-    <@module @type="{{ data.tableType }}" @parameter="{{
+    <@module @name="table" @type="{{ data.tableType }}" @parameter="{{
         {
             cols: data.cols,
             titleHeight:data.titleHeight,
@@ -10,7 +10,8 @@
             data: data.data,
             checkPropName: data.checkPropName,
             loading:data._loading,
-            multiCheck:data.multiCheck
+            multiCheck:data.multiCheck,
+            selectIds:data.selectIds
         }
     }}"/>
 </div>

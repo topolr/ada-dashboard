@@ -16,7 +16,8 @@ class FliptableService extends Service {
 			tools: [],
 			data: [],
 			checkPropName: 'check',
-			multiCheck:true,
+			multiCheck: true,
+			selectIds: [],
 			_loading: false,
 			_currentPage: 1,
 			_totalPage: 1,
@@ -63,6 +64,11 @@ class FliptableService extends Service {
 	@action('next')
 	next(current) {
 		return this.gotoPage(current, current._currentPage + 1);
+	}
+
+	@action('set-select-ids')
+	setSelectIds(current, ids) {
+		current.selectIds = ids;
 	}
 
 	getPagesData(current, total) {

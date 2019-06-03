@@ -1,4 +1,4 @@
-import { Service, action } from "adajs";
+import { Service, action, compute } from "adajs";
 import Head from './header';
 import Body from './body';
 import Tool from './tool';
@@ -15,31 +15,36 @@ class TableService extends Service {
 			titleHeight: 40,
 			rowHeight: 30,
 			toolPosition: 'right',
-			checkPropName: 'check',
+			selectIdName: 'id',
 			checkbox: true,
 			multiCheck: true,
 			tools: [],
 			data: [],
 			loading: false,
+			selectIds: [],
+			_selectIds: new Set(),
 			_bodyPositionStyle: '',
 			_toolPostionStyle: '',
 			_tool: [],
 			_head: [],
 			_body: [],
 			_isCheckAll: false,
-			_checks: []
+			_checks: [],
+			_tableMap: {}
 		};
 	}
 
 	onupdate(current, data) {
 		this.assign(current, data);
+		current.selectIds.forEach(a => current._selectIds.add(a));
 		this.setTable(current);
 	}
 
 	setTable(current) {
 		let checks = [];
 		current._body = current.data.map(col => {
-			checks.push(col[current.checkPropName]);
+			checks.push(current._selectIds.has(col[current.selectIdName]));
+			current._tableMap[col[current.selectIdName]] = col;
 			return current.cols.map(({ key, width = 300, align = 'left' }) => {
 				return { value: col[key], width, align, height: current.rowHeight };
 			});
@@ -64,19 +69,13 @@ class TableService extends Service {
 			_toolPosition.width = current.tools.length * current.rowHeight;
 		}
 		if (current.checkbox) {
-			current._checks = checks;
-			current._isCheckAll = !(current._checks.findIndex(a => a !== true) !== -1);
 			_bodyPostion.left = _bodyPostion.left + current.rowHeight;
 			if (current.toolPosition === 'left') {
 				_toolPosition.left = current.rowHeight;
 			}
-		} else {
-			current._checks = [];
-			current._isCheckAll = false;
 		}
-		if (current._checks.length === 0) {
-			current._isCheckAll = false;
-		}
+		current._checks = checks;
+		current._isCheckAll = !(current._checks.findIndex(a => a !== true) !== -1);
 		current._bodyPositionStyle = Reflect.ownKeys(_bodyPostion).map(key => `${key}:${_bodyPostion[key]}px`).join(";");
 		current._toolPostionStyle = Reflect.ownKeys(_toolPosition).map(key => `${key}:${_toolPosition[key]}px`).join(";");
 	}
@@ -84,12 +83,24 @@ class TableService extends Service {
 	@action('checkRow')
 	checkRow(current, index) {
 		if (current.multiCheck) {
+			let id = current.data[index][current.selectIdName];
 			current._checks[index] = !current._checks[index];
+			if (current._checks[index]) {
+				current._selectIds.add(id);
+			} else {
+				current._selectIds.delete(id);
+			}
 			current._isCheckAll = !(current._checks.findIndex(a => a !== true) !== -1);
 		} else {
-			current._checks = current._checks.map(() => false);
-			current._checks[index] = true;
+			current._checks = current._checks.map((a, index) => {
+				if (a) {
+					current._selectIds.delete(current.data[index][current.selectIdName]);
+				}
+				return false;
+			});
 			current._isCheckAll = false;
+			current._checks[index] = true;
+			current._selectIds.add(current.data[index][current.selectIdName]);
 		}
 	}
 
@@ -99,10 +110,21 @@ class TableService extends Service {
 			current._isCheckAll = !current._isCheckAll;
 			if (current._isCheckAll) {
 				current._checks = current._body.map(() => true);
+				current.data.forEach(item => {
+					current._selectIds.add(item[current.selectIdName]);
+				});
 			} else {
 				current._checks = current._body.map(() => false);
+				current.data.forEach(item => {
+					current._selectIds.delete(item[current.selectIdName]);
+				});
 			}
 		}
+	}
+
+	@compute('get-select-ids')
+	getSelectItems(current) {
+		return [...current._selectIds];
 	}
 }
 
