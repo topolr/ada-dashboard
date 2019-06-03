@@ -1,39 +1,16 @@
-import {view} from "adajs";
-import TextService from "./state.js";
-import BaseField from "./../field";
+import { view } from "adajs";
+import InputService from "./../input/state";
+import Input from './../index';
 
 @view({
-    className: "field-text",
+    className: "modules-form-text",
     template: "./template.html",
     style: "./style.scss",
     dataset: {
-        service: TextService
+        service: InputService
     }
 })
-class Text extends BaseField {
-    getValue() {
-        return this.finder('input').getElement().value;
-    }
-
-    setValue(value) {
-        return this.commit('setValue', value);
-    }
-
-    showError(info) {
-        return this.commit("showError", info);
-    }
-
-    hideError() {
-        return this.commit("hideError");
-    }
-
-    getName() {
-        return this.getCurrentState().name;
-    }
-
-    check() {
-        return this.commit('check', this.getValue()).then(() => this.getCurrentState().error === false);
-    }
+class Text extends Input {
 }
 
 export default Text;

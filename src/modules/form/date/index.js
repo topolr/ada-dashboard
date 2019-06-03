@@ -3,19 +3,7 @@ import DateService from "./state.js";
 import BaseField from "../field";
 import Date from '../../datepicker/pannel';
 import dispatcher from '../../../lib/dispatcher';
-
-function isRemoved(node) {
-    let r = false, target = node;
-    while (target && target !== document) {
-        if (!target.parentNode) {
-            r = true;
-            break;
-        } else {
-            target = target.parentNode;
-        }
-    }
-    return r;
-}
+import {isRemoved} from './../util';
 
 @view({
     className: "modules-form-date",
@@ -53,8 +41,32 @@ class DateField extends BaseField {
         this.commit('set-value', data);
     }
 
+    showError(info) {
+        return this.commit("showError", info);
+    }
+
+    hideError() {
+        return this.commit("hideError");
+    }
+
+    disabled() {
+        return this.commit('disabled');
+    }
+
+    undisabled() {
+        return this.commit('undisabled');
+    }
+
+    getName() {
+        return this.getCurrentState().name;
+    }
+
     tags() {
         return { date: Date }
+    }
+
+    check() {
+        return this.commit('check').then(() => this.getCurrentState().error === false);
     }
 }
 

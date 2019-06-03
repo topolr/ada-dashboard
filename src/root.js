@@ -2,7 +2,7 @@ import { root, StaticViewGroup } from 'adajs';
 import './style/index.css';
 import './style/style.css';
 import Container from './main/container';
-// import Index from "./main/index";
+import Index from "./main/index";
 import Login from './main/login';
 
 @root()

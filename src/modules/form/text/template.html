@@ -1,14 +1,24 @@
-<div class="{{ data.error?'field error':'field' }}">
+<div class="{{ data._error?'field error'+(data.disabled?' disabled':''):'field'+(data.disabled?' disabled':'') }}">
     {{if data.label}}
-    <div class="label">{{ data.label }}</div>
+        <div class="label">{{ data.label }}</div>
     {{/if}}
     <div class="input">
-        <textarea data-find="input">{{ data.value }}</textarea>
+        {{if data.icon}}
+        <div class="icon"><i class="{{ ':'+data.icon }}"></i></div>
+        {{/if}}
+        {{if data.disabled}}
+        <textarea data-find="input" readonly='true' type="{{ data.inputType }}" value="{{ data.value }}" placeholder="{{ data.placeholder }}"></textarea>
+        {{else}}
+        <textarea data-find="input" type="{{ data.inputType }}" value="{{ data.value }}" placeholder="{{ data.placeholder }}"></textarea>
+        {{/if}}
+        {{if data._loading}}
+        <div class="loading :fa-spin"><i class=":ada-dashboard-refresh"></i></div>
+        {{/if}}
     </div>
     {{if data.description}}
-    <div class="desc">{{ data.description }}</div>
+        <div class="desc">{{ data.description }}</div>
     {{/if}}
-    {{if data.error&&data.errorMsg}}
-    <div class="error-msg">{{ data.errorMsg }}</div>
+    {{if data._error&&data._errorMsg}}
+        <div class="error-msg">{{ data._errorMsg }}</div>
     {{/if}}
 </div>

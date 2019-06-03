@@ -21,6 +21,10 @@ class BaseField extends BondViewGroup {
 
 	hideError() {
 	}
+
+	disabled(){}
+
+	undisabled(){}
 }
 
 export default BaseField;

@@ -1,29 +1,6 @@
 import { Service, action } from "adajs";
+import { formatDate } from './../util';
 
-function format(date, format) {
-	if (arguments.length === 1) {
-		format = date;
-		date = new Date();
-	}
-	let map = {
-		y: date.getFullYear(),
-		M: (date.getMonth() + 1),
-		d: date.getDate(),
-		h: date.getHours(),
-		m: date.getMinutes(),
-		s: date.getSeconds()
-	};
-	return Reflect.ownKeys(map).reduce((a, b) => {
-		return a.replace(new RegExp(`[${b}]+`, "g"), (str) => {
-			let value = map[b] + "";
-			if (str.length !== value.length) {
-				return str.length > value.length ? (Array.apply(null, Array(str.length - value.length)).map(() => "0").join("") + value) : value.substring(str.length);
-			} else {
-				return value;
-			}
-		});
-	}, format);
-}
 class DateService extends Service {
 	defaultData() {
 		return {
@@ -31,12 +8,13 @@ class DateService extends Service {
 			label: "",
 			placeholder: "",
 			description: "",
-			error: false,
-			errorMsg: "",
 			required: false,
-			check: null,
+			disabled: false,
 			value: '',
 			format: 'yyyy-MM-dd',
+			check: null,
+			_error: false,
+			_errorMsg: "",
 			_open: false
 		};
 	}
@@ -55,10 +33,64 @@ class DateService extends Service {
 		current._open = false;
 	}
 
+	@action('disabled')
+	disabled(current) {
+		current.disabled = true;
+	}
+
+	@action('undisabled')
+	undisabled(current) {
+		current.disabled = false;
+	}
+
+	@action("showError")
+	showError(current, info) {
+		current._error = true;
+		current._errorMsg = info || "";
+	}
+
+	@action("hideError")
+	hideError(current) {
+		current._error = false;
+	}
+
 	@action('set-value')
 	setValue(current, dates) {
-		current.value = `${format(dates[0], current.format)}`;
+		current.value = `${formatDate(dates[0], current.format)}`;
 		current._open = false;
+	}
+
+	@action('check')
+	check(current) {
+		let error = false, errorMsg = "", value = current.value;
+		if (current.required) {
+			if (!value) {
+				error = true;
+				errorMsg = '字段不能为空';
+			}
+		}
+		if (!error) {
+			errorMsg = '';
+		}
+		if (!error && current.check) {
+			return Promise.resolve().then(() => current.check(current, value)).then(({ result, msg }) => {
+				error = result;
+				errorMsg = msg;
+				if (!error) {
+					errorMsg = '';
+				}
+				current._loading = false;
+				current._error = error;
+				current._errorMsg = errorMsg;
+			});
+		} else {
+			if (!error) {
+				errorMsg = '';
+			}
+			current._loading = false;
+			current._error = error;
+			current._errorMsg = errorMsg;
+		}
 	}
 }
 

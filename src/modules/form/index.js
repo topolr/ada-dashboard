@@ -15,11 +15,31 @@ class Form extends BaseField {
         return this.getChildrenByType(BaseField).find(child => child.getName() === name);
     }
 
+    disabled() {
+        return this.getChildrenByType(BaseField).reduce((a, field) => {
+            return a.then(() => {
+                return Promise.resolve().then(() => field.disabled());
+            });
+        }, Promise.resolve());
+    }
+
+    undisabled() {
+        return this.getChildrenByType(BaseField).reduce((a, field) => {
+            return a.then(() => {
+                return Promise.resolve().then(() => field.undisabled());
+            });
+        }, Promise.resolve());
+    }
+
     setValue(values) {
-        Reflect.ownKeys(values).forEach(name => {
-            let target = this.getFieldByName(name);
-            target && (target.setValue(values[name]));
-        });
+        return Reflect.ownKeys(values || {}).reduce((a, name) => {
+            return a.then(() => {
+                let target = this.getFieldByName(name);
+                if (target) {
+                    return Promise.resolve().then(() => target.setValue(values[name]));
+                }
+            });
+        }, Promise.resolve());
     }
 
     getValue() {
@@ -38,21 +58,13 @@ class Form extends BaseField {
         let result = true;
         return this.getChildrenByType(BaseField).reduce((a, field) => {
             return a.then(() => {
-                return Promise.resolve().then(() => field.check()).then(value => {
-                    console.log('===>', value);
-                    result && (result = value);
-                });
+                if (result) {
+                    return Promise.resolve().then(() => field.check()).then(value => {
+                        result = value;
+                    });
+                }
             });
         }, Promise.resolve()).then(() => result);
-    }
-
-    @binder("action")
-    action({ btn }) {
-        let action = btn.action;
-        if (this[action]) {
-            this[action](btn);
-        }
-        this.dispatchEvent(btn.action, btn);
     }
 }
 

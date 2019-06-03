@@ -1,52 +1,62 @@
 @import "./../../../style/base";
 .modules-form-date {
   margin-bottom: 10px;
-  .label {
-    line-height: 25px;
-    font-size: 12px;
-  }
-  .input {
-    position: relative;
-    border: 1px solid $divider-color;
-    border-radius: 5px;
-    background: $text-primary-color;
-    input {
-      height: 30px;
-      box-sizing: border-box;
-      border: 0;
-      padding: 0 5px 0 5px;
-      background: transparent;
-      width: 100%;
-      outline: none;
+  .field {
+    .label {
+      line-height: 25px;
+      font-size: 12px;
     }
-    .date {
-      position: absolute;
-      left: 0;
-      top: 100%;
-      z-index: 999;
-      display: none;
-    }
-    &.open {
+    .input {
+      position: relative;
+      border: 1px solid $divider-color;
+      border-radius: 5px;
+      background: $text-primary-color;
+      input {
+        height: 30px;
+        box-sizing: border-box;
+        border: 0;
+        padding: 0 5px 0 5px;
+        background: transparent;
+        width: 100%;
+        outline: none;
+      }
       .date {
-        display: block;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        z-index: 999;
+        display: none;
+      }
+      .icon-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+        line-height: 30px;
+        width: 30px;
+        text-align: center;
+      }
+      &.open {
+        .date {
+          display: block;
+        }
       }
     }
-  }
-  .desc {
-    line-height: 18px;
-    color: $secondary-text-color;
-    font-size: 12px;
-    padding: 0 2px 0 2px;
-  }
-  .error-msg {
-    line-height: 18px;
-    color: #9a2011;
-    font-size: 12px;
-    padding: 0 2px 0 2px;
-  }
-  &.error {
-    .input {
-      border: 1px solid #9a2011;
+    .desc {
+      line-height: 18px;
+      color: $secondary-text-color;
+      font-size: 12px;
+      padding: 0 2px 0 2px;
+    }
+    .error-msg {
+      line-height: 18px;
+      color: #9a2011;
+      font-size: 12px;
+      padding: 0 2px 0 2px;
+    }
+    &.error {
+      .input {
+        border: 1px solid #9a2011;
+      }
     }
   }
 }

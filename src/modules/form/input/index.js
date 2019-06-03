@@ -1,4 +1,4 @@
-import {view} from "adajs";
+import { view } from "adajs";
 import InputService from "./state.js";
 import BaseField from "./../field";
 
@@ -27,12 +27,27 @@ class Input extends BaseField {
         return this.commit("hideError");
     }
 
+    disabled() {
+        return this.commit('disabled');
+    }
+
+    undisabled() {
+        return this.commit('undisabled');
+    }
+
     getName() {
         return this.getCurrentState().name;
     }
 
     check() {
-        return this.commit('check', this.getValue()).then(() => this.getCurrentState().error === false);
+        let { checkShowLoading } = this.getCurrentState();
+        let ps = Promise.resolve();
+        if (checkShowLoading) {
+            ps = ps.then(() => this.commit('show-loading'));
+        }
+        return ps.then(() => {
+            return this.commit('check', this.getValue()).then(() => this.getCurrentState().error === false);
+        });
     }
 }
 

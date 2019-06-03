@@ -3,8 +3,7 @@ import {Service, util} from "adajs";
 class FormService extends Service {
 	defaultData() {
 		return {
-			fields: [],
-			btns:[]
+			fields: []
 		};
 	}
 

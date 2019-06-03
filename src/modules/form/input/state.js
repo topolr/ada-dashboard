@@ -1,23 +1,30 @@
-import {Service, action} from "adajs";
+import { Service, action } from "adajs";
 
 class InputService extends Service {
 	defaultData() {
 		return {
 			name: "",
 			label: "",
+			value: "",
 			placeholder: "",
 			inputType: "text",
 			description: "",
-			value: "",
-			error: false,
-			errorMsg: "",
 			required: false,
-			check: null
+			disabled: false,
+			maxLength: Infinity,
+			minLength: 0,
+			regexp: '',
+			check: null,
+			icon: "",
+			checkShowLoading: false,
+			_loading: false,
+			_error: false,
+			_errorMsg: ""
 		};
 	}
 
 	onupdate(current, data) {
-		Object.assign(current, data);
+		this.assign(current, data);
 	}
 
 	@action("setValue")
@@ -25,29 +32,71 @@ class InputService extends Service {
 		current.value = value;
 	}
 
+	@action('disabled')
+	disabled(current) {
+		current.disabled = true;
+	}
+
+	@action('undisabled')
+	undisabled(current) {
+		current.disabled = false;
+	}
+
 	@action("showError")
 	showError(current, info) {
-		current.error = true;
-		current.errorMsg = info || "";
+		current._error = true;
+		current._errorMsg = info || "";
 	}
 
 	@action("hideError")
 	hideError(current) {
-		current.error = false;
+		current._error = false;
+	}
+
+	@action('show-loading')
+	showLoading(current) {
+		current._loading = true;
 	}
 
 	@action("check")
 	check(current, value) {
+		let error = false, errorMsg = "";
 		if (current.required) {
 			if (!value) {
-				current.error = true;
-				current.errorMsg = '字段不能为空';
-			} else {
-				current.error = false;
+				error = true;
+				errorMsg = '字段不能为空';
 			}
 		}
-		if (!current.error && current.check) {
-			return Promise.resolve().then(current.check(current, value));
+		if (!error) {
+			error = !(value.length >= current.minLength && value.length <= current.maxLength);
+			if (error) {
+				errorMsg = `长度应该在${current.minLength}-${current.maxLength}之间`;
+			}
+		}
+		if (!error && current.regexp) {
+			error = new RegExp(current.regexp).test(value);
+			if (error) {
+				errorMsg = '格式错误';
+			}
+		}
+		if (!error && current.check) {
+			return Promise.resolve().then(() => current.check(current, value)).then(({ result, msg }) => {
+				error = result;
+				errorMsg = msg;
+				if (!error) {
+					errorMsg = '';
+				}
+				current._loading = false;
+				current._error = error;
+				current._errorMsg = errorMsg;
+			});
+		} else {
+			if (!error) {
+				errorMsg = '';
+			}
+			current._loading = false;
+			current._error = error;
+			current._errorMsg = errorMsg;
 		}
 	}
 }

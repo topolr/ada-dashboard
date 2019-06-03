@@ -1,15 +1,20 @@
-<div class="{{ data.error?'field error':'field' }}">
+<div class="{{ data._error?'field error'+(data.disabled?' disabled':''):'field'+(data.disabled?' disabled':'') }}">
     {{if data.label}}
         <div class="label">{{ data.label }}</div>
     {{/if}}
     <div class="{{ data._open?'input open':'input' }}">
+        {{if data.disabled}}
+        <input data-find="input" readonly='true' type="text" placeholder="{{ data.placeholder }}" value="{{ data.value }}"/>
+        {{else}}
         <input data-find="input" onclick="{{ open() }}" readonly='true' type="text" placeholder="{{ data.placeholder }}" value="{{ data.value }}"/>
+        {{/if}}
+        <div class="icon-right"><i class=":ada-dashboard-date_range"></i></div>
         <div class='date' data-find="date"><date/></div>
     </div>
     {{if data.description}}
         <div class="desc">{{ data.description }}</div>
     {{/if}}
-    {{if data.error&&data.errorMsg}}
-        <div class="error-msg">{{ data.errorMsg }}</div>
+    {{if data._error&&data._errorMsg}}
+        <div class="error-msg">{{ data._errorMsg }}</div>
     {{/if}}
 </div>

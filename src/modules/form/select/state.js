@@ -1,4 +1,4 @@
-import {action, Service, util} from "adajs";
+import { action, Service, util } from "adajs";
 
 class SelectService extends Service {
     defaultData() {
@@ -7,9 +7,10 @@ class SelectService extends Service {
             label: "",
             description: "",
             value: "",
-            error: false,
-            errorMsg: "",
-            options: []
+            options: [],
+            disabled: false,
+            _error: false,
+            _errorMsg: ""
         };
     }
 
@@ -24,13 +25,13 @@ class SelectService extends Service {
 
     @action("showError")
     showError(current, info) {
-        current.error = true;
-        current.errorMsg = info || "";
+        current._error = true;
+        current._errorMsg = info || "";
     }
 
     @action("hideError")
     hideError(current) {
-        current.error = false;
+        current._error = false;
     }
 
     @action("check")

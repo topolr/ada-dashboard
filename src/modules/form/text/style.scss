@@ -1,6 +1,6 @@
 @import "./../../../style/base";
-.field-text {
-  margin-bottom: 10px;
+.modules-form-text{
+    margin-bottom: 10px;
   .field {
     .label {
       line-height: 25px;
@@ -10,16 +10,14 @@
       border: 1px solid $divider-color;
       border-radius: 5px;
       background: $text-primary-color;
-      textarea {
+      input {
+        height: 30px;
         box-sizing: border-box;
         border: 0;
-        padding: 5px;
+        padding: 0 5px 0 5px;
         background: transparent;
         width: 100%;
-        max-width: 100%;
-        min-width: 100%;
         outline: none;
-        height: 60px;
       }
     }
     .desc {

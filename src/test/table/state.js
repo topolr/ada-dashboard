@@ -25,10 +25,10 @@ class TableService extends Service {
 					{ type: Input, key: 'age', label: 'age' }
 				],
 				addFields: [
-					{ type: Input, label: 'username', name: 'username' },
-					{ type: Input, label: 'password', name: 'password' },
-					{ type: Date, label: 'password', name: 'password' },
-					{ type: Daterange, label: 'password', name: 'password' }
+					{ type: Input, label: 'username', name: 'username', required: true },
+					{ type: Input, label: 'password', name: 'password', required: true },
+					{ type: Date, label: 'password', name: 'password', required: true },
+					{ type: Daterange, label: 'password', name: 'password', required: true }
 				],
 				filterFields: [
 					{ type: Input, label: 'username', name: 'username' },
