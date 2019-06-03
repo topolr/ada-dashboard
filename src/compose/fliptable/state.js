@@ -16,6 +16,7 @@ class FliptableService extends Service {
 			tools: [],
 			data: [],
 			checkPropName: 'check',
+			multiCheck:true,
 			_loading: false,
 			_currentPage: 1,
 			_totalPage: 1,

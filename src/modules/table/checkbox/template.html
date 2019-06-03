@@ -1,4 +1,5 @@
 <div class="head">
+    {{if data.multiCheck}}
     <div class="{{ data.isCheckAll?'cols checked':'cols' }}" style="width:{{ data.rowHeight }}px;line-height:{{ data.titleHeight }}px;" onclick="{{ checkAll() }}">
         {{if data.isCheckAll}}
         <i class=":ada-dashboard-check_box"></i>
@@ -6,6 +7,9 @@
         <i class=":ada-dashboard-check_box_outline_blank"></i>
         {{/if}}
     </div>
+    {{else}}
+    <div class="{{ data.isCheckAll?'cols checked':'cols' }}" style="width:{{ data.rowHeight }}px;line-height:{{ data.titleHeight }}px;">&nbsp;</div>
+    {{/if}}
 </div>
 <div class="list" style="top:{{ data.titleHeight }}px" data-find="body">
     {{list data.checks as check index}}

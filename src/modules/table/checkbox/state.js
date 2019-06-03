@@ -6,7 +6,8 @@ class CheckboxService extends Service {
 			checks: [],
 			isCheckAll: false,
 			rowHeight: 30,
-			titleHeight: 40
+			titleHeight: 40,
+			multiCheck:true
 		};
 	}
 

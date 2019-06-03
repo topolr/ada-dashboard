@@ -46,6 +46,7 @@ class TableService extends Service {
 					url: '/table.json',
 					cols: [{ title: "Name", key: "name", width: 200 }, { title: "Age", key: "age", width: 300 }, { title: "BirthDay", key: "birthday", width: 300 }],
 					toolPosition: 'right',
+					multiCheck:false,
 					tools: [
 						{ title: 'detail', action: 'detail', icon: "ada-dashboard-description" },
 						{ title: 'edit', action: 'edit', icon: 'ada-dashboard-mode_edit' },

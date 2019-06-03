@@ -17,6 +17,7 @@ class TableService extends Service {
 			toolPosition: 'right',
 			checkPropName: 'check',
 			checkbox: true,
+			multiCheck: true,
 			tools: [],
 			data: [],
 			loading: false,
@@ -82,17 +83,25 @@ class TableService extends Service {
 
 	@action('checkRow')
 	checkRow(current, index) {
-		current._checks[index] = !current._checks[index];
-		current._isCheckAll = !(current._checks.findIndex(a => a !== true) !== -1);
+		if (current.multiCheck) {
+			current._checks[index] = !current._checks[index];
+			current._isCheckAll = !(current._checks.findIndex(a => a !== true) !== -1);
+		} else {
+			current._checks = current._checks.map(() => false);
+			current._checks[index] = true;
+			current._isCheckAll = false;
+		}
 	}
 
 	@action('checkAll')
 	checkAll(current) {
-		current._isCheckAll = !current._isCheckAll;
-		if (current._isCheckAll) {
-			current._checks = current._body.map(() => true);
-		} else {
-			current._checks = current._body.map(() => false);
+		if (current.multiCheck) {
+			current._isCheckAll = !current._isCheckAll;
+			if (current._isCheckAll) {
+				current._checks = current._body.map(() => true);
+			} else {
+				current._checks = current._body.map(() => false);
+			}
 		}
 	}
 }
