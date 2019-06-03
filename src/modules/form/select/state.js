@@ -1,4 +1,4 @@
-import { action, Service, util } from "adajs";
+import { action, Service } from "adajs";
 
 class SelectService extends Service {
     defaultData() {
@@ -9,8 +9,6 @@ class SelectService extends Service {
             value: "",
             options: [],
             disabled: false,
-            showLoading: false,
-            _value: '',
             _current: null,
             _loading: false,
             _error: false,
@@ -37,6 +35,7 @@ class SelectService extends Service {
     @action("setValue")
     setValue(current, value) {
         current.value = value;
+        current._current = current.options.find(a => a.value === current.value) || {};
     }
 
     @action("showError")
@@ -52,8 +51,31 @@ class SelectService extends Service {
 
     @action("check")
     check(current, value) {
-        if (current.check) {
-            return Promise.resolve().then(current.check(current, value));
+        let error = false, errorMsg = "";
+        if (current.required) {
+            if (!value) {
+                error = true;
+                errorMsg = '字段不能为空';
+            }
+        }
+        if (!error && current.check) {
+            return Promise.resolve().then(() => current.check(current, value)).then(({ result, msg }) => {
+                error = result;
+                errorMsg = msg;
+                if (!error) {
+                    errorMsg = '';
+                }
+                current._loading = false;
+                current._error = error;
+                current._errorMsg = errorMsg;
+            });
+        } else {
+            if (!error) {
+                errorMsg = '';
+            }
+            current._loading = false;
+            current._error = error;
+            current._errorMsg = errorMsg;
         }
     }
 
