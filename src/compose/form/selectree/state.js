@@ -46,6 +46,7 @@ class SelectreeService extends Service {
 			});
 		} else {
 			current._loading = false;
+			current._list = [];
 		}
 	}
 }

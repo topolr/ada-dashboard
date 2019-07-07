@@ -47,6 +47,7 @@ class SelectableService extends Service {
 			});
 		} else {
 			current._loading = false;
+			current._list = [];
 		}
 	}
 }

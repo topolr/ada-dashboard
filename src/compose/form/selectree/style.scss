@@ -14,10 +14,11 @@
       min-height: 30px;
       box-sizing: border-box;
       width: 100%;
+      padding:0 0 5px 5px;
       .item {
         display: inline-block;
         padding: 0 10px 0 10px;
-        margin: 5px;
+        margin: 5px 5px 0 0;
         background: $default-primary-color;
         color: $text-primary-color;
         line-height: 25px;
@@ -25,12 +26,13 @@
         border-radius: 5px;
       }
       .loading {
-        line-height: 30px;
-        padding: 0 0 0 10px;
+        line-height: 20px;
+        padding: 5px 0 0 5px;
       }
       .placeholder {
-        line-height: 30px;
-        padding: 0 0 0 10px;
+        line-height: 20px;
+        padding: 5px 0 0 5px;
+        color:$divider-color;
       }
     }
     .desc {
