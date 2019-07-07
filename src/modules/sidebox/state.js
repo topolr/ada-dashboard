@@ -6,7 +6,8 @@ class SideboxService extends Service {
 			title: '',
 			btns: [],
 			innerType: null,
-			innerOption: {}
+			innerOption: {},
+			width: 350
 		};
 	}
 

@@ -1,9 +1,10 @@
-import { view, BondViewGroup, binder, handler } from "adajs";
+import { view, binder, handler } from "adajs";
 import TreeService from "./state.js";
 import Tree from './../../modules/tree';
 import Form from './../../modules/form';
 import Sidebox from './../../modules/sidebox';
 import Loading from './../../modules/loading';
+import BaseCurd from './../basecurd';
 
 @view({
     className: "compose-curdtree",
@@ -13,7 +14,7 @@ import Loading from './../../modules/loading';
         service: TreeService
     }
 })
-class ComposeCurdTree extends BondViewGroup {
+class ComposeCurdTree extends BaseCurd {
     tags() {
         return { tree: Tree };
     }

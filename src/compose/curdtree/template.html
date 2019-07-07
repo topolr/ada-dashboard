@@ -33,10 +33,18 @@
         {{/list}}
     </div>
 </div>
+{{if data.borderTop}}
 <div class="border-top"></div>
+{{/if}}
+{{if data.borderLeft}}
 <div class="border-left"></div>
+{{/if}}
+{{if data.borderRight}}
 <div class="border-right"></div>
+{{/if}}
+{{if data.borderBottom}}
 <div class="border-bottom"></div>
+{{/if}}
 {{if data._loading}}
 <div class="_loading">
     <div class="content"><i class=":ada-dashboard-refresh :fa-spin"></i></div>

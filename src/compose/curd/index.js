@@ -1,4 +1,5 @@
-import { view, BondViewGroup, binder, handler, subscribe } from "adajs";
+import { view, binder, handler, subscribe } from "adajs";
+import BaseCurd from './../basecurd';
 import CurdService from "./state.js";
 import Form from './../../modules/form';
 import Sidebox from './../../modules/sidebox';
@@ -13,7 +14,7 @@ import Loading from './../../modules/loading';
         service: CurdService
     }
 })
-class Curd extends BondViewGroup {
+class Curd extends BaseCurd {
     tags() {
         return {
             xform: Form,
@@ -97,6 +98,14 @@ class Curd extends BondViewGroup {
 
     refresh() {
         this.getChildByName('table').refresh();
+    }
+
+    getSelectedRows() {
+        return this.getChildByName('table').getAllSelectedRows();
+    }
+
+    setSelectIds(ids) {
+        this.getChildByName('table').setSelectIds(ids);
     }
 }
 

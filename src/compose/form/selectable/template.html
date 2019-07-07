@@ -1,0 +1,24 @@
+<div class="{{ data._error?'field error'+(data.disabled?' disabled':''):'field'+(data.disabled?' disabled':'') }}">
+    {{if data.label}}
+        <div class="label">{{ data.label }}</div>
+    {{/if}}
+    <div class="input" onclick="{{ openTablePannel() }}">
+        {{if data._loading}}
+            <div class="loading"><i class=":ada-dashboard-autorenew :fa-spin"></i></div>
+        {{else}}
+            {{if data._list.length>0}}
+                {{list data._list as item}}
+                <div class="item">{{ item.name }}</div>
+                {{/list}}
+            {{else}}
+                <div class="placeholder">{{ data.placeholder }}</div>
+            {{/if}}
+        {{/if}}
+    </div>
+    {{if data.description}}
+        <div class="desc">{{ data.description }}</div>
+    {{/if}}
+    {{if data._error&&data._errorMsg}}
+        <div class="error-msg">{{ data._errorMsg }}</div>
+    {{/if}}
+</div>

@@ -1,0 +1,60 @@
+@import "./../../../style/base";
+.compose-form-selectable {
+  margin-bottom: 10px;
+  .field {
+    .label {
+      line-height: 25px;
+      font-size: 12px;
+    }
+    .input {
+      position: relative;
+      border: 1px solid $divider-color;
+      border-radius: 5px;
+      background: $text-primary-color;
+      min-height: 30px;
+      box-sizing: border-box;
+      width: 100%;
+      .item {
+        display: inline-block;
+        padding: 0 10px 0 10px;
+        margin: 5px;
+        background: $default-primary-color;
+        color: $text-primary-color;
+        line-height: 25px;
+        font-size: 12px;
+        border-radius: 5px;
+      }
+      .loading {
+        line-height: 30px;
+        padding: 0 0 0 10px;
+      }
+      .placeholder {
+        line-height: 30px;
+        padding: 0 0 0 10px;
+      }
+    }
+    .desc {
+      line-height: 18px;
+      color: $secondary-text-color;
+      font-size: 12px;
+      padding: 0 2px 0 2px;
+    }
+    .error-msg {
+      line-height: 18px;
+      color: #9a2011;
+      font-size: 12px;
+      padding: 0 2px 0 2px;
+    }
+    &.disabled {
+      .input {
+        border: 1px solid rgba($divider-color-rgb, 0.5);
+        background: rgba($divider-color-rgb, 0.1);
+      }
+    }
+    &.error {
+      .input {
+        border: 1px solid #9a2011;
+      }
+    }
+  }
+}

@@ -15,6 +15,10 @@ class TreeService extends Service {
 			parentNodeName: 'parentNodeId',
 			checkNodes: [],
 			open: true,
+			borderLeft:true,
+			borderTop:true,
+			borderRight:true,
+			borderBottom:true,
 			_list: [],
 			_crumbs: [],
 			_loading: true
