@@ -8,9 +8,11 @@
         {{else}}
         <input data-find="input" readonly='true' onclick="{{ open() }}" type="text" value="{{ data._current.name }}" placeholder="{{ data.placeholder }}"/>
         {{/if}}
+        <div class="arrow"><i class=":ada-dashboard-keyboard_arrow_down"></i></div>
         {{if data._loading}}
         <div class="loading :fa-spin"><i class=":ada-dashboard-refresh"></i></div>
         {{/if}}
+        {{log data.options}}
         {{if data.options.length>0}}
         <div class="list">
             {{list data.options as option}}

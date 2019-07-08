@@ -9,7 +9,7 @@ class SelectService extends Service {
             value: "",
             options: [],
             disabled: false,
-            _current: null,
+            _current: {},
             _loading: false,
             _error: false,
             _errorMsg: "",

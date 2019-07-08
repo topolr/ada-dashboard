@@ -29,7 +29,7 @@ class BaseCurd extends BondViewGroup {
             });
         })
     }
-
+    
     @handler('open-table-pannel')
     openTablePannel({ target, data: { tableType, tableOption, label, selects } }) {
         this.addChild(Sidebox, {
