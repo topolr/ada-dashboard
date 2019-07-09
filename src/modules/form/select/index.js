@@ -41,7 +41,8 @@ class Select extends BaseField {
     }
 
     getValue() {
-        return this.finder('input').getElement().value;
+        let { _current } = this.getCurrentState();
+        return _current ? _current.value : '';
     }
 
     setValue(value) {
@@ -61,7 +62,7 @@ class Select extends BaseField {
     }
 
     check() {
-        return this.commit('check', this.getValue()).then(() => this.getCurrentState().error === false);
+        return this.commit('check', this.getValue()).then(() => this.getCurrentState()._error === false);
     }
 }
 

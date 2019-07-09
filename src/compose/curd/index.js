@@ -42,7 +42,9 @@ class Curd extends BaseCurd {
             }).then(box => {
                 box.on('add', () => {
                     let form = box.getChildAt(0);
+                    console.log(form);
                     form.check().then(result => {
+                        console.log('=>',result);
                         if (result) {
                             this.addChild(Loading).then(loading => {
                                 form.getValue().then(info => {

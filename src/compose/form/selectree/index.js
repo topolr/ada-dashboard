@@ -34,7 +34,12 @@ class Selectree extends BaseField {
     }
 
     getValue() {
-        return this.getCurrentState().value;
+        let { value } = this.getCurrentState();
+        return value ? value.join(",") : '';
+    }
+
+    getName() {
+        return this.getCurrentState().name;
     }
 }
 
